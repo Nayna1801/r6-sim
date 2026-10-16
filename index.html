@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>R6 Draft Sim</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="fx.css">
 </head>
@@ -18,6 +19,7 @@
   <button id="btnMenu" class="ghost">Menu</button>
 </header>
 
+<div id="netbar" class="netbar hidden"></div>
 <main id="app">
   <!-- MENU -->
   <section id="screenMenu" class="screen">
@@ -49,6 +51,7 @@
         <h3 id="siteTitle">Sitio</h3>
         <div id="sites" class="opts sites"></div>
         <button id="btnGo" class="go" disabled>Elige 5 operadores</button>
+        <p class="hint" id="waitHint"></p>
         <p class="hint">El rival elige su equipo, tactica y sitio a la vez que tu, sin ver tus decisiones.</p>
       </aside>
     </div>

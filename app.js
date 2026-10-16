@@ -86,6 +86,7 @@
   }
   function show(name) {
     ['Menu', 'Draft', 'Sim'].forEach((n) => $(`screen${n}`).classList.toggle('hidden', n !== name));
+    $('score').classList.toggle('hidden', name === 'Menu');
     $('btnReset').classList.toggle('hidden', isNet() || name === 'Menu');
     $('btnMenu').classList.toggle('hidden', name === 'Menu');
   }
@@ -199,7 +200,10 @@
     }
     const pick = { ids: ids(st.picks), tactic: st.tactic, site: st.site };
     $('btnGo').textContent = 'Esperando al rival...';
-    if (mode === 'guest') conn.send({ type: 'pick', ...pick });
+    st.pick = pick;
+    try { conn.send({ type: 'ready' }); } catch (e) { console.error('ready', e); toast('Conexion con el rival caida.'); }
+    setWait();
+    if (mode === 'guest') sendPick();
     else { st.hostPick = pick; tryResolve(); }
   }
 
@@ -213,7 +217,8 @@
   }
   // anfitrion: cuando ambos han confirmado, simula y envia el resultado
   function tryResolve() {
-    if (!(st.hostPick && st.guestPick)) return;
+    if (!(st.hostPick && st.guestPick) || st.resolved) return;
+    st.resolved = true;
     const hp = st.hostPick, gp = st.guestPick;
     const hostAtt = st.side === 'att';
     const attPick = hostAtt ? hp : gp, defPick = hostAtt ? gp : hp;
@@ -299,7 +304,34 @@
   const genCode = () => Array.from({ length: 5 }, () => ALPHA[Math.floor(Math.random() * ALPHA.length)]).join('');
   const PREFIX = 'r6dsim-';
 
-  function closeNet() { try { if (conn) conn.close(); if (peer) peer.destroy(); } catch (e) { /* ya cerrado */ } conn = null; peer = null; }
+  function closeNet() {
+    try { if (conn) conn.close(); if (peer) peer.destroy(); } catch (e) { console.warn('closeNet', e); }
+    conn = null; peer = null; clearInterval(hb); $('netbar').classList.add('hidden');
+  }
+  // ---- diagnostico: avisos visibles en vez de quedarse mudo ----
+  function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 8000); }
+  window.addEventListener('error', (e) => { console.error(e.error || e.message); toast(`Error: ${e.message || 'desconocido'}`); });
+  window.addEventListener('unhandledrejection', (e) => { console.error(e.reason); toast(`Error: ${(e.reason && e.reason.message) || e.reason}`); });
+  let hb = null, lastSeen = 0;
+  function startHB() {
+    lastSeen = Date.now(); clearInterval(hb);
+    hb = setInterval(() => {
+      if (!conn) return;
+      try { conn.send({ type: 'ping' }); } catch (e) { console.error('ping', e); }
+      const gap = Date.now() - lastSeen, nb = $('netbar');
+      if (gap > 12000) { nb.textContent = `Sin señal del rival desde hace ${Math.round(gap / 1000)} s. Si no vuelve, pulsa Menu.`; nb.classList.remove('hidden'); } else nb.classList.add('hidden');
+    }, 3000);
+  }
+  function setWait() {
+    const h = $('waitHint'); if (!h || !st) return;
+    const rivalReady = mode === 'host' ? !!st.guestPick : !!st.rivalReady;
+    h.textContent = !isNet() || !st.locked ? (isNet() && rivalReady ? 'El rival ya ha confirmado su equipo.' : '') : (rivalReady ? 'El rival ya ha confirmado. Simulando...' : 'Esperando a que el rival confirme...');
+  }
+  function sendPick(tries = 0) {
+    if (!st || st.acked || st.resolved || tries > 3 || mode !== 'guest') return;
+    try { conn.send({ type: 'pick', ...st.pick }); } catch (e) { console.error('sendPick', e); toast('No se pudo enviar tu eleccion; reintentando...'); }
+    setTimeout(() => sendPick(tries + 1), 5000);
+  }
   function backToMenu(msg) {
     clearInterval(timer); closeNet(); mode = 'cpu'; st = null; score = { you: 0, cpu: 0, round: 0 };
     renderScore(); show('Menu');
@@ -307,16 +339,23 @@
   }
   function wireConn(c) {
     conn = c;
+    startHB();
     c.on('data', (m) => {
       if (!m || typeof m !== 'object') return;
+      lastSeen = Date.now();
+      if (m.type === 'ping') return;
+      if (m.type === 'ack' && st) { st.acked = true; return; }
+      if (m.type === 'ready' && st) { st.rivalReady = true; setWait(); return; }
       if (m.type === 'round' && mode === 'guest') {
         applyRound({ side: otherSide(m.hostSide), mapId: m.mapId, poolIds: m.poolGuest });
-      } else if (m.type === 'pick' && mode === 'host' && st && !st.guestPick) {
-        if (!Array.isArray(m.ids) || m.ids.length !== 5 || !m.ids.every((id) => byId(id))) return;
+      } else if (m.type === 'pick' && mode === 'host' && st) {
+        conn.send({ type: 'ack' });
+        if (st.guestPick || st.resolved) return;
+        if (!Array.isArray(m.ids) || m.ids.length !== 5 || !m.ids.every((id) => byId(id))) { toast('El rival envio una eleccion invalida.'); return; }
         st.guestPick = { ids: m.ids, tactic: m.tactic, site: m.site === 1 ? 1 : 0 };
-        tryResolve();
-      } else if (m.type === 'result' && mode === 'guest' && st) {
-        playNet(m);
+        setWait(); tryResolve();
+      } else if (m.type === 'result' && mode === 'guest' && st && !st.resolved) {
+        st.resolved = true; playNet(m);
       }
     });
     c.on('close', () => { if (mode !== 'cpu') backToMenu('El otro jugador se ha desconectado.'); });
