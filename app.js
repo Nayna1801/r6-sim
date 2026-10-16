@@ -17,6 +17,58 @@
   const mapById = (id) => R.MAPS.find((m) => m.id === id);
   const ids = (arr) => arr.map((o) => o.id);
 
+  // ---------- Efectos: sonido, banners, confeti, chispas ----------
+  let sound = true, ac = null;
+  function beep(f, d, type = 'square', v = 0.05, slide = 0, delay = 0) {
+    if (!sound) return;
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      const t0 = ac.currentTime + delay, o = ac.createOscillator(), g = ac.createGain();
+      o.type = type; o.frequency.setValueAtTime(f, t0);
+      if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(30, f + slide), t0 + d);
+      g.gain.setValueAtTime(v, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+      o.connect(g); g.connect(ac.destination); o.start(t0); o.stop(t0 + d);
+    } catch (e) { /* sin audio */ }
+  }
+  const sfx = {
+    click: () => beep(620, 0.06, 'square', 0.03),
+    pick: () => { beep(520, 0.07, 'square', 0.04); beep(780, 0.08, 'square', 0.04, 0, 0.06); },
+    kill: () => { beep(220, 0.22, 'sawtooth', 0.07, -170); beep(90, 0.25, 'sine', 0.1); },
+    plant: () => { [0, 0.18, 0.36].forEach((d) => beep(900, 0.1, 'square', 0.05, 0, d)); },
+    defuse: () => { beep(500, 0.12, 'triangle', 0.07); beep(750, 0.2, 'triangle', 0.07, 0, 0.12); },
+    win: () => [523, 659, 784, 1046].forEach((f, i) => beep(f, 0.22, 'triangle', 0.07, 0, i * 0.12)),
+    lose: () => [330, 262, 196].forEach((f, i) => beep(f, 0.3, 'sawtooth', 0.06, 0, i * 0.18)),
+    intro: () => { beep(300, 0.15, 'square', 0.05); beep(450, 0.25, 'square', 0.05, 0, 0.18); },
+    breach: () => beep(140, 0.2, 'sawtooth', 0.08, -60),
+  };
+  function banner(title, sub, kind) {
+    const b = document.createElement('div');
+    b.className = `banner ${kind || ''}`;
+    b.innerHTML = `<div class="bt">${title}</div>${sub ? `<div class="bs">${sub}</div>` : ''}`;
+    $('fx').appendChild(b);
+    setTimeout(() => b.remove(), kind === 'win' || kind === 'lose' ? 3200 : 1700);
+  }
+  function shake(el) { el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+  function confetti() {
+    const cols = ['#ff8a3d', '#3da5ff', '#5ee08a', '#fff', '#ffd24a'];
+    for (let i = 0; i < 70; i++) {
+      const c = document.createElement('i');
+      c.className = 'conf';
+      c.style.cssText = `left:${Math.random() * 100}%;background:${cols[i % cols.length]};animation-delay:${Math.random() * 0.6}s;animation-duration:${1.8 + Math.random() * 1.6}s;--dx:${(Math.random() - 0.5) * 240}px;--rot:${Math.random() * 900}deg`;
+      $('fx').appendChild(c);
+      setTimeout(() => c.remove(), 4200);
+    }
+  }
+  function sparks() {
+    const box = $('sparks');
+    for (let i = 0; i < 34; i++) {
+      const p = document.createElement('i');
+      p.className = `spark${i % 3 === 0 ? ' b' : ''}`;
+      p.style.cssText = `left:${Math.random() * 100}%;animation-delay:${-Math.random() * 20}s;animation-duration:${10 + Math.random() * 16}s;width:${2 + Math.random() * 3}px;height:${2 + Math.random() * 3}px`;
+      box.appendChild(p);
+    }
+  }
+
   let mode = 'cpu'; // 'cpu' | 'host' | 'guest'
   let peer = null, conn = null;
   let score = { you: 0, cpu: 0, round: 0 };
@@ -55,7 +107,7 @@
     $('screenDraft').className = `screen ${side}-side`;
     mapBar($('mapbar'));
     $('poolTitle').textContent = `Tu seleccion aleatoria (${side === 'att' ? 'atacantes' : 'defensores'})`;
-    renderPool(); renderPlan(); updateGo();
+    renderPool(true); renderPlan(); updateGo();
   }
   const otherSide = (s) => (s === 'att' ? 'def' : 'att');
   const nextSide = () => (score.round === 0 || !st ? (Math.random() < 0.5 ? 'att' : 'def') : otherSide(st.side));
@@ -81,15 +133,18 @@
   const newRound = () => (mode === 'host' ? newRoundHost() : newRoundCpu());
 
   // ---------- Draft ----------
-  function renderPool() {
+  function renderPool(first) {
     const full = st.picks.length >= 5;
     $('pool').innerHTML = '';
-    st.pool.forEach((o) => {
+    st.pool.forEach((o, ix) => {
       const sel = st.picks.includes(o);
       const d = document.createElement('div');
-      d.className = `card${sel ? ' sel' : ''}${full && !sel ? ' dim' : ''}`;
+      d.className = `card${sel ? ' sel' : ''}${full && !sel ? ' dim' : ''}${first ? ' enter' : ''}`;
+      d.style.setProperty('--i', ix);
+      d.onmousemove = (ev) => { const r = d.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5; d.style.setProperty('--ry', `${x * 14}deg`); d.style.setProperty('--rx', `${-y * 12}deg`); d.style.setProperty('--mx', `${(x + 0.5) * 100}%`); };
+      d.onmouseleave = () => { d.style.setProperty('--ry', '0deg'); d.style.setProperty('--rx', '0deg'); };
       d.innerHTML = `<div class="tags">${tagsOf(o).map((t) => `<span class="tag ${t[2]}">${t[1]}</span>`).join('')}</div><span class="stat">AIM ${o.aim}</span><img src="${o.img}" alt=""><div class="nm">${o.name}</div>`;
-      d.onclick = () => { if (st.locked) return; if (sel) st.picks = st.picks.filter((x) => x !== o); else if (!full) st.picks.push(o); renderPool(); updateGo(); };
+      d.onclick = () => { if (st.locked) return; if (sel) { st.picks = st.picks.filter((x) => x !== o); sfx.click(); } else if (!full) { st.picks.push(o); sfx.pick(); } renderPool(); updateGo(); };
       $('pool').appendChild(d);
     });
     $('pickCount').textContent = `${st.picks.length}/5`;
@@ -199,19 +254,24 @@
       $('log').appendChild(d); $('log').scrollTop = 1e6;
       $('clockFill').style.width = `${Math.min(100, (e.t / 225) * 100)}%`; $('clockTxt').textContent = fmt(e.t);
       [[e.victim, e.killer], [e.victim2, e.killer2]].forEach(([v, k]) => {
-        if (v) { const m = $(`m-${v}`); if (m) m.classList.add('dead'); }
+        if (v) { const m = $(`m-${v}`); if (m) { m.classList.add('hit'); setTimeout(() => m.classList.add('dead'), 350); } }
         if (k) {
           kills[k] = (kills[k] || 0) + 1;
           const el = $(`k-${k}`); if (el) el.textContent = `${kills[k]}K`;
           const mk = $(`m-${k}`); if (mk) { mk.classList.add('flash'); setTimeout(() => mk.classList.remove('flash'), 400); }
         }
       });
+      if (e.type === 'kill') { shake($('screenSim')); sfx.kill(); const kd = document.createElement('div'); kd.className = 'killtag'; kd.textContent = e.trade ? 'TRADE' : 'ELIMINADO'; $('fx').appendChild(kd); setTimeout(() => kd.remove(), 900); d.classList.add('flashred'); }
+      else if (e.type === 'plant') { banner('BOMBA PLANTADA', e.text, 'plant'); sfx.plant(); $('screenSim').classList.add('planted'); }
+      else if (e.type === 'defuse') { banner('BOMBA DESACTIVADA', '', 'defuse'); sfx.defuse(); }
+      else if (e.type === 'breach') sfx.breach();
       if (e.type === 'end' && e.winner) finish();
     };
     $('btnSkip').onclick = () => { while (!finished && i < res.log.length) step(); if (!finished) finish(); };
     clearInterval(timer);
-    timer = setInterval(step, 1100);
-    step();
+    $('screenSim').classList.remove('planted');
+    banner(`RONDA ${score.round}`, `${st.map.name} · ${sideName[st.side]}`, 'intro'); sfx.intro();
+    setTimeout(() => { if (finished) return; timer = setInterval(step, 1100); step(); }, 1700);
   }
 
   function showResult({ rival, res }) {
@@ -229,6 +289,8 @@
       <div class="hint">Verde: factor a favor del ganador · Rojo: factor a favor del perdedor que no bastó.</div>
       <div style="margin-top:14px">${nextBtn}</div>`;
     el.classList.remove('hidden');
+    banner(youWon ? 'VICTORIA' : 'DERROTA', res.winner === 'att' ? 'Atacantes ganan la ronda' : 'Defensores ganan la ronda', youWon ? 'win' : 'lose');
+    if (youWon) { confetti(); sfx.win(); } else sfx.lose();
     const nb = $('btnNext'); if (nb) nb.onclick = newRound;
   }
 
@@ -304,6 +366,9 @@
   $('codeIn').addEventListener('keydown', (e) => { if (e.key === 'Enter') joinRoom(); });
   $('btnReset').onclick = () => { score = { you: 0, cpu: 0, round: 0 }; st = null; renderScore(); newRoundCpu(); };
   $('btnMenu').onclick = () => backToMenu();
+  $('btnSound').onclick = () => { sound = !sound; $('btnSound').textContent = sound ? '🔊' : '🔇'; if (sound) sfx.click(); };
+  document.addEventListener('click', (e) => { if (e.target.closest('.mbtn, .go, .opt, .joinrow button')) sfx.click(); }, true);
+  sparks();
   renderScore();
   show('Menu');
 })();

@@ -1,0 +1,91 @@
+/* ===== Animacion y efectos ===== */
+header.top,#app{position:relative;z-index:2}
+#sparks{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.spark{position:absolute;bottom:-12px;border-radius:50%;background:var(--att);opacity:0;box-shadow:0 0 8px var(--att);animation:rise linear infinite}
+.spark.b{background:var(--def);box-shadow:0 0 8px var(--def)}
+@keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.7}90%{opacity:.5}100%{transform:translateY(-105vh) translateX(40px);opacity:0}}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+
+/* menu */
+.menu h1{animation:titleIn .9s cubic-bezier(.2,.9,.3,1) both,glitch 7s infinite 1s;text-shadow:0 0 30px rgba(255,138,61,.35)}
+.menu h1 span{text-shadow:0 0 24px rgba(61,165,255,.45)}
+@keyframes titleIn{from{opacity:0;transform:scale(1.25);letter-spacing:.5em;filter:blur(8px)}}
+@keyframes glitch{0%,92%,100%{transform:none;text-shadow:0 0 30px rgba(255,138,61,.35)}93%{transform:translate(-3px,1px);text-shadow:3px 0 var(--def),-3px 0 var(--bad)}95%{transform:translate(3px,-1px);text-shadow:-3px 0 var(--def),3px 0 var(--bad)}97%{transform:none}}
+.menu .hint{animation:fadeUp .8s .3s both}
+.mbtn{position:relative;overflow:hidden;animation:fadeUp .7s both}
+.mbtn:nth-child(1){animation-delay:.35s}.mbtn:nth-child(2){animation-delay:.5s}.mbtn:nth-child(3){animation-delay:.65s}
+.mbtn::before{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.12),transparent);transform:skewX(-20deg);transition:left .6s}
+.mbtn:hover::before{left:140%}
+.mbtn:hover{box-shadow:0 0 30px -8px var(--def),inset 0 0 0 1px var(--def)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}}
+
+/* mapa */
+.mapbar{background-size:135%;background-position:0 40%;animation:pan 22s ease-in-out infinite alternate}
+@keyframes pan{to{background-position:100% 60%}}
+.mapbar h1{animation:fadeUp .6s both}
+.mapbar .side{animation:slam .7s cubic-bezier(.2,1.8,.4,1) .15s both;box-shadow:0 0 28px -6px currentColor}
+@keyframes slam{from{opacity:0;transform:scale(3) rotate(-6deg)}}
+
+/* cartas */
+.card{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out,border-color .15s,opacity .2s,box-shadow .2s;will-change:transform}
+.card:hover{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-8px) scale(1.04);z-index:3;box-shadow:0 18px 30px -12px #000}
+.card.enter{animation:cardIn .6s cubic-bezier(.2,.9,.3,1.15) backwards;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes cardIn{from{opacity:0;transform:perspective(700px) translateY(60px) rotateX(35deg) scale(.85)}}
+.card::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .2s;background:radial-gradient(circle at var(--mx,50%) 30%,rgba(255,255,255,.18),transparent 55%)}
+.card:hover::before{opacity:1}
+.card img{transition:transform .25s,filter .25s}
+.card:hover img{transform:translateX(-35%) scale(1.06);filter:drop-shadow(0 10px 16px #000c) brightness(1.1)}
+.card.sel{animation:selPulse 1.8s ease-in-out infinite}
+@keyframes selPulse{50%{box-shadow:0 0 0 2px var(--c) inset,0 0 34px -2px var(--c)}}
+.card.sel::after{animation:pop .3s cubic-bezier(.2,2,.4,1)}
+@keyframes pop{from{transform:scale(0) rotate(-90deg)}}
+.chip{animation:fadeUp .35s both}
+.go:not(:disabled){animation:goPulse 1.6s ease-in-out infinite}
+@keyframes goPulse{50%{filter:brightness(1.25);transform:scale(1.02)}}
+.opt{transition:transform .12s,border-color .12s,background .12s}
+.opt:hover{transform:translateX(4px);border-color:var(--mut)}
+.opt.on{animation:pop .25s}
+
+/* simulacion */
+#screenSim.shake{animation:shake .35s}
+@keyframes shake{20%{transform:translate(-6px,3px)}40%{transform:translate(5px,-4px)}60%{transform:translate(-4px,2px)}80%{transform:translate(3px,-2px)}}
+#screenSim.planted::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;box-shadow:inset 0 0 140px rgba(255,60,60,.38);animation:pulseRed 1s ease-in-out infinite}
+@keyframes pulseRed{50%{opacity:.25}}
+.team{animation:fadeUp .6s both}
+.mini{transition:filter .5s,opacity .5s,transform .3s}
+.mini.hit{animation:hit .5s}
+@keyframes hit{0%{filter:brightness(3) sepia(1) hue-rotate(-50deg) saturate(5);transform:scale(1.1) rotate(2deg)}40%{transform:scale(.95) rotate(-3deg)}100%{transform:none}}
+.mini.flash{outline:2px solid #fff;transform:scale(1.06);box-shadow:0 0 22px -2px var(--ok)}
+.mini.dead::after{animation:pop .4s cubic-bezier(.2,2,.4,1)}
+.mini .k{background:#000a;padding:1px 6px;animation:pop .3s}
+.versus{position:relative}
+.versus::after{content:"VS";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:22px;font-weight:700;letter-spacing:.1em;color:var(--mut);background:var(--bg);border:1px solid var(--line);padding:4px 10px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);z-index:2}
+.clock .bar i{transition:width 1s linear;box-shadow:0 0 14px var(--att)}
+.ev.flashred{animation:in .25s,evFlash 1.2s}
+@keyframes evFlash{0%{background:rgba(255,90,90,.45)}100%{background:transparent}}
+.log{scroll-behavior:smooth}
+.result{animation:resultIn .6s cubic-bezier(.2,.9,.3,1.1) both}
+@keyframes resultIn{from{opacity:0;transform:translateX(40px) scale(.95)}}
+.result li{animation:fadeUp .4s both}
+.result li:nth-child(1){animation-delay:.3s}.result li:nth-child(2){animation-delay:.45s}.result li:nth-child(3){animation-delay:.6s}.result li:nth-child(4){animation-delay:.75s}.result li:nth-child(5){animation-delay:.9s}.result li:nth-child(6){animation-delay:1.05s}
+
+/* banners */
+.banner{position:absolute;left:0;right:0;top:36%;text-align:center;animation:bannerIn 1.7s cubic-bezier(.2,.9,.3,1) both;background:linear-gradient(90deg,transparent,rgba(8,10,14,.88) 20%,rgba(8,10,14,.88) 80%,transparent);padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.banner .bt{font-size:64px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;line-height:1}
+.banner .bs{margin-top:8px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase;font-size:15px}
+.banner.intro .bt{color:var(--txt)}
+.banner.plant .bt{color:var(--att);text-shadow:0 0 30px var(--att)}
+.banner.defuse .bt{color:var(--def);text-shadow:0 0 30px var(--def)}
+.banner.plant .bs,.banner.defuse .bs{display:none}
+.banner.win,.banner.lose{animation:bannerBig 3.2s cubic-bezier(.2,.9,.3,1) both}
+.banner.win .bt{font-size:110px;color:var(--ok);text-shadow:0 0 50px var(--ok)}
+.banner.lose .bt{font-size:110px;color:var(--bad);text-shadow:0 0 50px var(--bad)}
+@keyframes bannerIn{0%{opacity:0;transform:scaleY(.2) scaleX(1.3)}12%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+@keyframes bannerBig{0%{opacity:0;transform:scale(2.2)}10%{opacity:1;transform:scale(1)}75%{opacity:1}100%{opacity:0;transform:scale(.98)}}
+@media(max-width:700px){.banner .bt{font-size:36px}.banner.win .bt,.banner.lose .bt{font-size:56px}}
+.killtag{position:absolute;left:50%;top:18%;transform:translateX(-50%);font-size:34px;font-weight:700;letter-spacing:.3em;color:var(--bad);text-shadow:0 0 20px var(--bad);animation:killIn .9s ease-out both}
+@keyframes killIn{0%{opacity:0;transform:translateX(-50%) scale(2)}15%{opacity:1;transform:translateX(-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-24px)}}
+.conf{position:absolute;top:-14px;width:9px;height:14px;opacity:0;animation:fall linear forwards}
+@keyframes fall{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:1;transform:translate(var(--dx),110vh) rotate(var(--rot))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+html,body{overflow-x:hidden}
