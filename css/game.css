@@ -165,3 +165,12 @@ details{margin-top:16px} summary{cursor:pointer;color:var(--mut);letter-spacing:
 
 .card.hidden{display:none!important}
 .banrows{margin-bottom:6px}
+
+/* barra de accion siempre visible */
+.stage .actions{position:sticky;bottom:0;z-index:20;margin-top:20px;padding:14px 0 12px;background:linear-gradient(180deg,rgba(11,14,19,0),var(--bg) 40%)}
+.selinfo{color:var(--mut);font-size:14px;letter-spacing:.04em}
+
+/* color de acento del bando del jugador (lo usan .go, .card.sel, etc.) */
+:root{--c:var(--def)}
+#screenGame[data-side="att"]{--c:var(--att)}
+#screenGame[data-side="def"]{--c:var(--def)}

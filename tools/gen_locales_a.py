@@ -53,7 +53,7 @@ for k, es, en in [
     ('ui.siteReveal', 'El sitio de bomba y el droneo', 'Bomb site and drone sweep'),
     ('ui.fullLog', 'Registro completo de la ronda (con informacion oculta)', 'Full round log (including hidden information)'),
     ('ui.matchWon', 'PARTIDA GANADA', 'MATCH WON'), ('ui.matchLost', 'PARTIDA PERDIDA', 'MATCH LOST'),
-    ('ui.backToMenu', 'Volver al menu', 'Back to menu'), ('ui.unknown', 'Desconocido', 'Unknown'),
+    ('ui.backToMenu', 'Volver al menu', 'Back to menu'),
     ('ui.yourSquad', 'Tu equipo', 'Your squad'), ('ui.rivalSquad', 'Equipo rival', 'Rival squad'),
     ('ui.compEmpty', 'Selecciona operadores para ver tu composicion.', 'Select operators to see your composition.'),
     ('ui.groundLine', 'Planta baja / exterior', 'Ground level / exterior'),
@@ -126,7 +126,7 @@ for k, es, en in [
     add(f'mod.{k}', es, en)
 
 for k, es, en in [
-    ('ui.close', 'Cerrar', 'Close'), ('stage.ban.against', 'Vetados contra ti', 'Banned against you'), ('ui.aimShort', 'AIM', 'AIM'), ('ui.killsShort', '{n}K', '{n}K'),
+    ('ui.close', 'Cerrar', 'Close'), ('stage.planDef.needSite', 'Elige un sitio de bomba para continuar', 'Choose a bomb site to continue'), ('stage.ban.none', 'Selecciona un operador para vetarlo', 'Select an operator to ban'), ('stage.ban.selected', 'Veto seleccionado: {name}', 'Selected ban: {name}'), ('stage.ban.against', 'Vetados contra ti', 'Banned against you'), ('ui.aimShort', 'AIM', 'AIM'), ('ui.killsShort', '{n}K', '{n}K'),
     ('mapinfo.ranked', 'En el pool Ranked', 'In the Ranked pool'), ('mapinfo.notRanked', 'Fuera del pool Ranked', 'Outside the Ranked pool'),
     ('mapinfo.confidence', 'Confianza de los datos', 'Data confidence'),
     ('conf.alta', 'alta', 'high'), ('conf.media', 'media', 'medium'), ('conf.baja', 'baja', 'low'), ('conf.unknown', 'sin datos', 'no data'),

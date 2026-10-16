@@ -88,7 +88,7 @@ header.top,#app{position:relative;z-index:2}
 .conf{position:absolute;top:-14px;width:9px;height:14px;opacity:0;animation:fall linear forwards}
 @keyframes fall{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:1;transform:translate(var(--dx),110vh) rotate(var(--rot))}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-html,body{overflow-x:hidden}
+html,body{overflow-x:clip}
 
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:80;background:#2a1216;border:1px solid var(--bad);color:#ffd3d3;padding:10px 18px;max-width:90vw;animation:fadeUp .3s both}
 .netbar{position:sticky;top:57px;z-index:9;background:#3a2a10;border-bottom:1px solid var(--att);color:#ffd9a8;text-align:center;padding:8px;font-size:14px}

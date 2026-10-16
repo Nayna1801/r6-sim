@@ -29,14 +29,15 @@
       const targets = opsOf(p.targets).sort((a, b) => R6.i18n.opName(a.id).localeCompare(R6.i18n.opName(b.id)));
       const grid = h('div', { class: `pool ${p.ctx.rivalSide}-side` }); const els = new Map();
       const ok = h('button', { class: 'go', disabled: true, onclick: () => finish(sel) }, T('stage.ban.confirm'));
+      const selInfo = h('span', { class: 'selinfo' }, T('stage.ban.none'));
       const finish = (id) => { tm.stop(); resolve({ ban: id }); };
       targets.forEach((o, i) => {
-        const el = UI.opCard(o, { enter: true, i, onClick: () => { sel = sel === o.id ? null : o.id; els.forEach((e, id) => e.classList.toggle('sel', id === sel)); ok.disabled = !sel; UI.sfx.pick(); } });
+        const el = UI.opCard(o, { enter: true, i, onClick: () => { sel = sel === o.id ? null : o.id; els.forEach((e, id) => e.classList.toggle('sel', id === sel)); ok.disabled = !sel; selInfo.textContent = sel ? T('stage.ban.selected', { name: R6.i18n.opName(sel) }) : T('stage.ban.none'); UI.sfx.pick(); } });
         els.set(o.id, el); grid.appendChild(el);
       });
       tm = timerBar(p.ctx, 'ban', () => finish(null));
       UI.show(h('div', { class: 'stage' }, head(T('stage.ban.title'), T('stage.ban.sub', { n: p.active.length, max: p.ctx.format.maxBansPerSide }), tm.el),
-        banChips(p.active, p.against), grid, h('div', { class: 'actions' }, ok, h('button', { class: 'ghost', onclick: () => finish(null) }, T('stage.ban.skip')))));
+        banChips(p.active, p.against), grid, h('div', { class: 'actions' }, ok, h('button', { class: 'ghost', onclick: () => finish(null) }, T('stage.ban.skip')), selInfo)));
     });
   }
 
@@ -90,7 +91,7 @@
       const rf = { site: 5, entry: 3, hatch: 2 }; const pool = R.reinforcements.pool;
       const left = () => pool - R.reinforcements.buckets.reduce((a, b) => a + rf[b], 0);
       const hold = h('div', {}); const ok = h('button', { class: 'go', disabled: true, onclick: () => { tm.stop(); resolve({ site, reinf: { ...rf }, roles: { ...roles } }); } }, T('stage.planDef.confirm'));
-      let tm = { stop() {} };
+      let tm = { stop() {} }; const need = h('span', { class: 'selinfo' }, '');
       const draw = () => {
         UI.clear(hold);
         hold.appendChild(h('div', { class: 'cols2' },
@@ -98,11 +99,11 @@
             h('h3', {}, T('stage.planDef.reinf', { left: left(), pool })),
             h('div', { class: 'reinf' }, R.reinforcements.buckets.map((b) => h('div', { class: 'rbox', title: T(`reinf.${b}.desc`) }, h('span', {}, T(`reinf.${b}`)), UI.stepper(rf[b], 0, rf[b] + left(), (v) => { rf[b] = v; draw(); }))))),
           h('div', {}, h('h3', {}, T('stage.planDef.roles')), rolesTable(own, roles, R.defRoles, (id, v) => { roles[id] = v; UI.sfx.click(); draw(); }))));
-        ok.disabled = !site;
+        ok.disabled = !site; need.textContent = site ? '' : T('stage.planDef.needSite');
       };
       tm = timerBar(p.ctx, 'prep', () => { if (!site) site = map.sites[0].id; tm.stop(); resolve({ site, reinf: { ...rf }, roles: { ...roles } }); });
       draw();
-      UI.show(h('div', { class: 'stage' }, head(T('stage.planDef.title'), T('stage.planDef.sub'), tm.el), hold, h('div', { class: 'actions' }, ok)));
+      UI.show(h('div', { class: 'stage' }, head(T('stage.planDef.title'), T('stage.planDef.sub'), tm.el), hold, h('div', { class: 'actions' }, ok, need)));
     });
   }
 
