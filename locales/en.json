@@ -165,6 +165,7 @@
  "mod.carry.setupAim": "Full setup",
  "mod.carry.splitAtt": "Split team",
  "ui.close": "Close",
+ "stage.ban.against": "Banned against you",
  "ui.aimShort": "AIM",
  "ui.killsShort": "{n}K",
  "mapinfo.ranked": "In the Ranked pool",

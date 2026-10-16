@@ -126,7 +126,7 @@ for k, es, en in [
     add(f'mod.{k}', es, en)
 
 for k, es, en in [
-    ('ui.close', 'Cerrar', 'Close'), ('ui.aimShort', 'AIM', 'AIM'), ('ui.killsShort', '{n}K', '{n}K'),
+    ('ui.close', 'Cerrar', 'Close'), ('stage.ban.against', 'Vetados contra ti', 'Banned against you'), ('ui.aimShort', 'AIM', 'AIM'), ('ui.killsShort', '{n}K', '{n}K'),
     ('mapinfo.ranked', 'En el pool Ranked', 'In the Ranked pool'), ('mapinfo.notRanked', 'Fuera del pool Ranked', 'Outside the Ranked pool'),
     ('mapinfo.confidence', 'Confianza de los datos', 'Data confidence'),
     ('conf.alta', 'alta', 'high'), ('conf.media', 'media', 'medium'), ('conf.baja', 'baja', 'low'), ('conf.unknown', 'sin datos', 'no data'),

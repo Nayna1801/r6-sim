@@ -11,7 +11,7 @@
 
   async function boot() {
     const [rules, balance, decisions, ai, ui, i18n, operators, maps] = await Promise.all(['rules', 'balance', 'decisions', 'ai', 'ui', 'i18n'].map((n) => J(`config/${n}.json`)).concat([J('data/operators.json'), J('data/maps.json')]));
-    operators.forEach((o) => { o.img = `assets/ops/${o.id}.png`; });
+    operators.forEach((o) => { o.img = `assets/ops/${o.id}.webp`; });
     R6.Engine.configure({ rules, balance, decisions, operators, maps }); R6.AI.configure(ai); R6.UI.setCfg(ui); R6.UICFG = ui; R6.RULES = rules; R6.OPERATORS = operators; R6.MAPS = maps.filter((m) => m.playable);
     await R6.i18n.init(i18n); R6.I18NCFG = i18n;
     UI.sparks(); buildHeader(); showMenu();
@@ -89,7 +89,7 @@
     try {
       setStatus(status, T('net.creating'));
       const settings = { ...S.settings, mapId: chooseMap() };
-      const hs = R6.Net.host({ onStatus: (s) => { if (s.code) setStatus(status, [T('net.shareCode'), h('div', { class: 'code' }, s.code), h('span', { class: 'hint' }, T('net.waitGuest'))]); }, onSilence: silence });
+      const hs = await R6.Net.host({ onStatus: (s) => { if (s.code) setStatus(status, [T('net.shareCode'), h('div', { class: 'code' }, s.code), h('span', { class: 'hint' }, T('net.waitGuest'))]); }, onSilence: silence });
       S.hostSession = hs;
       const link = await hs.ready; S.link = link;
       link.send({ t: 'hello', settings });

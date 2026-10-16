@@ -14,7 +14,7 @@
     const el = h('div', { class: `card${opts.selected ? ' sel' : ''}${opts.dim ? ' dim' : ''}${opts.enter ? ' enter' : ''}`, style: { '--i': opts.i || 0 }, title: opTitle(o) },
       h('div', { class: 'tags' }, tagsOf(o).map((tg) => h('span', { class: `tag ${tg.cls || ''}` }, T(`tag.${tg.id}`)))),
       opts.badge ? h('span', { class: 'cbadge' }, opts.badge) : null,
-      h('img', { src: o.img || `assets/ops/${o.id}.png`, alt: '', loading: 'lazy' }),
+      h('img', { src: o.img || `assets/ops/${o.id}.webp`, alt: '', loading: 'lazy', decoding: 'async', width: 150, height: 214 }),
       h('div', { class: 'nm' }, R6.i18n.opName(o.id), h('span', { class: 'aimv' }, `${T('ui.aimShort')} ${o.aim}`)));
     if (opts.onClick) {
       el.addEventListener('click', opts.onClick);

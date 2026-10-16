@@ -104,7 +104,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Site pairs agree between Fandom and Liquipedia (4 pairs). Spawn entries from Fandom Exterior tab. Hatch count 8 not re-verified post-rework. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/bank.png"
+  "img": "assets/maps/bank.webp"
  },
  {
   "id": "bartlettu",
@@ -208,7 +208,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Single source (Fandom, page tagged Cut). Not in the 14-map ranked pool. Emerald Plains evolved from its rework. Site list from the reworked-version Features section; closest_sites not stated. Liquipedia has no page. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/bartlettu.png"
+  "img": "assets/maps/bartlettu.webp"
  },
  {
   "id": "border",
@@ -300,7 +300,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sites agree on Fandom and Liquipedia. Spawn names agree, but neither wiki describes entries per spawn, so entries/closest_sites are null. Cameras not found. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/border.png"
+  "img": "assets/maps/border.webp"
  },
  {
   "id": "calypsocasino",
@@ -396,7 +396,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "New map (System Override, June 2026). Fandom page is an empty stub; Liquipedia page missing/403; Ubisoft page gives no sites or spawns. Site pairs from R6Prep (4 sites), consistent with Gamerant room names, but Gamerant implies Bar/Betting stairs to first floor and Blackjack/Poker 'lower level', so floors are uncertain. ExpCarry names Blackjack, Poker and Basement Vault as sites (conflicting, low quality, not used). Attacker spawn names/entries NOT found in any source: spawns=[] deliberately. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/calypsocasino.png"
+  "img": "assets/maps/calypsocasino.webp"
  },
  {
   "id": "chalet",
@@ -498,7 +498,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Fandom and Liquipedia agree on post-Shadow Legacy sites (Liquipedia 'Release' tab shows the older Kitchen + Trophy Room pair). Spawn entries not described on wikis: null. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/chalet.png"
+  "img": "assets/maps/chalet.webp"
  },
  {
   "id": "clubhouse",
@@ -599,7 +599,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Liquipedia gives 1F Bar + 1F Stock Room; Fandom lists 'Bar and Stage' (discrepancy, Liquipedia used). Spawn naming differs: Fandom 'Main Gate'/'Shipping Dock' vs Liquipedia 'Main Entrance'/'Shipping Docks'. Entries/closest_sites null. Cameras not found. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/clubhouse.png"
+  "img": "assets/maps/clubhouse.webp"
  },
  {
   "id": "coastline",
@@ -692,7 +692,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sites agree on both wikis. Spawn entries not described: null. Exterior cameras not found. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null.",
-  "img": "assets/maps/coastline.png"
+  "img": "assets/maps/coastline.webp"
  },
  {
   "id": "consulate",
@@ -786,7 +786,7 @@
    "https://rainbowsix.fandom.com/api.php?action=parse&page=Consulate&prop=wikitext&format=json&redirects=1"
   ],
   "notes": "Sitios actuales (post-rework) coinciden en 3 fuentes (stratbook, siterep, timesaver); el wiki Fandom solo lista la version ORIGINAL (Consul/Meeting, Lobby/Press, Garage/Cafeteria, Tellers/Archives) y diverge en 1F. Spawns post-rework NO encontrados: los originales eran Riot Barricade, Police Line, Gas Station, Side Entrance (no confirmados como vigentes); timesaver menciona 3 posiciones exteriores sin nombrarlas. entries y closest_sites = null.",
-  "img": "assets/maps/consulate.png"
+  "img": "assets/maps/consulate.webp"
  },
  {
   "id": "district",
@@ -811,7 +811,7 @@
    "https://siege.gg/news/rainbow-six-siege-x-dual-front"
   ],
   "notes": "No existe Bomb en este mapa (sites/spawns = lista vacia, no aplicable). No esta en el pool de Ranked (Hotspawn jun-2026 no lo lista).",
-  "img": "assets/maps/district.png"
+  "img": "assets/maps/district.webp"
  },
  {
   "id": "emeraldplains",
@@ -913,7 +913,7 @@
    "https://siege.gg/news/what-are-the-best-bomb-sites-in-emerald-plains"
   ],
   "notes": "Pares de sitios de siterep.gg y siege.gg (siege.gg nombra 'Painting/Gallery' y 'Gallery/Meeting' segun articulo; el wiki lista 8 salas: 1F Bar/Kitchen/Dining/Lounge, 2F Administration/Meeting/CEO Office/Painting Gallery). Conflicto de ranked: siege.gg dijo que salio de Ranked en Y10S4 (dic-2025) pero Hotspawn (17-jun-2026) la lista como activa. Entradas de Front Gate y closest_sites no hallados (null).",
-  "img": "assets/maps/emeraldplains.png"
+  "img": "assets/maps/emeraldplains.webp"
  },
  {
   "id": "favela",
@@ -1015,7 +1015,7 @@
    "https://www.pcgamer.com/uk/favela-was-rainbow-six-sieges-most-hated-map-now-its-coming-to-ranked"
   ],
   "notes": "Pares de sitios deducidos del texto del wiki (cada sala dice 'la otra bomba esta en X'); pisos exactos de Football y Biker's no confirmados. Los nombres de spawn son 'potenciales spawns' del wiki (Rooftops, Market, School Alley; Street es cobertura de atacantes, dudoso). No esta en el pool Ranked de Hotspawn jun-2026 (entro a Ranked en Y6S2 pero ya no figura). entries/closest_sites = null.",
-  "img": "assets/maps/favela.png"
+  "img": "assets/maps/favela.webp"
  },
  {
   "id": "forttruth",
@@ -1038,7 +1038,7 @@
    "https://rainbowsix.fandom.com/api.php?action=parse&page=Fort_Truth&prop=wikitext&format=json&redirects=1"
   ],
   "notes": "No es mapa de Bomb ni de Ranked; no hay sitios/spawns aplicables.",
-  "img": "assets/maps/forttruth.png"
+  "img": "assets/maps/forttruth.webp"
  },
  {
   "id": "fortress",
@@ -1131,7 +1131,7 @@
    "https://rainbowsix.fandom.com/api.php?action=parse&page=Fortress&prop=wikitext&format=json&redirects=1"
   ],
   "notes": "Sitios coinciden en stratbook y siterep (post-rework). Spawns de atacantes post-rework NO encontrados; el wiki Fandom esta desactualizado (pre-rework, stub). entries/closest_sites = null.",
-  "img": "assets/maps/fortress.png"
+  "img": "assets/maps/fortress.webp"
  },
  {
   "id": "herefordbase",
@@ -1156,7 +1156,7 @@
    "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/seasons/grimsky"
   ],
   "notes": "Sitios y spawns no encontrados: la pagina wiki Hereford_Base es un stub y la de Rework devolvio 402. No aparece en el pool Ranked de Hotspawn (jun-2026); guildorder.com la lista como activa (fuente poco fiable, no confirmada). Datos = vacio por falta de fuente, no por inexistencia de Bomb.",
-  "img": "assets/maps/herefordbase.png"
+  "img": "assets/maps/herefordbase.webp"
  },
  {
   "id": "house",
@@ -1249,7 +1249,7 @@
    "https://esports.gg/guides/rainbow-six-siege/r6-y11s3-split-fire-noor-legends/"
   ],
   "notes": "Fandom lists sites and spawns for the rework (single source). Per-spawn entries and closest_sites not found (null). Wiki says rework only in Quick Match; Hotspawn Y11S2 Ranked pool lists 'Club House' (a different map), not House. The Fandom page may predate the Y11S3 modernization. Ranked pool checked for Y11S2 (Jun 2026); Y11S3 pool not confirmed.",
-  "img": "assets/maps/house.png"
+  "img": "assets/maps/house.webp"
  },
  {
   "id": "kafedostoyevsky",
@@ -1363,7 +1363,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sites and spawns agree between Fandom and timesaver.gg. Entries/closest_sites come from one third-party guide, which infers closeness from routes (not explicit). Ranked per Hotspawn Y11S2 (Jun 2026).",
-  "img": "assets/maps/kafedostoyevsky.png"
+  "img": "assets/maps/kafedostoyevsky.webp"
  },
  {
   "id": "kanal",
@@ -1455,7 +1455,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sites from Fandom (post-rework). Spawns from Liquipedia snippet and an older Ubisoft guide (pre-rework names; verify). No entries or closest_sites found (null). Ranked: Kanal returned Apr 2026 (Y11S1.2) but Hotspawn says it was removed at the start of Y11S2; Y11S3 pool unknown, so ranked=true is unreliable.",
-  "img": "assets/maps/kanal.png"
+  "img": "assets/maps/kanal.webp"
  },
  {
   "id": "lair",
@@ -1558,7 +1558,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Discrepancy: the Liquipedia snippet lists only 2 site pairs (Master/R6, Bunks/Briefing); alviran lists 4 (adds Armory/Weapon Maintenance and Lab/Lab Support, floors and exact room names inferred). Fandom page is a stub. Entries and closest_sites null.",
-  "img": "assets/maps/lair.png"
+  "img": "assets/maps/lair.webp"
  },
  {
   "id": "neighborhood",
@@ -1581,7 +1581,7 @@
    "https://rainbowsix.fandom.com/wiki/Neighborhood"
   ],
   "notes": "Not in Bomb/Ranked, so no bomb sites or attacker spawns exist; all data null. Fandom page is a stub.",
-  "img": "assets/maps/neighborhood.png"
+  "img": "assets/maps/neighborhood.webp"
  },
  {
   "id": "nighthavenlabs",
@@ -1656,7 +1656,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sources conflict: pre-release descriptions (NME, siege.gg) give 1 basement site plus 2 on 1F, while the Liquipedia snippet lists 2F Command/Server and 1F Control/Storage; a search summary also mentioned further pairs (1F kitchen/cafeteria, basement tank/assembly) that I could not confirm. The sites list is likely incomplete and may predate the Sep 2025 rework. Entries/closest_sites null.",
-  "img": "assets/maps/nighthavenlabs.png"
+  "img": "assets/maps/nighthavenlabs.webp"
  },
  {
   "id": "oregon",
@@ -1749,7 +1749,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sites agree between Fandom and alviran. Spawns from Liquipedia snippet and Ubisoft guide. Entries/closest_sites null. Ranked per Hotspawn Y11S2; Y11S3 pool not confirmed.",
-  "img": "assets/maps/oregon.png"
+  "img": "assets/maps/oregon.webp"
  },
  {
   "id": "outback",
@@ -1843,7 +1843,7 @@
    "https://siege.gg/news/rainbow-six-siege-ranked-map-pool-update-kanal-outback-skyscraper-and-theme-park-added"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta). Rework: 1F Mechanic Shop ahora comparte sitio con 1F Kitchen; Liquipedia nombra el spawn 'Fuel Pump'.",
-  "img": "assets/maps/outback.png"
+  "img": "assets/maps/outback.webp"
  },
  {
   "id": "presidentialplane",
@@ -1925,7 +1925,7 @@
    "https://liquipedia.net/rainbowsix/Presidential_Plane"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Retirado de Ranked en Update 2.3.0 (sep 2017) segun Fandom; Liquipedia solo lo lista en Casual. Solo 3 sitios de bomba.",
-  "img": "assets/maps/presidentialplane.png"
+  "img": "assets/maps/presidentialplane.webp"
  },
  {
   "id": "skyscraper",
@@ -2018,7 +2018,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta). Fandom lista 'Exhibition Room & Office', Liquipedia 'Work Office & Exhibition'. Fandom indica que el 3er spawn tuvo nombre vacio tras el rework (arreglado en Twin Shells); hatches post-rework no confirmados.",
-  "img": "assets/maps/skyscraper.png"
+  "img": "assets/maps/skyscraper.webp"
  },
  {
   "id": "stadium",
@@ -2083,7 +2083,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Sitios: null. Liquipedia (pagina 'under construction') lista pares como Piano Room/Living Room/Kids' Dormitory, que parecen copiados de otros mapas y no son fiables; Fandom no lista sitios. No distingue Alpha/Bravo. Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Fuera de la lista Ranked de Hotspawn.",
-  "img": "assets/maps/stadium.png"
+  "img": "assets/maps/stadium.webp"
  },
  {
   "id": "themepark",
@@ -2176,7 +2176,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta).",
-  "img": "assets/maps/themepark.png"
+  "img": "assets/maps/themepark.webp"
  },
  {
   "id": "tower",
@@ -2257,7 +2257,7 @@
    "https://liquipedia.net/rainbowsix/Tower"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Retirado de Ranked en Update 3.2.0 (jun 2018) segun Fandom; hoy solo Casual segun Liquipedia. Solo 2 spawns.",
-  "img": "assets/maps/tower.png"
+  "img": "assets/maps/tower.webp"
  },
  {
   "id": "villa",
@@ -2350,7 +2350,7 @@
    "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta). Discrepancia en sitios: Fandom da 1F Living Room/Library y 1F Dining/Kitchen; Liquipedia da 1F Dining/Kitchen y Basement Art Storage/Old Office (sin Living/Library). Se uso Fandom (el sotano aparece en Hostage/Secure en Fandom); sin verificar la version actual. Villa si estaba en Ranked en abril 2026 (siege.gg).",
-  "img": "assets/maps/villa.png"
+  "img": "assets/maps/villa.webp"
  },
  {
   "id": "yacht",
@@ -2441,6 +2441,6 @@
    "https://liquipedia.net/rainbowsix/Yacht"
   ],
   "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Solo Casual segun Liquipedia; no en lista Ranked. Fandom escribe 'Storage Room', Liquipedia 'Engine Storage'.",
-  "img": "assets/maps/yacht.png"
+  "img": "assets/maps/yacht.webp"
  }
 ]

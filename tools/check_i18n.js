@@ -32,7 +32,7 @@ const langs = J('config/i18n.json').languages; let bad = 0;
 const dicts = Object.fromEntries(langs.map((l) => [l, J(`locales/${l}.json`)]));
 langs.forEach((l) => { const missing = [...need].filter((k) => !(k in dicts[l])); if (missing.length) { bad += missing.length; console.log(`[${l}] faltan ${missing.length}:`, missing.join(', ')); } });
 const keysEq = langs.every((l) => Object.keys(dicts[l]).length === Object.keys(dicts[langs[0]]).length);
-const dyn = /^(mapinfo\.(ranked|notRanked)|ui\.resolving|stage\.prep\.|stage\.phase\.fit\.)/;
+const dyn = /^(stage\.ban\.(active|against)|mapinfo\.(ranked|notRanked)|ui\.resolving|stage\.prep\.|stage\.phase\.fit\.)/;
 const unused = Object.keys(dicts[langs[0]]).filter((k) => !need.has(k) && !k.startsWith('enum.') && !k.startsWith('names.') && !dyn.test(k));
 console.log(`claves requeridas: ${need.size}; idiomas: ${langs.join(',')}; mismas claves en todos: ${keysEq}; sin uso aparente: ${unused.length}`); if (unused.length) console.log('  sin uso:', unused.join(', '));
 process.exit(bad ? 1 : 0);

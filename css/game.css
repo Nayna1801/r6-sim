@@ -162,3 +162,6 @@ details{margin-top:16px} summary{cursor:pointer;color:var(--mut);letter-spacing:
 .mbox a{color:var(--def);word-break:break-all;font-size:12px}
 
 @media(max-width:760px){.top{flex-wrap:wrap;padding:8px 12px;gap:8px}.hudbar{order:3;width:100%;margin:0;justify-content:space-between;flex-wrap:wrap}.hudmap{font-size:11px}.tools{margin-left:auto}}
+
+.card.hidden{display:none!important}
+.banrows{margin-bottom:6px}

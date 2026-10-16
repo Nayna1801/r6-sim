@@ -63,7 +63,7 @@
         const oppSide = this.sideOf(other(t), r);
         const targets = this.ops.filter((o) => o.side === oppSide && !this.active[t].includes(o.id)).map((o) => o.id);
         if (this.active[t].length >= maxBans) return Promise.resolve({ ban: null });
-        return this.ask(t, 'ban', { targets, active: [...this.active[t]], oppSide });
+        return this.ask(t, 'ban', { targets, active: [...this.active[t]], against: [...this.active[other(t)]], oppSide });
       }));
       ['A', 'B'].forEach((t, i) => {
         const ban = res[i] && res[i].ban; const oppSide = this.sideOf(other(t), r);
@@ -86,7 +86,7 @@
         let avail = this.ops.filter((o) => o.side === side && !this.active[other(t)].includes(o.id));
         let pool = null;
         if (this.draftMode === 'pool') { pool = R6.sample(avail, this.rules.draft.poolSize, this.rng); avail = pool; }
-        return this.ask(t, 'pick', { available: avail.map((o) => o.id), size: this.F.squad, pool: !!pool }).then((res) => {
+        return this.ask(t, 'pick', { available: avail.map((o) => o.id), size: this.F.squad, pool: !!pool, against: [...this.active[other(t)]], mine: [...this.active[t]] }).then((res) => {
           const ids = res && Array.isArray(res.ids) ? [...new Set(res.ids)].filter((id) => avail.some((o) => o.id === id)) : [];
           return ids.length === this.F.squad ? ids : AI.pickTeam(side, avail, this.rng).map((o) => o.id);
         });

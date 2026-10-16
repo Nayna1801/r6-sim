@@ -5,7 +5,7 @@
   "open": 0.35,
   "vert": 0.7,
   "tight": 0.5,
-  "img": "assets/maps/bank.png"
+  "img": "assets/maps/bank.webp"
  },
  {
   "id": "bartlettu",
@@ -13,7 +13,7 @@
   "open": 0.5,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/bartlettu.png"
+  "img": "assets/maps/bartlettu.webp"
  },
  {
   "id": "border",
@@ -21,7 +21,7 @@
   "open": 0.45,
   "vert": 0.4,
   "tight": 0.5,
-  "img": "assets/maps/border.png"
+  "img": "assets/maps/border.webp"
  },
  {
   "id": "calypsocasino",
@@ -29,7 +29,7 @@
   "open": 0.5,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/calypsocasino.png"
+  "img": "assets/maps/calypsocasino.webp"
  },
  {
   "id": "chalet",
@@ -37,7 +37,7 @@
   "open": 0.35,
   "vert": 0.8,
   "tight": 0.45,
-  "img": "assets/maps/chalet.png"
+  "img": "assets/maps/chalet.webp"
  },
  {
   "id": "clubhouse",
@@ -45,7 +45,7 @@
   "open": 0.3,
   "vert": 0.7,
   "tight": 0.5,
-  "img": "assets/maps/clubhouse.png"
+  "img": "assets/maps/clubhouse.webp"
  },
  {
   "id": "coastline",
@@ -53,7 +53,7 @@
   "open": 0.55,
   "vert": 0.5,
   "tight": 0.4,
-  "img": "assets/maps/coastline.png"
+  "img": "assets/maps/coastline.webp"
  },
  {
   "id": "consulate",
@@ -61,7 +61,7 @@
   "open": 0.35,
   "vert": 0.6,
   "tight": 0.5,
-  "img": "assets/maps/consulate.png"
+  "img": "assets/maps/consulate.webp"
  },
  {
   "id": "district",
@@ -69,7 +69,7 @@
   "open": 0.5,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/district.png"
+  "img": "assets/maps/district.webp"
  },
  {
   "id": "emeraldplains",
@@ -77,7 +77,7 @@
   "open": 0.5,
   "vert": 0.6,
   "tight": 0.5,
-  "img": "assets/maps/emeraldplains.png"
+  "img": "assets/maps/emeraldplains.webp"
  },
  {
   "id": "favela",
@@ -85,7 +85,7 @@
   "open": 0.3,
   "vert": 0.8,
   "tight": 0.5,
-  "img": "assets/maps/favela.png"
+  "img": "assets/maps/favela.webp"
  },
  {
   "id": "forttruth",
@@ -93,7 +93,7 @@
   "open": 0.5,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/forttruth.png"
+  "img": "assets/maps/forttruth.webp"
  },
  {
   "id": "fortress",
@@ -101,7 +101,7 @@
   "open": 0.45,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/fortress.png"
+  "img": "assets/maps/fortress.webp"
  },
  {
   "id": "herefordbase",
@@ -109,7 +109,7 @@
   "open": 0.35,
   "vert": 0.6,
   "tight": 0.5,
-  "img": "assets/maps/herefordbase.png"
+  "img": "assets/maps/herefordbase.webp"
  },
  {
   "id": "house",
@@ -117,7 +117,7 @@
   "open": 0.3,
   "vert": 0.8,
   "tight": 0.5,
-  "img": "assets/maps/house.png"
+  "img": "assets/maps/house.webp"
  },
  {
   "id": "kafedostoyevsky",
@@ -125,7 +125,7 @@
   "open": 0.3,
   "vert": 0.85,
   "tight": 0.45,
-  "img": "assets/maps/kafedostoyevsky.png"
+  "img": "assets/maps/kafedostoyevsky.webp"
  },
  {
   "id": "kanal",
@@ -133,7 +133,7 @@
   "open": 0.55,
   "vert": 0.4,
   "tight": 0.4,
-  "img": "assets/maps/kanal.png"
+  "img": "assets/maps/kanal.webp"
  },
  {
   "id": "lair",
@@ -141,7 +141,7 @@
   "open": 0.5,
   "vert": 0.6,
   "tight": 0.5,
-  "img": "assets/maps/lair.png"
+  "img": "assets/maps/lair.webp"
  },
  {
   "id": "neighborhood",
@@ -149,7 +149,7 @@
   "open": 0.4,
   "vert": 0.6,
   "tight": 0.5,
-  "img": "assets/maps/neighborhood.png"
+  "img": "assets/maps/neighborhood.webp"
  },
  {
   "id": "nighthavenlabs",
@@ -157,7 +157,7 @@
   "open": 0.45,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/nighthavenlabs.png"
+  "img": "assets/maps/nighthavenlabs.webp"
  },
  {
   "id": "oregon",
@@ -165,7 +165,7 @@
   "open": 0.35,
   "vert": 0.7,
   "tight": 0.5,
-  "img": "assets/maps/oregon.png"
+  "img": "assets/maps/oregon.webp"
  },
  {
   "id": "outback",
@@ -173,7 +173,7 @@
   "open": 0.55,
   "vert": 0.4,
   "tight": 0.45,
-  "img": "assets/maps/outback.png"
+  "img": "assets/maps/outback.webp"
  },
  {
   "id": "presidentialplane",
@@ -181,7 +181,7 @@
   "open": 0.15,
   "vert": 0.5,
   "tight": 0.7,
-  "img": "assets/maps/presidentialplane.png"
+  "img": "assets/maps/presidentialplane.webp"
  },
  {
   "id": "skyscraper",
@@ -189,7 +189,7 @@
   "open": 0.5,
   "vert": 0.6,
   "tight": 0.5,
-  "img": "assets/maps/skyscraper.png"
+  "img": "assets/maps/skyscraper.webp"
  },
  {
   "id": "stadium",
@@ -197,7 +197,7 @@
   "open": 0.55,
   "vert": 0.5,
   "tight": 0.45,
-  "img": "assets/maps/stadium.png"
+  "img": "assets/maps/stadium.webp"
  },
  {
   "id": "themepark",
@@ -205,7 +205,7 @@
   "open": 0.45,
   "vert": 0.5,
   "tight": 0.45,
-  "img": "assets/maps/themepark.png"
+  "img": "assets/maps/themepark.webp"
  },
  {
   "id": "tower",
@@ -213,7 +213,7 @@
   "open": 0.5,
   "vert": 0.5,
   "tight": 0.5,
-  "img": "assets/maps/tower.png"
+  "img": "assets/maps/tower.webp"
  },
  {
   "id": "villa",
@@ -221,7 +221,7 @@
   "open": 0.4,
   "vert": 0.7,
   "tight": 0.5,
-  "img": "assets/maps/villa.png"
+  "img": "assets/maps/villa.webp"
  },
  {
   "id": "yacht",
@@ -229,6 +229,6 @@
   "open": 0.3,
   "vert": 0.8,
   "tight": 0.6,
-  "img": "assets/maps/yacht.png"
+  "img": "assets/maps/yacht.webp"
  }
 ]

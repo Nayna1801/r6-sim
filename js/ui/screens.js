@@ -16,23 +16,27 @@
   }
   const head = (title, sub, timer) => h('div', { class: 'shead' }, h('div', {}, h('h2', {}, title), sub ? h('p', { class: 'sub' }, sub) : null), timer || null);
 
+  // chips con los vetos en vigor (los tuyos y los que te han impuesto)
+  function banChips(mine, against) {
+    const row = (labelKey, ids, cls) => (ids.length ? h('div', { class: 'comp' }, h('span', { class: 'hint' }, `${T(labelKey)}: `), ids.map((id) => h('span', { class: `chip ${cls}` }, R6.i18n.opName(id)))) : null);
+    return h('div', { class: 'banrows' }, row('stage.ban.active', mine || [], 'good'), row('stage.ban.against', against || [], 'warn'));
+  }
+
   // ---------- baneo ----------
   function ban(p) {
     return new Promise((resolve) => {
-      let sel = null; const targets = opsOf(p.targets).sort((a, b) => R6.i18n.opName(a.id).localeCompare(R6.i18n.opName(b.id)));
-      const grid = h('div', { class: `pool ${p.ctx.rivalSide}-side` }); const ok = h('button', { class: 'go', disabled: true, onclick: () => finish(sel) }, T('stage.ban.confirm'));
-      let tm = { stop() {} };
+      let sel = null; let tm = { stop() {} };
+      const targets = opsOf(p.targets).sort((a, b) => R6.i18n.opName(a.id).localeCompare(R6.i18n.opName(b.id)));
+      const grid = h('div', { class: `pool ${p.ctx.rivalSide}-side` }); const els = new Map();
+      const ok = h('button', { class: 'go', disabled: true, onclick: () => finish(sel) }, T('stage.ban.confirm'));
       const finish = (id) => { tm.stop(); resolve({ ban: id }); };
-      const draw = () => {
-        UI.clear(grid);
-        targets.forEach((o, i) => grid.appendChild(UI.opCard(o, { selected: sel === o.id, enter: !grid.dataset.d, i, onClick: () => { sel = sel === o.id ? null : o.id; UI.sfx.pick(); draw(); } })));
-        grid.dataset.d = 1; ok.disabled = !sel;
-      };
+      targets.forEach((o, i) => {
+        const el = UI.opCard(o, { enter: true, i, onClick: () => { sel = sel === o.id ? null : o.id; els.forEach((e, id) => e.classList.toggle('sel', id === sel)); ok.disabled = !sel; UI.sfx.pick(); } });
+        els.set(o.id, el); grid.appendChild(el);
+      });
       tm = timerBar(p.ctx, 'ban', () => finish(null));
-      draw();
       UI.show(h('div', { class: 'stage' }, head(T('stage.ban.title'), T('stage.ban.sub', { n: p.active.length, max: p.ctx.format.maxBansPerSide }), tm.el),
-        p.active.length ? h('div', { class: 'comp' }, h('span', { class: 'hint' }, `${T('stage.ban.active')}: `), p.active.map((id) => h('span', { class: 'chip warn' }, R6.i18n.opName(id)))) : null,
-        grid, h('div', { class: 'actions' }, ok, h('button', { class: 'ghost', onclick: () => finish(null) }, T('stage.ban.skip')))));
+        banChips(p.active, p.against), grid, h('div', { class: 'actions' }, ok, h('button', { class: 'ghost', onclick: () => finish(null) }, T('stage.ban.skip')))));
     });
   }
 
@@ -41,29 +45,33 @@
     return new Promise((resolve) => {
       const all = opsOf(p.available).sort((a, b) => R6.i18n.opName(a.id).localeCompare(R6.i18n.opName(b.id)));
       let chosen = []; let q = ''; const filt = new Set(); let tm = { stop() {} };
-      const grid = h('div', { class: `pool ${p.ctx.side}-side` }), slots = h('div', { class: 'slots' }), comp = h('div', {});
+      const grid = h('div', { class: `pool ${p.ctx.side}-side` }), slots = h('div', { class: 'slots' }), comp = h('div', {}); const els = new Map();
       const ok = h('button', { class: 'go', disabled: true, onclick: () => { tm.stop(); resolve({ ids: chosen.map((o) => o.id) }); } }, '');
-      const draw = () => {
-        UI.clear(grid); UI.clear(slots); UI.clear(comp);
-        all.filter((o) => (!q || R6.i18n.opName(o.id).toLowerCase().includes(q)) && [...filt].every((f) => (o[f] || 0) >= 1)).forEach((o, i) => {
-          const sel = chosen.includes(o);
-          grid.appendChild(UI.opCard(o, { selected: sel, dim: chosen.length >= p.size && !sel, enter: !grid.dataset.d, i, onClick: () => { if (sel) chosen = chosen.filter((x) => x !== o); else if (chosen.length < p.size) chosen.push(o); UI.sfx.pick(); draw(); } }));
+      const refresh = () => {
+        const full = chosen.length >= p.size;
+        all.forEach((o) => {
+          const el = els.get(o.id); const sel = chosen.includes(o); el.classList.toggle('sel', sel); el.classList.toggle('dim', full && !sel);
+          el.classList.toggle('hidden', !((!q || R6.i18n.opName(o.id).toLowerCase().includes(q)) && [...filt].every((f) => (o[f] || 0) >= 1)));
         });
-        grid.dataset.d = 1;
+        UI.clear(slots); UI.clear(comp);
         for (let i = 0; i < p.size; i++) {
           const o = chosen[i];
-          slots.appendChild(o ? h('div', { class: 'slot full', onclick: () => { chosen = chosen.filter((x) => x !== o); draw(); } }, h('img', { src: o.img, alt: '' }), h('span', {}, R6.i18n.opName(o.id))) : h('div', { class: 'slot' }, i + 1));
+          slots.appendChild(o ? h('div', { class: 'slot full', onclick: () => { chosen = chosen.filter((x) => x !== o); refresh(); } }, h('img', { src: o.img, alt: '' }), h('span', {}, R6.i18n.opName(o.id))) : h('div', { class: 'slot' }, i + 1));
         }
         comp.appendChild(UI.compChips(p.ctx.side, chosen, chosen.length === p.size));
         ok.disabled = chosen.length !== p.size; ok.textContent = chosen.length === p.size ? T('stage.pick.confirm') : T('stage.pick.need', { n: p.size - chosen.length });
       };
+      all.forEach((o, i) => {
+        const el = UI.opCard(o, { enter: true, i, onClick: () => { if (chosen.includes(o)) chosen = chosen.filter((x) => x !== o); else if (chosen.length < p.size) chosen.push(o); UI.sfx.pick(); refresh(); } });
+        els.set(o.id, el); grid.appendChild(el);
+      });
       const statFilters = p.ctx.side === 'att' ? R6.UICFG.pickFilters.att : R6.UICFG.pickFilters.def;
       tm = timerBar(p.ctx, 'pick', () => { while (chosen.length < p.size) { const c = all.find((o) => !chosen.includes(o)); chosen.push(c); } tm.stop(); resolve({ ids: chosen.map((o) => o.id) }); });
-      draw();
-      const search = h('input', { type: 'search', class: 'search', placeholder: T('stage.pick.search'), oninput: (e) => { q = e.target.value.toLowerCase(); draw(); } });
-      const chips = h('div', { class: 'filters' }, statFilters.map((f) => h('button', { type: 'button', class: 'fchip', onclick: (e) => { if (filt.has(f)) filt.delete(f); else filt.add(f); e.currentTarget.classList.toggle('on'); draw(); } }, T(`stat.${f}`))));
+      const search = h('input', { type: 'search', class: 'search', placeholder: T('stage.pick.search'), oninput: (e) => { q = e.target.value.toLowerCase(); refresh(); } });
+      const chips = h('div', { class: 'filters' }, statFilters.map((f) => h('button', { type: 'button', class: 'fchip', onclick: (e) => { if (filt.has(f)) filt.delete(f); else filt.add(f); e.currentTarget.classList.toggle('on'); refresh(); } }, T(`stat.${f}`))));
+      refresh();
       UI.show(h('div', { class: 'stage' }, head(T('stage.pick.title'), p.pool ? T('stage.pick.subPool', { n: all.length }) : T('stage.pick.sub', { n: all.length }), tm.el),
-        slots, comp, h('div', { class: 'toolbar' }, search, chips), grid, h('div', { class: 'actions' }, ok)));
+        banChips(p.mine, p.against), slots, comp, h('div', { class: 'toolbar' }, search, chips), grid, h('div', { class: 'actions' }, ok)));
     });
   }
 

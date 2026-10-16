@@ -38,11 +38,24 @@
     abort(err) { Object.values(this.pending).forEach((p) => p.rej(err)); this.pending = {}; }
   }
 
-  function needPeer() { if (typeof Peer === 'undefined') throw new Error('peerjs'); }
+  // PeerJS se carga bajo demanda (solo si se usa el modo online) para no bloquear el arranque
+  const PEER_URL = 'https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js';
+  let peerLoading = null;
+  function ensurePeer() {
+    if (typeof Peer !== 'undefined') return Promise.resolve();
+    if (!peerLoading) {
+      peerLoading = new Promise((resolve, reject) => {
+        const s = document.createElement('script'); s.src = PEER_URL; s.onload = resolve;
+        s.onerror = () => { peerLoading = null; reject(new Error('peerjs')); };
+        document.head.appendChild(s);
+      });
+    }
+    return peerLoading;
+  }
 
   // Anfitrion: devuelve {code, ready:Promise<{link, close}>}
-  function host({ onStatus, onSilence }) {
-    needPeer();
+  async function host({ onStatus, onSilence }) {
+    await ensurePeer();
     let peer = null; let attempts = 0;
     const out = { code: null, close: () => { try { peer && peer.destroy(); } catch (e) { console.warn(e); } } };
     out.ready = new Promise((resolve, reject) => {
@@ -61,8 +74,8 @@
   }
 
   // Invitado: conecta y devuelve la Link
-  function join(code, { onSilence, onClose }) {
-    needPeer();
+  async function join(code, { onSilence, onClose }) {
+    await ensurePeer();
     return new Promise((resolve, reject) => {
       const peer = new Peer();
       peer.on('error', (e) => reject(e));
