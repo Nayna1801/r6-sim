@@ -31,14 +31,14 @@ function playRound(rng, opt = {}) {
 }
 if (require.main === module && process.argv[2] !== '--match') {
   const N = +process.argv[2] || 300; const rng = mkRng(+process.argv[3] || 1);
-  let att = 0, planted = 0, found = 0, err = 0, kills = 0; const reasons = {}; const t0 = Date.now(); let evs = 0;
+  let att = 0, planted = 0, found = 0, err = 0, kills = 0, attPl = 0; const reasons = {}; const t0 = Date.now(); let evs = 0;
   for (let i = 0; i < N; i++) {
     try {
-      const st = playRound(rng); if (st.result.winner === 'att') att++; if (st.planted) planted++; if (st.intel.found) found++;
+      const st = playRound(rng); if (st.result.winner === 'att') att++; if (st.planted) { planted++; if (st.result.winner === 'att') attPl++; } if (st.intel.found) found++;
       reasons[st.result.reason] = (reasons[st.result.reason] || 0) + 1; evs += st.events.length; kills += [...st.att, ...st.def].reduce((a, m) => a + m.kills, 0); E.explain(st);
     } catch (e) { if (err++ < 3) console.log(e.stack.split('\n').slice(0, 4).join(' | ')); }
   }
-  console.log({ rounds: N, attWin: +(att / N).toFixed(3), planted: +(planted / N).toFixed(3), siteFound: +(found / N).toFixed(3), errors: err, avgEvents: +(evs / N).toFixed(1), killsPerRound: +(kills / N).toFixed(2), ms: Date.now() - t0, reasons });
+  console.log({ rounds: N, attWin: +(att / N).toFixed(3), planted: +(planted / N).toFixed(3), siteFound: +(found / N).toFixed(3), errors: err, avgEvents: +(evs / N).toFixed(1), attWinWhenPlanted: +(attPl / Math.max(1, planted)).toFixed(3), killsPerRound: +(kills / N).toFixed(2), ms: Date.now() - t0, reasons });
 }
 module.exports = { playRound, E, AI, R6, maps, operators, mkRng, sample };
 

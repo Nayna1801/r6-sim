@@ -155,3 +155,10 @@ details{margin-top:16px} summary{cursor:pointer;color:var(--mut);letter-spacing:
 .stage .ev{grid-template-columns:44px 90px 1fr}
 
 .spawn{padding-right:28px}
+
+.hudmap{cursor:pointer;background:none;border:0;color:var(--mut)} .hudmap:hover{color:var(--txt)}
+.modal{position:fixed;inset:0;background:rgba(5,7,10,.8);z-index:70;display:grid;place-items:start center;overflow:auto;padding:30px 12px}
+.mbox{background:var(--bg2);border:1px solid var(--line);padding:22px;max-width:880px;width:100%;animation:fadeUp .25s both}
+.mbox a{color:var(--def);word-break:break-all;font-size:12px}
+
+@media(max-width:760px){.top{flex-wrap:wrap;padding:8px 12px;gap:8px}.hudbar{order:3;width:100%;margin:0;justify-content:space-between;flex-wrap:wrap}.hudmap{font-size:11px}.tools{margin-left:auto}}

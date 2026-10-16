@@ -25,14 +25,14 @@ ui.modOrder.forEach((m) => need.add(`mod.${m}`));
 for (const ph of dec.phases) for (const sd of ['att', 'def']) for (const g of Object.values(dec[ph][sd])) for (const o of Object.values(g)) Object.keys(o.mods || {}).filter((k) => k.startsWith('carry.')).forEach((k) => need.add(`mod.${k}`));
 ['att', 'def'].forEach((s) => { need.add(`side.${s}`); need.add(`result.${s}`); need.add(`enum.side.${s}`); });
 ['kill', 'prep', 'early', 'entry', 'site', 'plant', 'post', 'end', 'adjust'].forEach((k) => need.add(`evtype.${k}`));
-need.add('ui.spawnUndocumented'); need.add('spawn.generic');
+['alta','media','baja','unknown'].forEach((k) => need.add(`conf.${k}`)); need.add('ui.spawnUndocumented'); need.add('spawn.generic');
 // enums de parametros de eventos
 Object.values(J('config/i18n.json').paramTypes).filter((t) => t.startsWith('enum:')).forEach((t) => { /* los valores se validan abajo */ });
 const langs = J('config/i18n.json').languages; let bad = 0;
 const dicts = Object.fromEntries(langs.map((l) => [l, J(`locales/${l}.json`)]));
 langs.forEach((l) => { const missing = [...need].filter((k) => !(k in dicts[l])); if (missing.length) { bad += missing.length; console.log(`[${l}] faltan ${missing.length}:`, missing.join(', ')); } });
 const keysEq = langs.every((l) => Object.keys(dicts[l]).length === Object.keys(dicts[langs[0]]).length);
-const dyn = /^(ui\.resolving|stage\.prep\.|stage\.phase\.fit\.)/;
+const dyn = /^(mapinfo\.(ranked|notRanked)|ui\.resolving|stage\.prep\.|stage\.phase\.fit\.)/;
 const unused = Object.keys(dicts[langs[0]]).filter((k) => !need.has(k) && !k.startsWith('enum.') && !k.startsWith('names.') && !dyn.test(k));
 console.log(`claves requeridas: ${need.size}; idiomas: ${langs.join(',')}; mismas claves en todos: ${keysEq}; sin uso aparente: ${unused.length}`); if (unused.length) console.log('  sin uso:', unused.join(', '));
 process.exit(bad ? 1 : 0);

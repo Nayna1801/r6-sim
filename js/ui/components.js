@@ -6,15 +6,16 @@
   let UICFG = null;
   const setCfg = (c) => { UICFG = c; };
 
+  const opTitle = (o) => `${R6.i18n.opName(o.id)} — ${(UICFG.stats[o.side] || []).filter((k) => o[k]).map((k) => `${T(`stat.${k}`)} ${o[k]}`).join(' · ')}`;
   const tagsOf = (o) => UICFG.tags.filter((tg) => (o[tg.stat] || 0) >= tg.min).slice(0, UICFG.maxTags);
 
   // Tarjeta de operador. opts: {selected, dim, onClick, badge, hidden}
   function opCard(o, opts = {}) {
-    const el = h('div', { class: `card${opts.selected ? ' sel' : ''}${opts.dim ? ' dim' : ''}${opts.enter ? ' enter' : ''}`, style: { '--i': opts.i || 0 }, title: T('ui.opCardTitle', { name: R6.i18n.opName(o.id) }) },
+    const el = h('div', { class: `card${opts.selected ? ' sel' : ''}${opts.dim ? ' dim' : ''}${opts.enter ? ' enter' : ''}`, style: { '--i': opts.i || 0 }, title: opTitle(o) },
       h('div', { class: 'tags' }, tagsOf(o).map((tg) => h('span', { class: `tag ${tg.cls || ''}` }, T(`tag.${tg.id}`)))),
       opts.badge ? h('span', { class: 'cbadge' }, opts.badge) : null,
       h('img', { src: o.img || `assets/ops/${o.id}.png`, alt: '', loading: 'lazy' }),
-      h('div', { class: 'nm' }, R6.i18n.opName(o.id), h('span', { class: 'aimv' }, `AIM ${o.aim}`)));
+      h('div', { class: 'nm' }, R6.i18n.opName(o.id), h('span', { class: 'aimv' }, `${T('ui.aimShort')} ${o.aim}`)));
     if (opts.onClick) {
       el.addEventListener('click', opts.onClick);
       el.addEventListener('mousemove', (ev) => { const r = el.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5; el.style.setProperty('--ry', `${x * 14}deg`); el.style.setProperty('--rx', `${-y * 12}deg`); el.style.setProperty('--mx', `${(x + 0.5) * 100}%`); });

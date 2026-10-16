@@ -55,7 +55,7 @@ for k, es, en in [
     ('ui.matchWon', 'PARTIDA GANADA', 'MATCH WON'), ('ui.matchLost', 'PARTIDA PERDIDA', 'MATCH LOST'),
     ('ui.backToMenu', 'Volver al menu', 'Back to menu'), ('ui.unknown', 'Desconocido', 'Unknown'),
     ('ui.yourSquad', 'Tu equipo', 'Your squad'), ('ui.rivalSquad', 'Equipo rival', 'Rival squad'),
-    ('ui.opCardTitle', '{name}', '{name}'), ('ui.compEmpty', 'Selecciona operadores para ver tu composicion.', 'Select operators to see your composition.'),
+    ('ui.compEmpty', 'Selecciona operadores para ver tu composicion.', 'Select operators to see your composition.'),
     ('ui.groundLine', 'Planta baja / exterior', 'Ground level / exterior'),
     ('ui.spawnUndocumented', 'Spawn sin documentar en las fuentes publicas (modelo generico).', 'Spawn not documented in public sources (generic model).'),
 ]:
@@ -124,3 +124,15 @@ for k, es, en in [
     ('carry.setupAim', 'Setup completo', 'Full setup'), ('carry.splitAtt', 'Equipo dividido', 'Split team'),
 ]:
     add(f'mod.{k}', es, en)
+
+for k, es, en in [
+    ('ui.close', 'Cerrar', 'Close'), ('ui.aimShort', 'AIM', 'AIM'), ('ui.killsShort', '{n}K', '{n}K'),
+    ('mapinfo.ranked', 'En el pool Ranked', 'In the Ranked pool'), ('mapinfo.notRanked', 'Fuera del pool Ranked', 'Outside the Ranked pool'),
+    ('mapinfo.confidence', 'Confianza de los datos', 'Data confidence'),
+    ('conf.alta', 'alta', 'high'), ('conf.media', 'media', 'medium'), ('conf.baja', 'baja', 'low'), ('conf.unknown', 'sin datos', 'no data'),
+    ('mapinfo.sites', 'Sitios de bomba', 'Bomb sites'), ('mapinfo.spawns', 'Spawns de atacantes', 'Attacker spawns'),
+    ('mapinfo.laneNote', 'La lane (frontal/lateral/trasera) de cada spawn es un modelo abstracto propio, no un dato oficial.', 'Each spawn lane (front/side/rear) is our own abstract model, not official data.'),
+    ('mapinfo.rawNote', 'Texto tal como lo recogio la investigacion (en espanol).', 'Text as recorded by the research (in Spanish).'),
+    ('mapinfo.features', 'Rasgos del mapa', 'Map features'), ('mapinfo.notes', 'Notas de la investigacion', 'Research notes'), ('mapinfo.sources', 'Fuentes', 'Sources'),
+]:
+    add(k, es, en)

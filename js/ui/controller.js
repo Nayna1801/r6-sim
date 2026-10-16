@@ -48,7 +48,7 @@
       const side = ctx.side === 'att' ? 'att' : 'def';
       $('hudScore').replaceChildren(h('span', { class: 'rd' }, ctx.overtime ? T('hud.overtime', { n: ctx.round }) : T('hud.round', { n: ctx.round, half: ctx.half })), h('span', { class: 's you' }, `${T('hud.you')} ${ctx.score.you}`), h('span', { class: 's rival' }, `${T('hud.rival')} ${ctx.score.rival}`));
       $('hudSide').className = `hudside ${side}`; $('hudSide').textContent = T(`side.${side}`);
-      $('hudMap').textContent = R6.i18n.mapName(ctx.mapId);
+      $('hudMap').textContent = `${R6.i18n.mapName(ctx.mapId)} ⓘ`; $('hudMap').onclick = () => UI.mapInfo(ctx.mapId);
     }
 
     async roundStart(p) {
@@ -64,7 +64,7 @@
       const card = (m, own) => {
         const o = R6.opsById[m.id]; const known = own || this.revealed.has(m.id) || (this.endData && this.endData.over);
         return h('div', { class: `mini${m.alive ? '' : ' dead'}`, id: `m-${m.id}` }, known ? h('img', { src: o.img, alt: '' }) : h('div', { class: 'unk' }, '?'),
-          m.kills ? h('span', { class: 'k' }, `${m.kills}K`) : null, h('div', { class: 'nm' }, known ? R6.i18n.opName(m.id) : T('ui.unknown')),
+          m.kills ? h('span', { class: 'k' }, T('ui.killsShort', { n: m.kills })) : null, h('div', { class: 'nm' }, known ? R6.i18n.opName(m.id) : T('ui.unknown')),
           own && m.role ? h('span', { class: 'rl' }, T(`role.${m.role}`)) : null);
       };
       $('rosterOwn').replaceChildren(h('h4', {}, T('ui.yourSquad')), h('div', { class: 'mrow' }, arr(mine, this.own).map((m) => card(m, true))));
@@ -131,5 +131,19 @@
       return undefined;
     }
   }
+  // ficha del mapa: sitios, spawns, confianza y fuentes de los datos
+  UI.mapInfo = function mapInfo(mapId) {
+    const m = R6.mapsById[mapId]; if (!m) return;
+    const close = () => ov.remove();
+    const ov = h('div', { class: 'modal', onclick: (e) => { if (e.target === ov) close(); } }, h('div', { class: 'mbox' },
+      h('div', { class: 'shead' }, h('h2', {}, R6.i18n.mapName(m.id)), h('button', { class: 'ghost', onclick: close }, T('ui.close'))),
+      h('p', { class: 'sub' }, `${T(m.ranked ? 'mapinfo.ranked' : 'mapinfo.notRanked')} · ${T('mapinfo.confidence')}: ${m.confidence ? T(`conf.${m.confidence}`) : T('conf.unknown')}`),
+      h('h3', {}, T('mapinfo.sites')), UI.building(m, { mode: 'view' }),
+      h('h3', {}, T('mapinfo.spawns')), UI.spawnCards(m, {}), h('p', { class: 'hint' }, T('mapinfo.laneNote')),
+      m.features && m.features.length ? [h('h3', {}, T('mapinfo.features')), h('p', { class: 'hint' }, T('mapinfo.rawNote')), h('ul', { class: 'facts' }, m.features.map((f) => h('li', {}, f)))] : null,
+      m.notes ? [h('h3', {}, T('mapinfo.notes')), h('p', { class: 'hint' }, m.notes)] : null,
+      m.sources && m.sources.length ? [h('h3', {}, T('mapinfo.sources')), h('ul', { class: 'facts' }, m.sources.map((u) => h('li', {}, h('a', { href: u, target: '_blank', rel: 'noopener noreferrer' }, u))))] : null));
+    document.body.appendChild(ov);
+  };
   UI.UiController = UiController;
 })(typeof window !== 'undefined' ? window : globalThis);

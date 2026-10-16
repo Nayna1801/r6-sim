@@ -26,8 +26,8 @@
     "tradeClose": 0.08,
     "lateTime": 130,
     "latePenalty": 0.3,
-    "postPlantScale": 0.9,
-    "postPlantBase": 0.3,
+    "postPlantScale": 0.6,
+    "postPlantBase": 0.0,
     "postDefPenalty": 0.1
   },
   "prep": {
@@ -152,12 +152,12 @@
   },
   "post": {
     "wave": 9,
-    "defuseFrom": 18,
-    "defuseForce": 27,
+    "defuseFrom": 14,
+    "defuseForce": 22,
     "defuseChance": 0.8,
     "defPostCover": 0.35,
     "supportDef": 0.1,
-    "defuseBase": 0.2,
+    "defuseBase": 0.6,
     "defuseScale": 0.9,
     "stageSplit": 27
   },

@@ -20,10 +20,10 @@
           "mods": {
             "time": 20,
             "encounter": 0.7,
-            "foeAim": 0.3,
+            "foeAim": 0.2,
             "info": -0.4,
-            "carry.denyMul": 0.58,
-            "carry.aHBMul": 0.65
+            "carry.denyMul": 0.5,
+            "carry.aHBMul": 0.55
           }
         },
         "flank": {
