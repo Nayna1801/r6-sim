@@ -1,0 +1,310 @@
+[
+ {
+  "map": "Consulate",
+  "sites": [
+   {
+    "id": "2F-consul",
+    "floor": "2F",
+    "rooms": [
+     "Consul Office",
+     "Meeting Room"
+    ]
+   },
+   {
+    "id": "1F-piano",
+    "floor": "1F",
+    "rooms": [
+     "Piano Room",
+     "Exposition Room"
+    ]
+   },
+   {
+    "id": "1F-B-tellers",
+    "floor": "1F/B",
+    "rooms": [
+     "Tellers",
+     "Servers"
+    ]
+   },
+   {
+    "id": "B-garage",
+    "floor": "B",
+    "rooms": [
+     "Garage",
+     "Cafeteria"
+    ]
+   }
+  ],
+  "spawns": [],
+  "features": [
+   "3 pisos (sotano, 1F, 2F) + tejado",
+   "Muchas ventanas y suelos/techos destruibles; hatches hacia sitios objetivo (el wiki lista 9 en la version original)",
+   "Camaras exteriores originales: Front Alley, Garage Way",
+   "Rework Dread Factor (Y8S2, 2023) con nuevos sitios y spawns; modernizacion visual solo cosmetica en 2025"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://stratbook.gg/maps/consulate",
+   "https://siterep.gg/maps/consulate/",
+   "https://timesaver.gg/blog/rainbow-six-siege-consulate-callouts-y11s3",
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=Consulate&prop=wikitext&format=json&redirects=1"
+  ],
+  "notes": "Sitios actuales (post-rework) coinciden en 3 fuentes (stratbook, siterep, timesaver); el wiki Fandom solo lista la version ORIGINAL (Consul/Meeting, Lobby/Press, Garage/Cafeteria, Tellers/Archives) y diverge en 1F. Spawns post-rework NO encontrados: los originales eran Riot Barricade, Police Line, Gas Station, Side Entrance (no confirmados como vigentes); timesaver menciona 3 posiciones exteriores sin nombrarlas. entries y closest_sites = null."
+ },
+ {
+  "map": "District",
+  "sites": [],
+  "spawns": [],
+  "features": [
+   "Mapa exclusivo del modo 6v6 Dual Front, no tiene modo Bomb",
+   "Exteriores jugables; sector neutral central",
+   "El wiki indica que fue retirado en Operation System Override"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=District&prop=wikitext&format=json&redirects=1",
+   "https://siege.gg/news/rainbow-six-siege-x-dual-front"
+  ],
+  "notes": "No existe Bomb en este mapa (sites/spawns = lista vacia, no aplicable). No esta en el pool de Ranked (Hotspawn jun-2026 no lo lista)."
+ },
+ {
+  "map": "Emerald Plains",
+  "sites": [
+   {
+    "id": "2F-ceo",
+    "floor": "2F",
+    "rooms": [
+     "CEO Office",
+     "Administration"
+    ]
+   },
+   {
+    "id": "2F-gallery",
+    "floor": "2F",
+    "rooms": [
+     "Meeting",
+     "Painting Gallery"
+    ]
+   },
+   {
+    "id": "1F-bar",
+    "floor": "1F",
+    "rooms": [
+     "Bar",
+     "Lounge"
+    ]
+   },
+   {
+    "id": "1F-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Kitchen",
+     "Dining"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Front Gate",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Stables",
+    "entries": [
+     "Exterior Stables/Garden",
+     "Exterior Music Terrace (escalera de ladrillo, acceso a 2F Music/Hunting Hall)"
+    ],
+    "closest_sites": null
+   },
+   {
+    "name": "Golf Course",
+    "entries": [
+     "Exterior Back Yard",
+     "Exterior Delivery Area",
+     "1F Back Entrance",
+     "Rappel a balcon 2F Library / Exterior Terrace / Archive Balcony"
+    ],
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 pisos + tejado",
+   "Mapa grande con mucho espacio abierto",
+   "Hatch en tejado (Roof Hatch); balcon Library accesible desde tejado",
+   "Camaras exteriores: Back Yard, Delivery Area, Side Alley, Guest Parking",
+   "Vault 2F con pared destruible a pasadizo de dron"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=Emerald_Plains&prop=wikitext&format=json&redirects=1",
+   "https://siterep.gg/maps/emerald-plains/",
+   "https://siege.gg/news/what-are-the-best-bomb-sites-in-emerald-plains"
+  ],
+  "notes": "Pares de sitios de siterep.gg y siege.gg (siege.gg nombra 'Painting/Gallery' y 'Gallery/Meeting' segun articulo; el wiki lista 8 salas: 1F Bar/Kitchen/Dining/Lounge, 2F Administration/Meeting/CEO Office/Painting Gallery). Conflicto de ranked: siege.gg dijo que salio de Ranked en Y10S4 (dic-2025) pero Hotspawn (17-jun-2026) la lista como activa. Entradas de Front Gate y closest_sites no hallados (null)."
+ },
+ {
+  "map": "Favela",
+  "sites": [
+   {
+    "id": "2F-football",
+    "floor": "2F?",
+    "rooms": [
+     "Football Bedroom",
+     "Football Office"
+    ]
+   },
+   {
+    "id": "2F-3F-meth",
+    "floor": "2F/3F",
+    "rooms": [
+     "Meth Lab",
+     "Packaging Room"
+    ]
+   },
+   {
+    "id": "1F-2F-aunt",
+    "floor": "1F/2F",
+    "rooms": [
+     "Aunt's Apartment",
+     "Aunt's Bedroom"
+    ]
+   },
+   {
+    "id": "1F-biker",
+    "floor": "1F",
+    "rooms": [
+     "Biker's Apartment",
+     "Biker's Bedroom"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Market",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "School Alley",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Rooftops",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Street",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Mapa mediano, 3 pisos + tejado; solo de noche",
+   "Hatches: Packaging Room > Meth Lab; Football Office > Biker's Bedroom (el wiki dice '2 Hatches')",
+   "Roof accesible via Market Rooftops/School Rooftops; hatch del tejado a Kids Room 2F",
+   "Camaras exteriores: Access Alley, Back Alley, Courtyard, Football Pitch, Street, School Alley",
+   "Rework Y6S2 North Star: menos paredes destruibles exteriores y menos spawn peeks"
+  ],
+  "ranked": false,
+  "confidence": "baja",
+  "sources": [
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=Favela&prop=wikitext&format=json&redirects=1",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://www.pcgamer.com/uk/favela-was-rainbow-six-sieges-most-hated-map-now-its-coming-to-ranked"
+  ],
+  "notes": "Pares de sitios deducidos del texto del wiki (cada sala dice 'la otra bomba esta en X'); pisos exactos de Football y Biker's no confirmados. Los nombres de spawn son 'potenciales spawns' del wiki (Rooftops, Market, School Alley; Street es cobertura de atacantes, dudoso). No esta en el pool Ranked de Hotspawn jun-2026 (entro a Ranked en Y6S2 pero ya no figura). entries/closest_sites = null."
+ },
+ {
+  "map": "Fort Truth",
+  "sites": [],
+  "spawns": [],
+  "features": [
+   "Mapa del evento Showdown (3v3 Secure Area), tambien Showdown: Back to the West y Snipers (Arcade)",
+   "Sin modo Bomb"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=Fort_Truth&prop=wikitext&format=json&redirects=1"
+  ],
+  "notes": "No es mapa de Bomb ni de Ranked; no hay sitios/spawns aplicables."
+ },
+ {
+  "map": "Fortress",
+  "sites": [
+   {
+    "id": "2F-dorm",
+    "floor": "2F",
+    "rooms": [
+     "Dormitory",
+     "Games Room"
+    ]
+   },
+   {
+    "id": "2F-commander",
+    "floor": "2F",
+    "rooms": [
+     "Commander's Office",
+     "Bathroom"
+    ]
+   },
+   {
+    "id": "1F-hammam",
+    "floor": "1F",
+    "rooms": [
+     "Hammam",
+     "Sitting Room"
+    ]
+   },
+   {
+    "id": "1F-waiting",
+    "floor": "1F",
+    "rooms": [
+     "Waiting Room",
+     "Cafeteria"
+    ]
+   }
+  ],
+  "spawns": [],
+  "features": [
+   "1F, 2F y tejado (kasbah marroqui)",
+   "Rework en Operation Tenfold Pursuit (Y10S4, dic-2025): menos pasillos, sitios equilibrados, mejores entradas de atacantes, Courtyard convertido en zona exterior",
+   "Tejado con mucho acceso"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://stratbook.gg/maps/fortress",
+   "https://siterep.gg/maps/fortress/",
+   "https://siege.gg/su/fortress-to-be-reworked-in-rainbow-six-siege-x-operation-tenfold-pursuit",
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=Fortress&prop=wikitext&format=json&redirects=1"
+  ],
+  "notes": "Sitios coinciden en stratbook y siterep (post-rework). Spawns de atacantes post-rework NO encontrados; el wiki Fandom esta desactualizado (pre-rework, stub). entries/closest_sites = null."
+ },
+ {
+  "map": "Hereford Base",
+  "sites": [],
+  "spawns": [],
+  "features": [
+   "Rework en Operation Grim Sky (sep-2018): pisos mas grandes, mas suelos/paredes destruibles, nuevas escaleras y hatches",
+   "Existio un Hereford Base (Original) y un Hereford Base (Rework)"
+  ],
+  "ranked": false,
+  "confidence": "baja",
+  "sources": [
+   "https://rainbowsix.fandom.com/api.php?action=parse&page=Hereford_Base&prop=wikitext&format=json&redirects=1",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/seasons/grimsky"
+  ],
+  "notes": "Sitios y spawns no encontrados: la pagina wiki Hereford_Base es un stub y la de Rework devolvio 402. No aparece en el pool Ranked de Hotspawn (jun-2026); guildorder.com la lista como activa (fuente poco fiable, no confirmada). Datos = vacio por falta de fuente, no por inexistencia de Bomb."
+ }
+]

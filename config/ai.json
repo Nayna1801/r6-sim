@@ -1,0 +1,17 @@
+{
+  "_doc": "Parametros de la IA rival. Sus decisiones se evaluan con simulaciones del propio motor.",
+  "sims": 14,
+  "noise": 0.15,
+  "roamerWeights": [0.3, 0.45, 0.25],
+  "huntChance": 0.35,
+  "reinfProfiles": [
+    { "site": 5, "entry": 3, "hatch": 2 },
+    { "site": 6, "entry": 2, "hatch": 2 },
+    { "site": 4, "entry": 4, "hatch": 2 },
+    { "site": 7, "entry": 2, "hatch": 1 }
+  ],
+  "roles": { "intelTop": 2, "flankMin": 2, "supportMin": 2 },
+  "value": { "material": 1, "plantedBonus": 1.2, "timePressure": 1, "win": 10 },
+  "pickSims": 30,
+  "spawnTimeWeight": 0.01
+}

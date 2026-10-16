@@ -1,0 +1,274 @@
+{
+  "_doc": "Decisiones por fase. dec[fase][bando][grupo][opcion] = { mods, requires }. Claves de mods: aim (bono propio en duelos de la fase), foeAim (bono al rival por exposicion), trade (suma a la prob. de trade), time (segundos de la fase o de cada oleada), encounter (multiplicador de encuentros), info (delta de ventaja de informacion), duels (oleadas/duelos extra), clear/smoke (bono de utilidad), flank (bono de flanqueo), post (control post-plant), defuse (bono al intento de desactivar), carry.X (efecto que persiste a fases posteriores; *Mul multiplica). Los textos viven en locales/*.json con claves dec.<fase>.<bando>.<grupo>.<opcion>[.desc].",
+  "phases": [
+    "early",
+    "entry",
+    "site",
+    "plant",
+    "post"
+  ],
+  "early": {
+    "att": {
+      "approach": {
+        "standard": {
+          "mods": {
+            "time": 45,
+            "encounter": 1
+          }
+        },
+        "rush": {
+          "mods": {
+            "time": 20,
+            "encounter": 0.7,
+            "foeAim": 0.3,
+            "info": -0.4,
+            "carry.denyMul": 0.58,
+            "carry.aHBMul": 0.65
+          }
+        },
+        "flank": {
+          "mods": {
+            "time": 60,
+            "encounter": 1.5,
+            "aim": 0.2,
+            "carry.splitAtt": 1
+          },
+          "requires": {
+            "minAlive": 3
+          }
+        }
+      }
+    },
+    "def": {
+      "stance": {
+        "hold": {
+          "mods": {
+            "encounter": 0.4,
+            "carry.setupAim": 0.15
+          }
+        },
+        "contest": {
+          "mods": {
+            "encounter": 1.3,
+            "aim": 0.3
+          }
+        },
+        "hunt": {
+          "mods": {
+            "encounter": 0.9,
+            "info": -0.25
+          }
+        }
+      }
+    }
+  },
+  "entry": {
+    "att": {
+      "route": {
+        "ground": {
+          "mods": {}
+        },
+        "roof": {
+          "mods": {},
+          "requires": {
+            "route": "roof"
+          }
+        },
+        "basement": {
+          "mods": {},
+          "requires": {
+            "route": "basement"
+          }
+        }
+      },
+      "method": {
+        "hard": {
+          "mods": {},
+          "requires": {
+            "needsBreacher": true
+          }
+        },
+        "soft": {
+          "mods": {}
+        },
+        "flash": {
+          "mods": {
+            "clear": 0.22,
+            "smoke": 0.25
+          }
+        }
+      }
+    },
+    "def": {
+      "watch": {
+        "none": {
+          "mods": {}
+        },
+        "ground": {
+          "mods": {}
+        },
+        "roof": {
+          "mods": {}
+        },
+        "basement": {
+          "mods": {}
+        }
+      },
+      "stance": {
+        "hold": {
+          "mods": {
+            "aim": 0.15,
+            "trade": -0.02
+          }
+        },
+        "crossfire": {
+          "mods": {
+            "aim": 0.25,
+            "foeAim": 0.1
+          }
+        },
+        "fallback": {
+          "mods": {
+            "aim": -0.1,
+            "trade": -0.04,
+            "time": 15
+          }
+        }
+      }
+    }
+  },
+  "site": {
+    "att": {
+      "style": {
+        "methodical": {
+          "mods": {
+            "time": 14,
+            "clear": 0.2,
+            "trade": -0.03
+          }
+        },
+        "aggressive": {
+          "mods": {
+            "time": 8,
+            "aim": 0.25,
+            "trade": 0.05
+          }
+        },
+        "split": {
+          "mods": {
+            "time": 12,
+            "aim": 0.1,
+            "flank": 0.3
+          },
+          "requires": {
+            "minAlive": 3
+          }
+        }
+      }
+    },
+    "def": {
+      "stance": {
+        "hold": {
+          "mods": {
+            "aim": 0.15,
+            "trade": -0.02
+          }
+        },
+        "peek": {
+          "mods": {
+            "aim": 0.3,
+            "trade": 0.06
+          }
+        },
+        "bait": {
+          "mods": {
+            "aim": -0.1,
+            "trade": -0.04,
+            "time": 8
+          }
+        }
+      }
+    }
+  },
+  "plant": {
+    "att": {
+      "action": {
+        "plant": {
+          "mods": {}
+        },
+        "clear": {
+          "mods": {
+            "time": 13,
+            "clear": 0.15
+          }
+        }
+      }
+    },
+    "def": {
+      "stance": {
+        "deny": {
+          "mods": {
+            "aim": 0.3,
+            "trade": 0.04
+          }
+        },
+        "bait": {
+          "mods": {
+            "aim": -0.05,
+            "defuse": 0.15
+          }
+        }
+      }
+    }
+  },
+  "post": {
+    "att": {
+      "stance": {
+        "hold": {
+          "mods": {
+            "post": 0.3
+          }
+        },
+        "spread": {
+          "mods": {
+            "post": 0.15,
+            "aim": 0.1
+          }
+        },
+        "flank": {
+          "mods": {
+            "post": 0,
+            "flank": 0.35,
+            "aim": 0.05
+          },
+          "requires": {
+            "minAlive": 2
+          }
+        }
+      }
+    },
+    "def": {
+      "stance": {
+        "retake": {
+          "mods": {
+            "aim": 0.25,
+            "trade": 0.05
+          }
+        },
+        "wait": {
+          "mods": {
+            "defuse": 0.2,
+            "aim": 0
+          }
+        },
+        "fake": {
+          "mods": {
+            "aim": 0.1,
+            "defuse": 0.1,
+            "trade": 0.02
+          }
+        }
+      }
+    }
+  }
+}

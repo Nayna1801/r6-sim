@@ -1,0 +1,441 @@
+[
+ {
+  "map": "House",
+  "sites": [
+   {
+    "id": "2F-pink-car",
+    "floor": "2F",
+    "rooms": [
+     "Pink Room",
+     "Car Room"
+    ]
+   },
+   {
+    "id": "2F-master-car",
+    "floor": "2F",
+    "rooms": [
+     "Master Bedroom",
+     "Car Room"
+    ]
+   },
+   {
+    "id": "1F-tv-music",
+    "floor": "1F",
+    "rooms": [
+     "TV Room",
+     "Music Room"
+    ]
+   },
+   {
+    "id": "B-gym-garage",
+    "floor": "B",
+    "rooms": [
+     "Gym",
+     "Garage"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Front Street",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Side Street",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "APC Area",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 2 floors + roof",
+   "Post-rework (Steel Wave) layout: new south wing with TV Room and Music Room site",
+   "Most floors breakable, vertical play viable; hatches added/moved",
+   "Garage: only one destructible door plus a new barricade",
+   "Y11S3 gave House a modernized update (gas pipes, fire extinguishers, reactive lighting); site changes not confirmed"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/House",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://esports.gg/guides/rainbow-six-siege/r6-y11s3-split-fire-noor-legends/"
+  ],
+  "notes": "Fandom lists sites and spawns for the rework (single source). Per-spawn entries and closest_sites not found (null). Wiki says rework only in Quick Match; Hotspawn Y11S2 Ranked pool lists 'Club House' (a different map), not House. The Fandom page may predate the Y11S3 modernization. Ranked pool checked for Y11S2 (Jun 2026); Y11S3 pool not confirmed."
+ },
+ {
+  "map": "Kafe Dostoyevsky",
+  "sites": [
+   {
+    "id": "3F-cocktail-bar",
+    "floor": "3F",
+    "rooms": [
+     "Cocktail Lounge",
+     "Bar"
+    ]
+   },
+   {
+    "id": "2F-mining-fireplace",
+    "floor": "2F",
+    "rooms": [
+     "Mining Room",
+     "Fireplace Hall"
+    ]
+   },
+   {
+    "id": "2F-reading-fireplace",
+    "floor": "2F",
+    "rooms": [
+     "Reading Room",
+     "Fireplace Hall"
+    ]
+   },
+   {
+    "id": "1F-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Kitchen Service",
+     "Kitchen Cooking"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Christmas Market",
+    "entries": [
+     "Lobby into 1F Kitchen",
+     "3F Bar balcony",
+     "White Stairs toward Mining Room"
+    ],
+    "closest_sites": [
+     "1F-kitchen",
+     "2F-mining-fireplace"
+    ]
+   },
+   {
+    "name": "Park",
+    "entries": [
+     "2F staircase entries",
+     "Secondary route toward River Docks side"
+    ],
+    "closest_sites": [
+     "2F-mining-fireplace",
+     "2F-reading-fireplace"
+    ]
+   },
+   {
+    "name": "River Docks",
+    "entries": [
+     "1F Staff Entrance",
+     "Ladder/window to 2F",
+     "East Staircase toward Reading Room"
+    ],
+    "closest_sites": [
+     "1F-kitchen",
+     "2F-reading-fireplace"
+    ]
+   }
+  ],
+  "features": [
+   "Basement + 3 floors + roof",
+   "6 hatches (Fandom); Kitchen Hatch above Kitchen Service",
+   "Roof skylights drop into Cocktail Lounge and above Fireplace Hall",
+   "Terraces/balconies on 2F; very soft/destructible",
+   "Stairs: Red, White, Main",
+   "Exterior cameras on 3F balcony and kitchen window (timesaver guide)"
+  ],
+  "ranked": true,
+  "confidence": "alta",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Kafe_Dostoyevsky",
+   "https://timesaver.gg/blog/rainbow-six-siege-kafe-dostoyevsky-callouts-y11s3",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sites and spawns agree between Fandom and timesaver.gg. Entries/closest_sites come from one third-party guide, which infers closeness from routes (not explicit). Ranked per Hotspawn Y11S2 (Jun 2026)."
+ },
+ {
+  "map": "Kanal",
+  "sites": [
+   {
+    "id": "2F-server-radar",
+    "floor": "2F",
+    "rooms": [
+     "Server Room",
+     "Radar Room"
+    ]
+   },
+   {
+    "id": "1F-security-maps",
+    "floor": "1F",
+    "rooms": [
+     "Security Room",
+     "Maps Room"
+    ]
+   },
+   {
+    "id": "1F-coast-lounge",
+    "floor": "1F",
+    "rooms": [
+     "Coast Guard Meeting Room",
+     "Lounge"
+    ]
+   },
+   {
+    "id": "B1-supply-kayaks",
+    "floor": "B1",
+    "rooms": [
+     "Supply Room",
+     "Kayaks"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Floating Dock",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Sailboats",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Construction Site",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 2 floors + roof; several buildings linked by bridges over canals (Ember Rise rework added a bridge and 2 staircases)",
+   "5 hatches",
+   "Color-coded areas"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Kanal",
+   "https://liquipedia.net/rainbowsix/Kanal (search snippet; direct fetch blocked)",
+   "https://siege.gg/news/rainbow-six-siege-ranked-map-pool-update-kanal-outback-skyscraper-and-theme-park-added",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sites from Fandom (post-rework). Spawns from Liquipedia snippet and an older Ubisoft guide (pre-rework names; verify). No entries or closest_sites found (null). Ranked: Kanal returned Apr 2026 (Y11S1.2) but Hotspawn says it was removed at the start of Y11S2; Y11S3 pool unknown, so ranked=true is unreliable."
+ },
+ {
+  "map": "Lair",
+  "sites": [
+   {
+    "id": "2F-master-r6",
+    "floor": "2F",
+    "rooms": [
+     "Master Office",
+     "R6 Room"
+    ]
+   },
+   {
+    "id": "1F-bunks-briefing",
+    "floor": "1F",
+    "rooms": [
+     "Bunks",
+     "Briefing"
+    ]
+   },
+   {
+    "id": "1F-armory-weapon",
+    "floor": "1F",
+    "rooms": [
+     "Armory",
+     "Weapon Maintenance"
+    ]
+   },
+   {
+    "id": "B-lab",
+    "floor": "B",
+    "rooms": [
+     "Lab",
+     "Lab Support"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Shooting Range",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Gate",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Lift",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Dock",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 2 floors + roof; strongly vertical",
+   "Reworked Sep 2025 (Operation High Stakes)",
+   "Stairs: Red and Main",
+   "Bulletproof cameras around Master/R6",
+   "Hatch count not found"
+  ],
+  "ranked": true,
+  "confidence": "baja",
+  "sources": [
+   "https://liquipedia.net/rainbowsix/Lair (search snippet; direct fetch blocked)",
+   "https://alviran.net/blog/r6-lair-callouts-guide-2026/",
+   "https://www.ubisoft.com/en-gb/game/rainbow-six/siege/game-info/maps/lair",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Discrepancy: the Liquipedia snippet lists only 2 site pairs (Master/R6, Bunks/Briefing); alviran lists 4 (adds Armory/Weapon Maintenance and Lab/Lab Support, floors and exact room names inferred). Fandom page is a stub. Entries and closest_sites null."
+ },
+ {
+  "map": "Neighborhood",
+  "sites": null,
+  "spawns": null,
+  "features": [
+   "Event-only map (Sugar Fright, 5v5 Sweet Hunt), remake of Streets",
+   "Not a Bomb mode map"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Neighborhood"
+  ],
+  "notes": "Not in Bomb/Ranked, so no bomb sites or attacker spawns exist; all data null. Fandom page is a stub."
+ },
+ {
+  "map": "Nighthaven Labs",
+  "sites": [
+   {
+    "id": "2F-command-server",
+    "floor": "2F",
+    "rooms": [
+     "Command",
+     "Server"
+    ]
+   },
+   {
+    "id": "1F-control-storage",
+    "floor": "1F",
+    "rooms": [
+     "Control",
+     "Storage"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Park",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Generator",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Helipad",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 2 floors + roof; Singapore offshore HQ",
+   "Many entry and breach points",
+   "Reworked Sep 2025 (per Ubisoft page)",
+   "Hatch/camera data not found"
+  ],
+  "ranked": true,
+  "confidence": "baja",
+  "sources": [
+   "https://liquipedia.net/rainbowsix/Nighthaven_Labs (search snippet; direct fetch blocked)",
+   "https://siege.gg/news/rainbow-six-siege-operation-solar-raid-new-map-nighthaven-labs",
+   "https://www.ubisoft.com/en-gb/game/rainbow-six/siege/game-info/maps/nighthaven-labs",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sources conflict: pre-release descriptions (NME, siege.gg) give 1 basement site plus 2 on 1F, while the Liquipedia snippet lists 2F Command/Server and 1F Control/Storage; a search summary also mentioned further pairs (1F kitchen/cafeteria, basement tank/assembly) that I could not confirm. The sites list is likely incomplete and may predate the Sep 2025 rework. Entries/closest_sites null."
+ },
+ {
+  "map": "Oregon",
+  "sites": [
+   {
+    "id": "2F-dorms-kids",
+    "floor": "2F",
+    "rooms": [
+     "Main Dorms Hall",
+     "Kids Dormitory"
+    ]
+   },
+   {
+    "id": "1F-dining-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Dining Hall",
+     "Kitchen"
+    ]
+   },
+   {
+    "id": "1F-meeting-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Meeting Hall",
+     "Kitchen"
+    ]
+   },
+   {
+    "id": "B-laundry-supply",
+    "floor": "B",
+    "rooms": [
+     "Laundry Room",
+     "Supply Room"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Junkyard",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Street",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Construction Site",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 2 floors + roof; small and large towers",
+   "6 hatches",
+   "Many soft walls; hard breachers key",
+   "Post-Void Edge rework (expanded small tower, extended basement)"
+  ],
+  "ranked": true,
+  "confidence": "alta",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Oregon",
+   "https://alviran.net/blog/r6-oregon-callouts-guide-2026/",
+   "https://liquipedia.net/rainbowsix/Oregon (search snippet)",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sites agree between Fandom and alviran. Spawns from Liquipedia snippet and Ubisoft guide. Entries/closest_sites null. Ranked per Hotspawn Y11S2; Y11S3 pool not confirmed."
+ }
+]

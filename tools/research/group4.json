@@ -1,0 +1,507 @@
+[
+ {
+  "map": "Outback",
+  "sites": [
+   {
+    "id": "2F-piano-laundry",
+    "floor": "2F",
+    "rooms": [
+     "Piano Room",
+     "Laundry Room"
+    ]
+   },
+   {
+    "id": "2F-party-office",
+    "floor": "2F",
+    "rooms": [
+     "Party Room",
+     "Office"
+    ]
+   },
+   {
+    "id": "1F-bedrooms",
+    "floor": "1F",
+    "rooms": [
+     "Green Bedroom",
+     "Red Bedroom"
+    ]
+   },
+   {
+    "id": "1F-mechanic-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Mechanic Shop",
+     "Kitchen"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Fuel Pumps",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Storage Yard",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Camping",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 pisos + techo",
+   "3 hatches",
+   "muy destructible, muchas ventanas (spawn peeks)",
+   "mezzanines en Garage y Restaurant",
+   "version post-rework High Calibre (2021)"
+  ],
+  "ranked": true,
+  "confidence": "alta",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Outback",
+   "https://liquipedia.net/rainbowsix/Outback",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026",
+   "https://siege.gg/news/rainbow-six-siege-ranked-map-pool-update-kanal-outback-skyscraper-and-theme-park-added"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta). Rework: 1F Mechanic Shop ahora comparte sitio con 1F Kitchen; Liquipedia nombra el spawn 'Fuel Pump'."
+ },
+ {
+  "map": "Presidential Plane",
+  "sites": [
+   {
+    "id": "2F-office-meeting",
+    "floor": "2F",
+    "rooms": [
+     "Executive Office",
+     "Meeting Room"
+    ]
+   },
+   {
+    "id": "2F-bedroom-staff",
+    "floor": "2F",
+    "rooms": [
+     "Executive Bedroom",
+     "Staff Section"
+    ]
+   },
+   {
+    "id": "1F-cargo-luggage",
+    "floor": "1F",
+    "rooms": [
+     "Cargo Hold",
+     "Luggage Hold"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Official Entrance",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Reporter Entrance",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Service Entrance",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "3 plantas utiles (cargo, 1F, 2F) + techo",
+   "7 trap doors",
+   "ventanas casi indestructibles",
+   "pocas opciones de breach"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Presidential_Plane",
+   "https://liquipedia.net/rainbowsix/Presidential_Plane"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Retirado de Ranked en Update 2.3.0 (sep 2017) segun Fandom; Liquipedia solo lo lista en Casual. Solo 3 sitios de bomba."
+ },
+ {
+  "map": "Skyscraper",
+  "sites": [
+   {
+    "id": "2F-tea-karaoke",
+    "floor": "2F",
+    "rooms": [
+     "Tea Room",
+     "Karaoke"
+    ]
+   },
+   {
+    "id": "2F-office-exhibition",
+    "floor": "2F",
+    "rooms": [
+     "Work Office",
+     "Exhibition Room"
+    ]
+   },
+   {
+    "id": "1F-bbq-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "BBQ",
+     "Kitchen"
+    ]
+   },
+   {
+    "id": "1F-bedroom-bathroom",
+    "floor": "1F",
+    "rooms": [
+     "Bedroom",
+     "Bathroom"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Helipad",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Tower",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Ventilation Units",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 pisos + techo",
+   "2 hatches (version original, sin verificar post-rework)",
+   "rework Neon Dawn: quitados balcones O/N del 2F, añadidos 2F Shrine y Dragon",
+   "muchas paredes exteriores blandas ligadas a sitios"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Skyscraper",
+   "https://liquipedia.net/rainbowsix/Skyscraper",
+   "https://siege.gg/news/rainbow-six-siege-ranked-map-pool-update-kanal-outback-skyscraper-and-theme-park-added",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta). Fandom lista 'Exhibition Room & Office', Liquipedia 'Work Office & Exhibition'. Fandom indica que el 3er spawn tuvo nombre vacio tras el rework (arreglado en Twin Shells); hatches post-rework no confirmados."
+ },
+ {
+  "map": "Stadium",
+  "sites": null,
+  "spawns": [
+   {
+    "name": "Catwalk",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "West Spawn",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "East Spawn",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Utilities",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "solo modo Bomb",
+   "cristal bulletproof indestructible",
+   "kill house central hecha de piezas de Coastline y Border",
+   "existen versiones Alpha, Bravo y 2020",
+   "attackers pueden rapelar desde plataforma, spawnear en suelo o sotano"
+  ],
+  "ranked": false,
+  "confidence": "baja",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Stadium",
+   "https://liquipedia.net/rainbowsix/Stadium",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sitios: null. Liquipedia (pagina 'under construction') lista pares como Piano Room/Living Room/Kids' Dormitory, que parecen copiados de otros mapas y no son fiables; Fandom no lista sitios. No distingue Alpha/Bravo. Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Fuera de la lista Ranked de Hotspawn."
+ },
+ {
+  "map": "Theme Park",
+  "sites": [
+   {
+    "id": "2F-initiation-office",
+    "floor": "2F",
+    "rooms": [
+     "Initiation Room",
+     "Office"
+    ]
+   },
+   {
+    "id": "2F-bunk-daycare",
+    "floor": "2F",
+    "rooms": [
+     "Bunk",
+     "Day Care"
+    ]
+   },
+   {
+    "id": "1F-armory-throne",
+    "floor": "1F",
+    "rooms": [
+     "Armory",
+     "Throne Room"
+    ]
+   },
+   {
+    "id": "1F-lab-storage",
+    "floor": "1F",
+    "rooms": [
+     "Lab",
+     "Storage"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Main Entrance",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Teacups",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Bumper Cars",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 pisos + techo",
+   "5 hatches",
+   "rework Shifting Tides: eliminada plataforma de tren/rail, menos spawn peeks",
+   "Yellow Corridor y Bunk conectados a Office/Initiation por paredes rompibles"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Theme_Park",
+   "https://liquipedia.net/rainbowsix/Theme_Park",
+   "https://siege.gg/news/rainbow-six-siege-ranked-map-pool-update-kanal-outback-skyscraper-and-theme-park-added",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta)."
+ },
+ {
+  "map": "Tower",
+  "sites": [
+   {
+    "id": "2F-gift-lantern",
+    "floor": "2F",
+    "rooms": [
+     "Gift Shop",
+     "Lantern Room"
+    ]
+   },
+   {
+    "id": "2F-media-exhibit",
+    "floor": "2F",
+    "rooms": [
+     "Media Center",
+     "Exhibit Room"
+    ]
+   },
+   {
+    "id": "1F-restaurant-bird",
+    "floor": "1F",
+    "rooms": [
+     "Restaurant",
+     "Bird Room"
+    ]
+   },
+   {
+    "id": "1F-tea-bar",
+    "floor": "1F",
+    "rooms": [
+     "Tea Room",
+     "Bar"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "North Roof",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "South Roof",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 pisos + techo (spawns en azoteas, rapel)",
+   "9 trap doors",
+   "sin rework conocido en las fuentes"
+  ],
+  "ranked": false,
+  "confidence": "alta",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Tower",
+   "https://liquipedia.net/rainbowsix/Tower"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Retirado de Ranked en Update 3.2.0 (jun 2018) segun Fandom; hoy solo Casual segun Liquipedia. Solo 2 spawns."
+ },
+ {
+  "map": "Villa",
+  "sites": [
+   {
+    "id": "2F-aviator-games",
+    "floor": "2F",
+    "rooms": [
+     "Aviator Room",
+     "Games Room"
+    ]
+   },
+   {
+    "id": "2F-trophy-statuary",
+    "floor": "2F",
+    "rooms": [
+     "Trophy Room",
+     "Statuary Room"
+    ]
+   },
+   {
+    "id": "1F-living-library",
+    "floor": "1F",
+    "rooms": [
+     "Living Room",
+     "Library"
+    ]
+   },
+   {
+    "id": "1F-dining-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Dining Room",
+     "Kitchen"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Main Entrance (Main Road)",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Fountain",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Ruins",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 pisos + sotano + techo",
+   "6 hatches",
+   "torre en Ruins accesible",
+   "diurno solo"
+  ],
+  "ranked": false,
+  "confidence": "baja",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Villa",
+   "https://liquipedia.net/rainbowsix/Villa",
+   "https://siege.gg/news/rainbow-six-siege-ranked-map-pool-update-kanal-outback-skyscraper-and-theme-park-added",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Ranked: lista Hotspawn (17-jun-2026, Y11S2 System Override, 14 mapas) incluye solo Outback de este grupo; siege.gg (16-abr-2026) añadio Outback, Skyscraper y Theme Park y ya tenia Villa (17 mapas). Discrepancia: la fuente mas reciente no lista Skyscraper, Theme Park ni Villa (posible rotacion o lista incompleta). Discrepancia en sitios: Fandom da 1F Living Room/Library y 1F Dining/Kitchen; Liquipedia da 1F Dining/Kitchen y Basement Art Storage/Old Office (sin Living/Library). Se uso Fandom (el sotano aparece en Hostage/Secure en Fandom); sin verificar la version actual. Villa si estaba en Ranked en abril 2026 (siege.gg)."
+ },
+ {
+  "map": "Yacht",
+  "sites": [
+   {
+    "id": "4F-cockpit-maps",
+    "floor": "4F",
+    "rooms": [
+     "Cockpit",
+     "Maps Room"
+    ]
+   },
+   {
+    "id": "2F-kitchen-engine",
+    "floor": "2F",
+    "rooms": [
+     "Kitchen",
+     "Engine Control"
+    ]
+   },
+   {
+    "id": "2F-cafeteria-dorm",
+    "floor": "2F",
+    "rooms": [
+     "Cafeteria",
+     "Staff Dormitory"
+    ]
+   },
+   {
+    "id": "1F-server-storage",
+    "floor": "1F",
+    "rooms": [
+     "Server Room",
+     "Engine Storage"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Submarine",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Zodiac",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Snowmobile",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "5 niveles (sotano a techo, 4F cockpit)",
+   "10 trap doors",
+   "hielo en secciones congeladas",
+   "spawns de submarino/zodiac/moto de nieve"
+  ],
+  "ranked": false,
+  "confidence": "alta",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Yacht",
+   "https://liquipedia.net/rainbowsix/Yacht"
+  ],
+  "notes": "Entradas por spawn y closest_sites: null, ninguna fuente consultada (Fandom, Liquipedia) los detalla. Solo Casual segun Liquipedia; no en lista Ranked. Fandom escribe 'Storage Room', Liquipedia 'Engine Storage'."
+ }
+]

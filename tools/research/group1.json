@@ -1,0 +1,505 @@
+[
+ {
+  "map": "Bank",
+  "sites": [
+   {
+    "id": "2F-ceo",
+    "floor": "2F",
+    "rooms": [
+     "CEO Office",
+     "Executive Lounge"
+    ]
+   },
+   {
+    "id": "1F-openarea",
+    "floor": "1F",
+    "rooms": [
+     "Open Area",
+     "Staff Room"
+    ]
+   },
+   {
+    "id": "1F-tellers",
+    "floor": "1F",
+    "rooms": [
+     "Teller's Office",
+     "Archives"
+    ]
+   },
+   {
+    "id": "B-cctv",
+    "floor": "B",
+    "rooms": [
+     "CCTV Room",
+     "Lockers"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Boulevard",
+    "entries": [
+     "Main Entrance (center-north, camera above police cars)",
+     "Parking (ladder to garage roof)",
+     "Garage / Garage Ramp (drone vent into 0F Vault Lobby)",
+     "Bank High Roof (rappel from Garage Ramp)"
+    ],
+    "closest_sites": null
+   },
+   {
+    "name": "Jewelry",
+    "entries": [
+     "0F Tunnel (open manhole)",
+     "Main Entrance",
+     "Plaza windows into 2F Exec Hallway / CEO / Square Stairs"
+    ],
+    "closest_sites": null
+   },
+   {
+    "name": "Alley",
+    "entries": [
+     "1F Electrical door",
+     "1F Printer window (drone vent)",
+     "Roof of adjacent building then 2F Terrace",
+     "2F Top Square doors / 2F Stock windows"
+    ],
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "B + 1F + 2F + roof (Low Roof and High Roof)",
+   "Hatches: Fandom lists 8; e.g. 1F Lobby hatch leads to B Vault after rework",
+   "Exterior cameras: Plaza, Back Alley, Garage Ramp",
+   "Many soft walls (1F Lobby/Loan/Admin/Kitchen); skylights over 1F Lobby",
+   "Crystal Guard rework (Sep 2021) added Side Alley linking Boulevard and Back Alley"
+  ],
+  "ranked": true,
+  "confidence": "alta",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Bank",
+   "https://liquipedia.net/rainbowsix/Bank",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Site pairs agree between Fandom and Liquipedia (4 pairs). Spawn entries from Fandom Exterior tab. Hatch count 8 not re-verified post-rework. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ },
+ {
+  "map": "Bartlett U.",
+  "sites": [
+   {
+    "id": "2F-trophy",
+    "floor": "2F",
+    "rooms": [
+     "Trophy Room",
+     "Rowing Museum"
+    ]
+   },
+   {
+    "id": "2F-classroom",
+    "floor": "2F",
+    "rooms": [
+     "Classroom",
+     "Upper Library"
+    ]
+   },
+   {
+    "id": "1F-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Kitchen",
+     "Piano Lounge"
+    ]
+   },
+   {
+    "id": "1F-reading",
+    "floor": "1F",
+    "rooms": [
+     "Reading Room",
+     "Lower Library"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Festival",
+    "entries": [
+     "Brick staircase to west Patio (1F Reading, 1F Lobby)",
+     "Open Campus Field to the west (drone vent into 1F Library)"
+    ],
+    "closest_sites": null
+   },
+   {
+    "name": "Main Gate",
+    "entries": [
+     "Front Entrance",
+     "East entrance to Patio",
+     "Rappel from West/East Balcony to 2F Classroom, Compass, Front Office, Office",
+     "Garden Pass (drone vent into 1F Piano)"
+    ],
+    "closest_sites": null
+   },
+   {
+    "name": "Courtyard",
+    "entries": [
+     "Archway to Back Alley",
+     "Terrace (1F Library, Fireplace, Dining)",
+     "Parking / Kitchen Roof (via 2F Trophy window)"
+    ],
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 floors + roof; small CQB-focused map",
+   "7 hatches (per wiki)",
+   "7 camera locations",
+   "Brick soft walls with two-layer destruction (post-rework description)",
+   "Cut map: Situations, briefly Quick Match (Red Crow); reworked version only Training Grounds; successor is Emerald Plains"
+  ],
+  "ranked": false,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Bartlett_University",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Single source (Fandom, page tagged Cut). Not in the 14-map ranked pool. Emerald Plains evolved from its rework. Site list from the reworked-version Features section; closest_sites not stated. Liquipedia has no page. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ },
+ {
+  "map": "Border",
+  "sites": [
+   {
+    "id": "2F-armory",
+    "floor": "2F",
+    "rooms": [
+     "Armory Lockers",
+     "Archives"
+    ]
+   },
+   {
+    "id": "1F-workshop",
+    "floor": "1F",
+    "rooms": [
+     "Workshop",
+     "Ventilation Room"
+    ]
+   },
+   {
+    "id": "1F-customs",
+    "floor": "1F",
+    "rooms": [
+     "Customs Inspection",
+     "Supply Room"
+    ]
+   },
+   {
+    "id": "1F-tellers",
+    "floor": "1F",
+    "rooms": [
+     "Tellers",
+     "Bathroom"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "East Vehicle Entrance",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Valley",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "West Vehicle Exit",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 floors + roof",
+   "Fandom says 5 hatches (e.g. 2F Security Room to 1F Customs Inspection / Customs Desk)",
+   "Crimson Heist rework (2021): 1F Bathroom extended over Tellers exterior walls; fewer soft walls between Passport Check and Customs Inspection; 2F Archives extended into Offices",
+   "Very open and destructible"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Border",
+   "https://liquipedia.net/rainbowsix/Border",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sites agree on Fandom and Liquipedia. Spawn names agree, but neither wiki describes entries per spawn, so entries/closest_sites are null. Cameras not found. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ },
+ {
+  "map": "Calypso Casino",
+  "sites": [
+   {
+    "id": "2F-cigar",
+    "floor": "2F",
+    "rooms": [
+     "Cigar Room",
+     "Pool"
+    ]
+   },
+   {
+    "id": "1F-blackjack",
+    "floor": "1F",
+    "rooms": [
+     "Blackjack",
+     "Poker"
+    ]
+   },
+   {
+    "id": "1F-bar",
+    "floor": "1F",
+    "rooms": [
+     "Bar",
+     "Betting"
+    ]
+   },
+   {
+    "id": "B-cctv",
+    "floor": "B",
+    "rooms": [
+     "CCTV",
+     "Vault Checkpoint"
+    ]
+   }
+  ],
+  "spawns": [],
+  "features": [
+   "Las Vegas casino; roof crane to rappel from",
+   "Vertical drone vents",
+   "Basement Vault breach",
+   "Destructible elements",
+   "Hatch above 1F Bar; hatch above Blackjack/Poker camera area; hatch above Castle Break Room (Gamerant)",
+   "Callouts seen: Aquarium Hallway, Humidor, Tequila, Mezzanine Entrance, Kitchen, Registration"
+  ],
+  "ranked": true,
+  "confidence": "baja",
+  "sources": [
+   "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/maps/calypso-casino",
+   "https://www.r6prep.com/defender/site-setups/calypso-casino",
+   "https://gamerant.com/rainbow-six-siege-calypso-casino-best-meta-strategy/",
+   "https://rainbowsix.fandom.com/wiki/Calypso_Casino_(Siege)",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "New map (System Override, June 2026). Fandom page is an empty stub; Liquipedia page missing/403; Ubisoft page gives no sites or spawns. Site pairs from R6Prep (4 sites), consistent with Gamerant room names, but Gamerant implies Bar/Betting stairs to first floor and Blackjack/Poker 'lower level', so floors are uncertain. ExpCarry names Blackjack, Poker and Basement Vault as sites (conflicting, low quality, not used). Attacker spawn names/entries NOT found in any source: spawns=[] deliberately. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ },
+ {
+  "map": "Chalet",
+  "sites": [
+   {
+    "id": "2F-master",
+    "floor": "2F",
+    "rooms": [
+     "Master Bedroom",
+     "Office"
+    ]
+   },
+   {
+    "id": "1F-bar",
+    "floor": "1F",
+    "rooms": [
+     "Bar",
+     "Gaming Room"
+    ]
+   },
+   {
+    "id": "1F-dining",
+    "floor": "1F",
+    "rooms": [
+     "Dining Room",
+     "Kitchen"
+    ]
+   },
+   {
+    "id": "B-wine",
+    "floor": "B",
+    "rooms": [
+     "Wine Cellar",
+     "Snowmobile Garage"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Front Yard",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Campfire",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Cliffside",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Lakeside",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 1F + 2F + roof (helipad)",
+   "6 hatches (wiki)",
+   "Exterior cameras: Cliffside, Front Yard, Backyard",
+   "Interior cameras: 2F Solarium, 2F Library Stairs, 1F Fireplace/2F Mezzanine, B Snowmobile Garage",
+   "Shadow Legacy rework (Sep 2020)"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Chalet",
+   "https://liquipedia.net/rainbowsix/Chalet",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Fandom and Liquipedia agree on post-Shadow Legacy sites (Liquipedia 'Release' tab shows the older Kitchen + Trophy Room pair). Spawn entries not described on wikis: null. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ },
+ {
+  "map": "Clubhouse",
+  "sites": [
+   {
+    "id": "2F-gym",
+    "floor": "2F",
+    "rooms": [
+     "Gym",
+     "Bedroom"
+    ]
+   },
+   {
+    "id": "2F-cash",
+    "floor": "2F",
+    "rooms": [
+     "CCTV Room",
+     "Cash Room"
+    ]
+   },
+   {
+    "id": "1F-bar",
+    "floor": "1F",
+    "rooms": [
+     "Bar",
+     "Stock Room"
+    ]
+   },
+   {
+    "id": "B-church",
+    "floor": "B",
+    "rooms": [
+     "Church",
+     "Arsenal Room"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Main Gate",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Shipping Dock",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Warehouse",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Construction Site",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "Basement + 1F + 2F + roof",
+   "7 hatches (Fandom)",
+   "Map buffs in Para Bellum (2018) and Crystal Guard (Sep 2021)",
+   "Garage gives access to basement and 2F; bar is focal area"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Clubhouse",
+   "https://liquipedia.net/rainbowsix/Clubhouse",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Liquipedia gives 1F Bar + 1F Stock Room; Fandom lists 'Bar and Stage' (discrepancy, Liquipedia used). Spawn naming differs: Fandom 'Main Gate'/'Shipping Dock' vs Liquipedia 'Main Entrance'/'Shipping Docks'. Entries/closest_sites null. Cameras not found. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ },
+ {
+  "map": "Coastline",
+  "sites": [
+   {
+    "id": "2F-billiards",
+    "floor": "2F",
+    "rooms": [
+     "Billiards Room",
+     "Hookah Lounge"
+    ]
+   },
+   {
+    "id": "2F-theater",
+    "floor": "2F",
+    "rooms": [
+     "Theater",
+     "Penthouse"
+    ]
+   },
+   {
+    "id": "1F-kitchen",
+    "floor": "1F",
+    "rooms": [
+     "Kitchen",
+     "Service Entrance"
+    ]
+   },
+   {
+    "id": "1F-bluebar",
+    "floor": "1F",
+    "rooms": [
+     "Blue Bar",
+     "Sunrise Bar"
+    ]
+   }
+  ],
+  "spawns": [
+   {
+    "name": "Main Entrance",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Pool Side",
+    "entries": null,
+    "closest_sites": null
+   },
+   {
+    "name": "Ruins",
+    "entries": null,
+    "closest_sites": null
+   }
+  ],
+  "features": [
+   "2 floors + roof, no basement",
+   "5 hatches (Fandom)",
+   "Almost every room has exterior doors/windows; high spawn-peek rate",
+   "Only two staircases connect floors; central courtyard exposed from roof",
+   "Crystal Guard rework (Sep 2021)"
+  ],
+  "ranked": true,
+  "confidence": "media",
+  "sources": [
+   "https://rainbowsix.fandom.com/wiki/Coastline",
+   "https://liquipedia.net/rainbowsix/Coastline",
+   "https://www.hotspawn.com/rainbow-six/news/rainbow-six-siege-x-ranked-map-pool-for-2026"
+  ],
+  "notes": "Sites agree on both wikis. Spawn entries not described: null. Exterior cameras not found. Ranked per Hotspawn (17 Jun 2026, Y11S2 Operation System Override, 14 maps). Wikis do not state closest_sites for any spawn, so null."
+ }
+]

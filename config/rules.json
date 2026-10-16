@@ -1,0 +1,33 @@
+{
+  "_doc": "Reglas de formato y tiempos. Fuente: wiki Rainbow Six (Ranked, Bomb, Pick and Ban, Reinforcement, Drone). La wiki describe el formato Ranked de forma contradictoria (ver _note_format); es una aproximacion.",
+  "_note_format": "Wiki Ranked: 'best of 5 rounds': minimo 4 rondas ganadas; si ambos ganan 3 -> prorroga hasta 5 en total; cambio de bando en la ronda 4 y tras cada ronda de prorroga.",
+  "format": {
+    "squad": 5,
+    "roundsToWin": 4,
+    "roundsPerHalf": 3,
+    "overtimeAt": 3,
+    "overtimeTarget": 5,
+    "maxBansPerSide": 3
+  },
+  "timers": {
+    "ban": 15,
+    "pick": 60,
+    "prep": 45,
+    "action": 180,
+    "plant": 7.5,
+    "defuse": 7.5,
+    "postPlant": 45
+  },
+  "reinforcements": {
+    "pool": 10,
+    "buckets": ["site", "entry", "hatch"]
+  },
+  "draft": {
+    "modes": ["full", "pool"],
+    "poolSize": 8
+  },
+  "defRoles": ["anchor", "rotate", "roam", "hunt"],
+  "attRoles": ["entry", "breach", "intel", "flank", "support"],
+  "routes": ["ground", "roof", "basement"],
+  "lanes": ["front", "side", "rear"]
+}
