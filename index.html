@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R6 Draft Sim</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><b>R6</b> DRAFT<span>SIM</span></div>
+  <div class="score" id="score"></div>
+  <button id="btnReset" class="ghost">Reiniciar marcador</button>
+  <button id="btnMenu" class="ghost">Menu</button>
+</header>
+
+<main id="app">
+  <!-- MENU -->
+  <section id="screenMenu" class="screen">
+    <div class="menu">
+      <h1>R6 <span>DRAFT SIM</span></h1>
+      <p class="hint">Elige operadores, tactica y sitio. El motor simula la ronda segun las mecanicas.</p>
+      <div class="menugrid">
+        <button class="mbtn" id="btnCpu"><b>Jugar vs CPU</b><span>Un jugador contra el motor de decisiones.</span></button>
+        <button class="mbtn" id="btnHost"><b>Crear sala</b><span>Te damos un codigo para pasarle a tu colega.</span></button>
+        <div class="mbtn join"><b>Unirse a sala</b><span>Escribe el codigo de tu colega.</span>
+          <div class="joinrow"><input id="codeIn" maxlength="5" placeholder="CODIGO" autocomplete="off"><button id="btnJoin">Entrar</button></div></div>
+      </div>
+      <div id="netStatus" class="netstatus hidden"></div>
+    </div>
+  </section>
+
+  <!-- DRAFT -->
+  <section id="screenDraft" class="screen hidden">
+    <div class="mapbar" id="mapbar"></div>
+    <div class="cols">
+      <div class="draftcol">
+        <div class="sectitle"><h2 id="poolTitle"></h2><div id="pickCount" class="count"></div></div>
+        <div id="pool" class="pool"></div>
+        <div id="comp" class="comp"></div>
+      </div>
+      <aside class="plan">
+        <h3>Tactica</h3>
+        <div id="tactics" class="opts"></div>
+        <h3 id="siteTitle">Sitio</h3>
+        <div id="sites" class="opts sites"></div>
+        <button id="btnGo" class="go" disabled>Elige 5 operadores</button>
+        <p class="hint">El rival elige su equipo, tactica y sitio a la vez que tu, sin ver tus decisiones.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SIMULACION -->
+  <section id="screenSim" class="screen hidden">
+    <div class="mapbar" id="mapbar2"></div>
+    <div class="clock"><div class="bar"><i id="clockFill"></i></div><span id="clockTxt">0:00</span><button id="btnSkip" class="ghost">Saltar</button></div>
+    <div class="versus">
+      <div class="team" id="teamAtt"></div>
+      <div class="team" id="teamDef"></div>
+    </div>
+    <div class="simcols">
+      <div class="log" id="log"></div>
+      <div class="result hidden" id="result"></div>
+    </div>
+  </section>
+</main>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="data.js"></script>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
