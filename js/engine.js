@@ -225,7 +225,7 @@
     applyCarry(st, am); applyCarry(st, dm);
     st.infoEdge = clamp(st.infoEdge + (am.info || 0) + (dm.info || 0), -1, 1);
     st.t += (am.time || 0) + lane.time; st.choices = { ...(st.choices || {}), early: ch };
-    ev(st, 'ev.early.start', { att: ch.att.approach, def: ch.def.stance });
+    ev(st, 'ev.early.start', { approach: ch.att.approach, stance: ch.def.stance });
     const roamers = alive(st.def).filter(isRoamer);
     const flankMul = st.carry.splitAtt ? 1.8 : 1;
     roamers.forEach((r) => {
@@ -314,6 +314,7 @@
     const am = modsOf('site', 'att', ch.att), dm = modsOf('site', 'def', ch.def);
     if (ch.att.style === 'split') st.carry.splitAtt = 1;
     st.choices = { ...(st.choices || {}), site: ch };
+    ev(st, 'ev.site.start', { style: ch.att.style, stance: ch.def.stance });
     ev(st, 'ev.site.start', { style: ch.att.style, stance: ch.def.stance });
     st.t += dm.time || 0;
     for (let w = 0; w < S.maxWaves && alive(st.att).length && alive(st.def).length; w++) {

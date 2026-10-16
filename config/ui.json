@@ -1,0 +1,206 @@
+{
+  "_doc": "Parametros de presentacion. Las etiquetas viven en locales/*.json (tag.<id>, mod.<clave>, stat.<clave>).",
+  "tags": [
+    {
+      "id": "hb",
+      "stat": "hb",
+      "min": 1,
+      "cls": "hb"
+    },
+    {
+      "id": "ahb",
+      "stat": "aHB",
+      "min": 2,
+      "cls": "ahb"
+    },
+    {
+      "id": "intel",
+      "stat": "intel",
+      "min": 2
+    },
+    {
+      "id": "aintel",
+      "stat": "aIntel",
+      "min": 2
+    },
+    {
+      "id": "roam",
+      "stat": "roam",
+      "min": 2
+    },
+    {
+      "id": "anchor",
+      "stat": "anchor",
+      "min": 3
+    },
+    {
+      "id": "deny",
+      "stat": "deny",
+      "min": 3
+    },
+    {
+      "id": "entry",
+      "stat": "entry",
+      "min": 3
+    },
+    {
+      "id": "clear",
+      "stat": "clear",
+      "min": 2
+    },
+    {
+      "id": "smoke",
+      "stat": "smoke",
+      "min": 2
+    },
+    {
+      "id": "autil",
+      "stat": "aUtil",
+      "min": 2
+    },
+    {
+      "id": "sup",
+      "stat": "sup",
+      "min": 2
+    },
+    {
+      "id": "long",
+      "stat": "long",
+      "min": 2
+    },
+    {
+      "id": "flank",
+      "stat": "flank",
+      "min": 2
+    },
+    {
+      "id": "nade",
+      "stat": "aNade",
+      "min": 3
+    },
+    {
+      "id": "vis",
+      "stat": "vis",
+      "min": 3
+    }
+  ],
+  "maxTags": 3,
+  "stats": {
+    "att": [
+      "aim",
+      "intel",
+      "entry",
+      "hb",
+      "flank",
+      "clear",
+      "smoke",
+      "aUtil",
+      "sup",
+      "post",
+      "long",
+      "vtl"
+    ],
+    "def": [
+      "aim",
+      "anchor",
+      "deny",
+      "roam",
+      "aIntel",
+      "aHB",
+      "aNade",
+      "vis",
+      "intel",
+      "sup",
+      "long"
+    ]
+  },
+  "compChips": {
+    "att": [
+      {
+        "stat": "hb",
+        "count": true,
+        "min": 1
+      },
+      {
+        "stat": "intel",
+        "min": 4
+      },
+      {
+        "stat": "entry",
+        "min": 5
+      },
+      {
+        "stat": "aUtil",
+        "min": 2
+      },
+      {
+        "stat": "flank"
+      },
+      {
+        "stat": "post"
+      }
+    ],
+    "def": [
+      {
+        "stat": "aHB",
+        "min": 3
+      },
+      {
+        "stat": "aIntel",
+        "min": 3
+      },
+      {
+        "stat": "anchor",
+        "min": 6
+      },
+      {
+        "stat": "roam"
+      },
+      {
+        "stat": "deny",
+        "min": 4
+      },
+      {
+        "stat": "aNade"
+      }
+    ]
+  },
+  "replay": {
+    "eventMs": 750,
+    "fastMs": 120
+  },
+  "modOrder": [
+    "aim",
+    "foeAim",
+    "trade",
+    "time",
+    "encounter",
+    "info",
+    "clear",
+    "smoke",
+    "flank",
+    "post",
+    "defuse"
+  ],
+  "confidenceOrder": [
+    "alta",
+    "media",
+    "baja"
+  ],
+  "pickFilters": {
+    "att": [
+      "hb",
+      "intel",
+      "entry",
+      "aUtil",
+      "flank"
+    ],
+    "def": [
+      "aHB",
+      "aIntel",
+      "anchor",
+      "roam",
+      "deny"
+    ]
+  }
+}

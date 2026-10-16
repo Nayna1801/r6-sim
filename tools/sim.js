@@ -29,7 +29,7 @@ function playRound(rng, opt = {}) {
   if (st.phase !== 'done') throw new Error('round did not finish: ' + st.phase);
   return st;
 }
-if (require.main === module) {
+if (require.main === module && process.argv[2] !== '--match') {
   const N = +process.argv[2] || 300; const rng = mkRng(+process.argv[3] || 1);
   let att = 0, planted = 0, found = 0, err = 0, kills = 0; const reasons = {}; const t0 = Date.now(); let evs = 0;
   for (let i = 0; i < N; i++) {
@@ -41,3 +41,19 @@ if (require.main === module) {
   console.log({ rounds: N, attWin: +(att / N).toFixed(3), planted: +(planted / N).toFixed(3), siteFound: +(found / N).toFixed(3), errors: err, avgEvents: +(evs / N).toFixed(1), killsPerRound: +(kills / N).toFixed(2), ms: Date.now() - t0, reasons });
 }
 module.exports = { playRound, E, AI, R6, maps, operators, mkRng, sample };
+
+// ---- partida completa CPU vs CPU: node tools/sim.js --match [N] ----
+if (require.main === module && process.argv[2] === '--match') {
+  require('../js/match.js'); require('../js/controllers.js');
+  const N = +process.argv[3] || 5; const rules = J('config/rules.json'); const rng = mkRng(11);
+  (async () => {
+    let rounds = 0, ot = 0, ok = 0;
+    for (let i = 0; i < N; i++) {
+      const m = new R6.Match({ rules, ops: operators, mapId: sample(maps, 1, rng)[0].id, rng, draftMode: i % 2 ? 'pool' : 'full', firstAttacker: i % 2 ? 'B' : 'A',
+        controllers: { A: new R6.CpuController(rng), B: new R6.CpuController(rng) } });
+      const res = await m.run(); rounds += m.round; if (m.round > 6) ot++; ok++;
+      console.log(`match ${i + 1}: ${res.score.A}-${res.score.B} en ${m.round} rondas, gana ${res.winner}`);
+    }
+    console.log({ matches: ok, avgRounds: rounds / ok, overtime: ot });
+  })().catch((e) => { console.error(e); process.exit(1); });
+}

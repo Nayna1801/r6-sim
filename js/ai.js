@@ -102,5 +102,45 @@
     return best.c;
   }
 
-  R6.AI = { configure, planDef, planAtt, adjustAtt, decide, attRoles, other };
+  // ---------- draft y bans ----------
+  function pickTeam(side, available, rng) {
+    const P = AI.pick; const W = P.weights[side]; const chosen = []; const cur = {};
+    while (chosen.length < P.size && chosen.length < available.length) {
+      let best = null;
+      available.filter((o) => !chosen.includes(o)).forEach((o) => {
+        let sc = 0;
+        Object.entries(W).forEach(([k, w]) => { sc += (w * (o[k] || 0)) / (1 + P.diminish * (cur[k] || 0)); });
+        P.needs[side].forEach((n) => { if ((cur[n.stat] || 0) < n.min && (o[n.stat] || 0) > 0) sc += n.bonus; });
+        sc += rng() * P.noise;
+        if (!best || sc > best.sc) best = { o, sc };
+      });
+      chosen.push(best.o); Object.keys(W).forEach((k) => { cur[k] = (cur[k] || 0) + (best.o[k] || 0); });
+    }
+    return chosen;
+  }
+  // veta al operador rival mas valioso (con algo de ruido)
+  function pickBan(side, oppAvailable, rng) {
+    const W = AI.pick.weights[side]; const noise = AI.ban.noise;
+    const scored = oppAvailable.map((o) => ({ o, sc: Object.entries(W).reduce((s, [k, w]) => s + w * (o[k] || 0), 0) + rng() * noise })).sort((a, b) => b.sc - a.sc);
+    const top = scored.slice(0, AI.ban.top);
+    return top[Math.floor(rng() * top.length)].o.id;
+  }
+
+  // Estado completo "plausible" a partir de la vista parcial de un bando (la IA no hace trampas con info oculta)
+  function determinize(view, side, rng) {
+    const eng = E(); const st = eng.clone(view);
+    if (side === 'att') {
+      const guess = planDef(st, rng);
+      if (st.intel.found && st.intel.site) { guess.site = st.intel.site; guess.reinf = { ...guess.reinf, site: st.intel.reinfSeen != null ? st.intel.reinfSeen : guess.reinf.site }; }
+      st.plan.def = guess; st.def.forEach((m) => { m.role = guess.roles[m.id] || 'anchor'; });
+    } else {
+      const guess = planAtt(st, rng);
+      st.plan.att = { spawn: guess.spawn, droneOrder: [], roles: guess.roles }; st.att.forEach((m) => { m.role = guess.roles[m.id] || 'entry'; });
+      st.intel = { found: false, scouted: [], by: null, defSeen: null, reinfSeen: null };
+    }
+    return st;
+  }
+  function decideFromView(view, side, phase, rng) { return decide(determinize(view, side, rng), side, phase, rng); }
+
+  R6.AI = { determinize, decideFromView, pickTeam, pickBan, configure, planDef, planAtt, adjustAtt, decide, attRoles, other };
 })(typeof window !== 'undefined' ? window : globalThis);

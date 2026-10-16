@@ -1,0 +1,234 @@
+[
+ {
+  "id": "bank",
+  "name": "Bank",
+  "open": 0.35,
+  "vert": 0.7,
+  "tight": 0.5,
+  "img": "assets/maps/bank.png"
+ },
+ {
+  "id": "bartlettu",
+  "name": "Bartlett U.",
+  "open": 0.5,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/bartlettu.png"
+ },
+ {
+  "id": "border",
+  "name": "Border",
+  "open": 0.45,
+  "vert": 0.4,
+  "tight": 0.5,
+  "img": "assets/maps/border.png"
+ },
+ {
+  "id": "calypsocasino",
+  "name": "Calypso Casino",
+  "open": 0.5,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/calypsocasino.png"
+ },
+ {
+  "id": "chalet",
+  "name": "Chalet",
+  "open": 0.35,
+  "vert": 0.8,
+  "tight": 0.45,
+  "img": "assets/maps/chalet.png"
+ },
+ {
+  "id": "clubhouse",
+  "name": "Clubhouse",
+  "open": 0.3,
+  "vert": 0.7,
+  "tight": 0.5,
+  "img": "assets/maps/clubhouse.png"
+ },
+ {
+  "id": "coastline",
+  "name": "Coastline",
+  "open": 0.55,
+  "vert": 0.5,
+  "tight": 0.4,
+  "img": "assets/maps/coastline.png"
+ },
+ {
+  "id": "consulate",
+  "name": "Consulate",
+  "open": 0.35,
+  "vert": 0.6,
+  "tight": 0.5,
+  "img": "assets/maps/consulate.png"
+ },
+ {
+  "id": "district",
+  "name": "District",
+  "open": 0.5,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/district.png"
+ },
+ {
+  "id": "emeraldplains",
+  "name": "Emerald Plains",
+  "open": 0.5,
+  "vert": 0.6,
+  "tight": 0.5,
+  "img": "assets/maps/emeraldplains.png"
+ },
+ {
+  "id": "favela",
+  "name": "Favela",
+  "open": 0.3,
+  "vert": 0.8,
+  "tight": 0.5,
+  "img": "assets/maps/favela.png"
+ },
+ {
+  "id": "forttruth",
+  "name": "Fort Truth",
+  "open": 0.5,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/forttruth.png"
+ },
+ {
+  "id": "fortress",
+  "name": "Fortress",
+  "open": 0.45,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/fortress.png"
+ },
+ {
+  "id": "herefordbase",
+  "name": "Hereford Base",
+  "open": 0.35,
+  "vert": 0.6,
+  "tight": 0.5,
+  "img": "assets/maps/herefordbase.png"
+ },
+ {
+  "id": "house",
+  "name": "House",
+  "open": 0.3,
+  "vert": 0.8,
+  "tight": 0.5,
+  "img": "assets/maps/house.png"
+ },
+ {
+  "id": "kafedostoyevsky",
+  "name": "Kafe Dostoyevsky",
+  "open": 0.3,
+  "vert": 0.85,
+  "tight": 0.45,
+  "img": "assets/maps/kafedostoyevsky.png"
+ },
+ {
+  "id": "kanal",
+  "name": "Kanal",
+  "open": 0.55,
+  "vert": 0.4,
+  "tight": 0.4,
+  "img": "assets/maps/kanal.png"
+ },
+ {
+  "id": "lair",
+  "name": "Lair",
+  "open": 0.5,
+  "vert": 0.6,
+  "tight": 0.5,
+  "img": "assets/maps/lair.png"
+ },
+ {
+  "id": "neighborhood",
+  "name": "Neighborhood",
+  "open": 0.4,
+  "vert": 0.6,
+  "tight": 0.5,
+  "img": "assets/maps/neighborhood.png"
+ },
+ {
+  "id": "nighthavenlabs",
+  "name": "Nighthaven Labs",
+  "open": 0.45,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/nighthavenlabs.png"
+ },
+ {
+  "id": "oregon",
+  "name": "Oregon",
+  "open": 0.35,
+  "vert": 0.7,
+  "tight": 0.5,
+  "img": "assets/maps/oregon.png"
+ },
+ {
+  "id": "outback",
+  "name": "Outback",
+  "open": 0.55,
+  "vert": 0.4,
+  "tight": 0.45,
+  "img": "assets/maps/outback.png"
+ },
+ {
+  "id": "presidentialplane",
+  "name": "Presidential Plane",
+  "open": 0.15,
+  "vert": 0.5,
+  "tight": 0.7,
+  "img": "assets/maps/presidentialplane.png"
+ },
+ {
+  "id": "skyscraper",
+  "name": "Skyscraper",
+  "open": 0.5,
+  "vert": 0.6,
+  "tight": 0.5,
+  "img": "assets/maps/skyscraper.png"
+ },
+ {
+  "id": "stadium",
+  "name": "Stadium",
+  "open": 0.55,
+  "vert": 0.5,
+  "tight": 0.45,
+  "img": "assets/maps/stadium.png"
+ },
+ {
+  "id": "themepark",
+  "name": "Theme Park",
+  "open": 0.45,
+  "vert": 0.5,
+  "tight": 0.45,
+  "img": "assets/maps/themepark.png"
+ },
+ {
+  "id": "tower",
+  "name": "Tower",
+  "open": 0.5,
+  "vert": 0.5,
+  "tight": 0.5,
+  "img": "assets/maps/tower.png"
+ },
+ {
+  "id": "villa",
+  "name": "Villa",
+  "open": 0.4,
+  "vert": 0.7,
+  "tight": 0.5,
+  "img": "assets/maps/villa.png"
+ },
+ {
+  "id": "yacht",
+  "name": "Yacht",
+  "open": 0.3,
+  "vert": 0.8,
+  "tight": 0.6,
+  "img": "assets/maps/yacht.png"
+ }
+]

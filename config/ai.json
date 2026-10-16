@@ -2,16 +2,124 @@
   "_doc": "Parametros de la IA rival. Sus decisiones se evaluan con simulaciones del propio motor.",
   "sims": 14,
   "noise": 0.15,
-  "roamerWeights": [0.3, 0.45, 0.25],
+  "roamerWeights": [
+    0.3,
+    0.45,
+    0.25
+  ],
   "huntChance": 0.35,
   "reinfProfiles": [
-    { "site": 5, "entry": 3, "hatch": 2 },
-    { "site": 6, "entry": 2, "hatch": 2 },
-    { "site": 4, "entry": 4, "hatch": 2 },
-    { "site": 7, "entry": 2, "hatch": 1 }
+    {
+      "site": 5,
+      "entry": 3,
+      "hatch": 2
+    },
+    {
+      "site": 6,
+      "entry": 2,
+      "hatch": 2
+    },
+    {
+      "site": 4,
+      "entry": 4,
+      "hatch": 2
+    },
+    {
+      "site": 7,
+      "entry": 2,
+      "hatch": 1
+    }
   ],
-  "roles": { "intelTop": 2, "flankMin": 2, "supportMin": 2 },
-  "value": { "material": 1, "plantedBonus": 1.2, "timePressure": 1, "win": 10 },
+  "roles": {
+    "intelTop": 2,
+    "flankMin": 2,
+    "supportMin": 2
+  },
+  "value": {
+    "material": 1,
+    "plantedBonus": 1.2,
+    "timePressure": 1,
+    "win": 10
+  },
   "pickSims": 30,
-  "spawnTimeWeight": 0.01
+  "spawnTimeWeight": 0.01,
+  "pick": {
+    "size": 5,
+    "diminish": 0.5,
+    "noise": 0.8,
+    "weights": {
+      "att": {
+        "aim": 0.5,
+        "intel": 0.45,
+        "entry": 0.3,
+        "hb": 1.0,
+        "aUtil": 0.35,
+        "clear": 0.25,
+        "smoke": 0.2,
+        "flank": 0.25,
+        "sup": 0.25,
+        "post": 0.25,
+        "long": 0.2,
+        "vtl": 0.2
+      },
+      "def": {
+        "aim": 0.5,
+        "intel": 0.3,
+        "anchor": 0.3,
+        "roam": 0.25,
+        "aIntel": 0.5,
+        "aHB": 0.5,
+        "aNade": 0.3,
+        "vis": 0.2,
+        "deny": 0.35,
+        "sup": 0.25,
+        "long": 0.2
+      }
+    },
+    "needs": {
+      "att": [
+        {
+          "stat": "hb",
+          "min": 1,
+          "bonus": 3
+        },
+        {
+          "stat": "intel",
+          "min": 3,
+          "bonus": 1.2
+        },
+        {
+          "stat": "entry",
+          "min": 3,
+          "bonus": 0.8
+        }
+      ],
+      "def": [
+        {
+          "stat": "aHB",
+          "min": 3,
+          "bonus": 2.5
+        },
+        {
+          "stat": "aIntel",
+          "min": 2,
+          "bonus": 1.5
+        },
+        {
+          "stat": "anchor",
+          "min": 5,
+          "bonus": 0.8
+        },
+        {
+          "stat": "roam",
+          "min": 2,
+          "bonus": 0.8
+        }
+      ]
+    }
+  },
+  "ban": {
+    "noise": 0.8,
+    "top": 3
+  }
 }

@@ -1,0 +1,33 @@
+{
+  "_doc": "Idiomas disponibles y tipo de cada parametro de evento (para resolver ids a nombres localizados).",
+  "languages": [
+    "es",
+    "en"
+  ],
+  "default": "es",
+  "fallback": "en",
+  "paramTypes": {
+    "killer": "op",
+    "victim": "op",
+    "who": "op",
+    "op": "op",
+    "ops": "opList",
+    "site": "site",
+    "spawn": "spawn",
+    "route": "enum:route",
+    "method": "enum:method",
+    "stance": "enum:stance",
+    "by": "enum:foundBy",
+    "reason": "enum:reason",
+    "winner": "enum:side",
+    "style": "enum:style",
+    "approach": "enum:approach",
+    "a": "raw",
+    "d": "raw",
+    "k": "raw",
+    "l": "raw",
+    "n": "raw",
+    "v": "raw",
+    "trade": "raw"
+  }
+}
