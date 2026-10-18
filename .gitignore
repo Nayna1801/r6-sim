@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 node_modules/
+
+# originales de imagenes (se regeneran desde el historial, ver tools/optimize_images.py)
+tools/src_images/
+tools/_action_lift_last.json

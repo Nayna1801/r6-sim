@@ -1,0 +1,100 @@
+[
+ {
+  "id": "deployable_shield",
+  "name": "Deployable Shield",
+  "side": "def",
+  "amount": 1,
+  "description": "Bulletproof shield that's deployed on the ground or attached to doorframes to provide protective cover."
+ },
+ {
+  "id": "nitro_cell",
+  "name": "Nitro Cell",
+  "side": "def",
+  "amount": 1,
+  "description": "Throwable C4 that sticks to surfaces and is manually detonated to create a large explosion."
+ },
+ {
+  "id": "impact_grenade",
+  "name": "Impact Grenade",
+  "side": "def",
+  "amount": 2,
+  "description": "Explosive grenade that detonates on impact to create entryways or line of sight in breakable surfaces."
+ },
+ {
+  "id": "barbed_wire",
+  "name": "Barbed Wire",
+  "side": "def",
+  "amount": 2,
+  "description": "Non-damaging razor wire that slows opponents and creates noise when walked through."
+ },
+ {
+  "id": "bulletproof_camera",
+  "name": "Bulletproof Camera",
+  "side": "def",
+  "amount": 1,
+  "description": "Camera that sees through smoke and manually fires EMP bursts to deactivate opponent electronic devices."
+ },
+ {
+  "id": "proximity_alarm",
+  "name": "Proximity Alarm",
+  "side": "def",
+  "amount": 2,
+  "description": "Sensor that sticks to surfaces and sounds an alarm when it detects nearby opponents."
+ },
+ {
+  "id": "observation_blocker",
+  "name": "Observation Blocker",
+  "side": "def",
+  "amount": 3,
+  "description": "Projects a screen that blocks the line of sight of opponent Observation Tools."
+ },
+ {
+  "id": "frag_grenade",
+  "name": "Frag Grenade",
+  "side": "att",
+  "amount": 2,
+  "description": "Explosive grenade that detonates shortly after being thrown."
+ },
+ {
+  "id": "smoke_grenade",
+  "name": "Smoke Grenade",
+  "side": "att",
+  "amount": 2,
+  "description": "Non-damaging grenade that produces smoke shortly after being thrown to cover advances."
+ },
+ {
+  "id": "stun_grenade",
+  "name": "Stun Grenade",
+  "side": "att",
+  "amount": 3,
+  "description": "Non-damaging grenade that produces a flash explosion shortly after being thrown to disorient opponents."
+ },
+ {
+  "id": "claymore",
+  "name": "Claymore",
+  "side": "att",
+  "amount": 2,
+  "description": "Explosive trap that's deployed on the ground and is useful against roaming Defenders."
+ },
+ {
+  "id": "hard_breach_charge",
+  "name": "Hard Breach Charge",
+  "side": "att",
+  "amount": 2,
+  "description": "Explosive device that automatically detonates to create entryways in breakable and reinforced surfaces."
+ },
+ {
+  "id": "breach_charge",
+  "name": "Breach Charge",
+  "side": "att",
+  "amount": 3,
+  "description": "Explosive device that's deployed on breakable surfaces and is manually detonated to create an entryway."
+ },
+ {
+  "id": "impact_emp_grenade",
+  "name": "Impact EMP Grenade",
+  "side": "att",
+  "amount": 2,
+  "description": "Non-damaging impact grenade that temporarily deactivates nearby opponent electronic devices."
+ }
+]

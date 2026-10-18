@@ -27,7 +27,7 @@
     return new Promise((resolve) => {
       let sel = null; let tm = { stop() {} };
       const targets = opsOf(p.targets).sort((a, b) => R6.i18n.opName(a.id).localeCompare(R6.i18n.opName(b.id)));
-      const grid = h('div', { class: `pool ${p.ctx.rivalSide}-side` }); const els = new Map();
+      const grid = h('div', { class: `pool ban ${p.ctx.rivalSide}-side`, style: { '--stamp': JSON.stringify(T('ui.vetoStamp')) } }); const els = new Map();
       const ok = h('button', { class: 'go', disabled: true, onclick: () => finish(sel) }, T('stage.ban.confirm'));
       const selInfo = h('span', { class: 'selinfo' }, T('stage.ban.none'));
       const finish = (id) => { tm.stop(); resolve({ ban: id }); };
@@ -57,7 +57,7 @@
         UI.clear(slots); UI.clear(comp);
         for (let i = 0; i < p.size; i++) {
           const o = chosen[i];
-          slots.appendChild(o ? h('div', { class: 'slot full', onclick: () => { chosen = chosen.filter((x) => x !== o); refresh(); } }, h('img', { src: o.img, alt: '' }), h('span', {}, R6.i18n.opName(o.id))) : h('div', { class: 'slot' }, i + 1));
+          slots.appendChild(o ? h('div', { class: 'slot full', onclick: () => { chosen = chosen.filter((x) => x !== o); refresh(); } }, UI.opIcon(o), h('span', {}, R6.i18n.opName(o.id))) : h('div', { class: 'slot' }, i + 1));
         }
         comp.appendChild(UI.compChips(p.ctx.side, chosen, chosen.length === p.size));
         ok.disabled = chosen.length !== p.size; ok.textContent = chosen.length === p.size ? T('stage.pick.confirm') : T('stage.pick.need', { n: p.size - chosen.length });
@@ -78,8 +78,8 @@
 
   // ---------- fila de rol por operador ----------
   function rolesTable(ops, roles, options, onChange) {
-    return h('div', { class: 'roles' }, ops.map((o) => h('div', { class: 'rrow' }, h('img', { src: o.img, alt: '' }), h('b', {}, R6.i18n.opName(o.id)),
-      h('div', { class: 'rtags' }, UI.tagsOf(o).map((tg) => h('span', { class: 'tag' }, T(`tag.${tg.id}`)))),
+    return h('div', { class: 'roles' }, ops.map((o) => h('div', { class: 'rrow' }, UI.opIcon(o, '', true), h('b', {}, R6.i18n.opName(o.id)),
+      h('div', { class: 'rtags' }, UI.roleTags(o).map((tg) => h('span', { class: `tag ${tg.cls}`, title: tg.title }, tg.label))),
       UI.segmented(options, roles[o.id], (v) => onChange(o.id, v), 'role'))));
   }
 
@@ -169,7 +169,7 @@
       const ok = h('button', { class: 'go', onclick: () => { tm.stop(); resolve({ choice: { ...choice } }); } }, T('stage.phase.confirm'));
       const draw = () => {
         UI.clear(body);
-        Object.entries(p.options).forEach(([grp, ids]) => {
+        Object.entries(p.options).filter(([grp]) => !grp.startsWith('act.')).forEach(([grp, ids]) => {
           body.appendChild(h('h3', {}, T(`dec.group.${ph}.${side}.${grp}`)));
           body.appendChild(h('div', { class: `dopts n${ids.length}` }, ids.map((id) => {
             const mods = dec[ph][side][grp][id].mods || {};
@@ -180,6 +180,9 @@
               UI.modChips(mods));
           })));
         });
+        const actGroups = Object.fromEntries(Object.entries(p.options).filter(([grp]) => grp.startsWith('act.')));
+        const panel = UI.actionPanel({ phase: ph, side, foes: Math.max(0, ctx[side === 'att' ? 'def' : 'att'].filter((m) => m.alive).length - 1), groups: actGroups, choice, member: (opId) => ctx[side].find((m) => m.id === opId), onPick: (grp, optId) => { choice[grp] = optId; UI.sfx.pick(); draw(); } });
+        if (panel) body.appendChild(panel);
       };
       tm = timerBar(p.ctx, 'prep', () => { tm.stop(); resolve({ choice: { ...choice } }); });
       draw();

@@ -1,0 +1,74 @@
+[
+ {
+  "id": "noor",
+  "name": "Noor",
+  "side": "def",
+  "health": null,
+  "speed": null,
+  "season": null,
+  "specialties": ["anti-entry", "crowd_control"],
+  "gadgets": ["deployable_shield", "barbed_wire"],
+  "ability": {
+   "id": "horus_lance_launcher",
+   "name": "Horus Lance Launcher",
+   "type": null,
+   "description": "Fires 5 projectiles that pierce shields and destructible surfaces before erupting into flames. They can pass through floors, ceilings and adjacent rooms.",
+   "info": null
+  },
+  "source": "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators/noor"
+ },
+ {
+  "id": "rauora",
+  "name": "Rauora",
+  "side": "att",
+  "health": null,
+  "speed": null,
+  "season": null,
+  "specialties": ["support", "map_control"],
+  "gadgets": ["smoke_grenade", "breach_charge"],
+  "ability": {
+   "id": "dom_panel_launcher",
+   "name": "D.O.M. Panel Launcher",
+   "type": null,
+   "description": "Deploys bulletproof panels from a distance; they can be opened or closed with a trigger at the top of the door.",
+   "info": null
+  },
+  "source": "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators/rauora"
+ },
+ {
+  "id": "denari",
+  "name": "Denari",
+  "side": "def",
+  "health": null,
+  "speed": null,
+  "season": null,
+  "specialties": ["anti-entry", "crowd_control"],
+  "gadgets": ["observation_blocker", "deployable_shield"],
+  "ability": {
+   "id": "trip_connector",
+   "name": "T.R.I.P. Connector",
+   "type": null,
+   "description": "When two devices are placed in line of sight a laser forms between them. Enemies that trip it are slowed and injured; more devices create a larger laser web that denies a room.",
+   "info": null
+  },
+  "source": "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators/denari"
+ },
+ {
+  "id": "skopos",
+  "name": "Skopós",
+  "side": "def",
+  "health": null,
+  "speed": null,
+  "season": null,
+  "specialties": ["intel", "support"],
+  "gadgets": ["impact_grenade", "proximity_alarm"],
+  "ability": {
+   "id": "v10_pantheon_shells",
+   "name": "V10 Pantheon Shells",
+   "type": null,
+   "description": "Controls two linked shells: one operated directly and one acting as a shielded observation tool. She can switch between them but only operate one at a time; losing either shell severs the connection to both.",
+   "info": null
+  },
+  "source": "https://www.ubisoft.com/en-us/game/rainbow-six/siege/game-info/operators/skopos"
+ }
+]

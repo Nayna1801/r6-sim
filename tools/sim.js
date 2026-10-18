@@ -7,7 +7,7 @@ const R6 = globalThis.R6;
 const operators = J('data/operators.json'); const maps = J('data/maps.json').filter((m) => m.playable);
 const merge = (a, b) => { for (const k in b) { if (b[k] && typeof b[k] === 'object' && !Array.isArray(b[k])) { a[k] = merge(a[k] || {}, b[k]); } else a[k] = b[k]; } return a; };
 const balance = merge(J('config/balance.json'), process.env.BAL ? JSON.parse(process.env.BAL) : {});
-R6.Engine.configure({ rules: J('config/rules.json'), balance, decisions: J('config/decisions.json'), operators, maps });
+R6.Engine.configure({ rules: J('config/rules.json'), balance, decisions: J('config/decisions.json'), operators, maps, gadgets: J('config/gadgets.json'), actions: J('config/actions.json') });
 R6.AI.configure(J('config/ai.json'));
 const mkRng = (seed) => { let a = seed >>> 0; return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
 const sample = (arr, n, rng) => { const c = [...arr]; const o = []; while (o.length < n && c.length) o.push(c.splice(Math.floor(rng() * c.length), 1)[0]); return o; };

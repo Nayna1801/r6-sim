@@ -82,24 +82,42 @@
     }
     return fixed;
   }
-  function decide(st, side, phase, rng) {
+  // valor medio de una eleccion: AI.sims rondas simuladas contra elecciones aleatorias del rival
+  function evalChoice(st, side, phase, c, oppOpts, rng) {
+    const eng = E(); let tot = 0;
+    for (let i = 0; i < AI.sims; i++) {
+      const sim = eng.clone(st); const oc = randomChoice(oppOpts, rng);
+      eng.resolve(sim, phase, side === 'att' ? { att: c, def: oc } : { att: oc, def: c }, rng);
+      tot += value(sim, side);
+    }
+    return tot / AI.sims;
+  }
+  const isAct = (g2) => g2.startsWith('act.');
+  // Las decisiones de equipo se eligen por simulacion entre todas las combinaciones; las acciones de agente aparte, por ascenso por
+  // coordenadas (una a una, con el resto fijo), para que el coste no se dispare con el numero de agentes con accion.
+  // flags.noActs: decide solo las decisiones de equipo y deja las acciones de agente en 'off' (para aislar su efecto al calibrar)
+  function decide(st, side, phase, rng, flags = {}) {
     const eng = E(); const opts = eng.options(st, side, phase);
     const fixed = heuristicGroups(st, side, phase);
-    const free = {}; Object.keys(opts).forEach((k) => { if (!(k in fixed)) free[k] = opts[k]; });
+    const acts = flags.noActs ? [] : Object.keys(opts).filter(isAct);
+    const free = {}; Object.keys(opts).forEach((k) => { if (!(k in fixed) && !isAct(k)) free[k] = opts[k]; });
     const cands = combos(free).map((c) => ({ ...c, ...fixed }));
-    if (cands.length === 1 || rng() < AI.noise) return cands[Math.floor(rng() * cands.length)];
+    const off = {}; acts.forEach((k) => { off[k] = opts[k][0]; });
+    if ((cands.length === 1 && !acts.length) || rng() < AI.noise) return { ...cands[Math.floor(rng() * cands.length)], ...off };
     const oppSide = other(side); const oppOpts = eng.options(st, oppSide, phase);
     let best = null;
-    cands.forEach((c) => {
-      let tot = 0;
-      for (let i = 0; i < AI.sims; i++) {
-        const sim = eng.clone(st); const oc = randomChoice(oppOpts, rng);
-        eng.resolve(sim, phase, side === 'att' ? { att: c, def: oc } : { att: oc, def: c }, rng);
-        tot += value(sim, side);
-      }
-      const m = tot / AI.sims; if (!best || m > best.m) best = { m, c };
+    cands.forEach((c) => { const m = evalChoice(st, side, phase, { ...c, ...off }, oppOpts, rng); if (!best || m > best.m) best = { m, c }; });
+    const choice = { ...best.c, ...off }; let cur = best.m; let active = 0;
+    const max = (eng.cfg().actions && eng.cfg().actions.maxActive) || 0;
+    const margin = AI.actionMargin || 0;
+    acts.forEach((k) => {
+      const def = eng.actionDef(k.slice(4)); if (def.when && !Object.entries(def.when).every(([g2, v]) => choice[g2] === v)) return;   // no se usaria
+      if (active >= max) return;
+      let pick = null;
+      opts[k].slice(1).forEach((o) => { const m = evalChoice(st, side, phase, { ...choice, [k]: o }, oppOpts, rng); if (m > cur + margin && (!pick || m > pick.m)) pick = { m, o }; });
+      if (pick) { choice[k] = pick.o; cur = pick.m; active++; }
     });
-    return best.c;
+    return choice;
   }
 
   // ---------- draft y bans ----------

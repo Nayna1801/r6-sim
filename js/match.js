@@ -130,7 +130,9 @@
     async push(st, attTeam, defTeam, phase) {
       const E = R6.Engine;
       await Promise.all([[attTeam, 'att'], [defTeam, 'def']].map(([t, side]) => {
-        const view = E.viewFor(st, side); const fresh = view.events.slice(this.seen[t]); this.seen[t] = view.events.length;
+        // seen cuenta sobre st.events (sin filtrar): viewFor filtra por visibilidad y al acabar la ronda lo muestra todo, lo que desfasaba el indice y repetia eventos
+        const view = E.viewFor(st, side); const over = !!st.result;
+        const fresh = st.events.slice(this.seen[t]).filter((e) => over || e.vis === 'both' || e.vis === side); this.seen[t] = st.events.length;
         return this.c[t].notify('update', { phase, view, events: fresh, ctx: this.ctxFor(t) });
       }));
     }

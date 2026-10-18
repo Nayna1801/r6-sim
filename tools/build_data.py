@@ -33,6 +33,18 @@ def level(floor):
 
 LANES = json.load(open(os.path.join(ROOT, 'config', 'rules.json'), encoding='utf-8'))['lanes']
 ops = json.load(open(os.path.join(ROOT, 'tools', '_ops_dump.json'), encoding='utf-8'))
+
+# datos oficiales (tools/fetch_operator_data.py + operators_manual.json para los agentes que r6data aun no recoge)
+official = {o['id']: o for o in json.load(open(os.path.join(research_dir, 'operators_official.json'), encoding='utf-8'))}
+official.update({o['id']: o for o in json.load(open(os.path.join(research_dir, 'operators_manual.json'), encoding='utf-8'))})
+for o in ops:
+    d = official.get(o['id'])
+    if d is None:
+        raise SystemExit(f"sin datos oficiales para {o['id']}: ejecuta tools/fetch_operator_data.py o anadelo a operators_manual.json")
+    if d['side'] != o['side']:
+        raise SystemExit(f"bando distinto en {o['id']}: {o['side']} vs {d['side']}")
+    o.update({'specialties': d['specialties'], 'gadgets': d['gadgets'], 'ability': re.sub(r'[^a-z0-9]+', '_', d['ability']['id'].lower()).strip('_'), 'health': d['health'], 'speed': d['speed'], 'season': d['season']})
+
 json.dump(ops, open(os.path.join(ROOT, 'data', 'operators.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
 
 profiles = {m['id']: m for m in json.load(open(os.path.join(ROOT, 'tools', '_maps_profile.json'), encoding='utf-8'))}

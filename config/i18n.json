@@ -9,7 +9,7 @@
   "paramTypes": {
     "killer": "op",
     "victim": "op",
-    "who": "op",
+    "who": "op", "action": "action", "opt": "action",
     "op": "op",
     "ops": "opList",
     "site": "site",

@@ -29,7 +29,7 @@ header.top,#app{position:relative;z-index:2}
 /* cartas */
 .card{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out,border-color .15s,opacity .2s,box-shadow .2s;will-change:transform}
 .card:hover{transform:perspective(700px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-8px) scale(1.04);z-index:3;box-shadow:0 18px 30px -12px #000}
-.card.enter{animation:cardIn .6s cubic-bezier(.2,.9,.3,1.15) backwards;animation-delay:calc(var(--i,0) * 70ms)}
+.card.enter{animation:cardIn .6s cubic-bezier(.2,.9,.3,1.15) backwards;animation-delay:calc(min(var(--i,0),14) * 60ms)}
 @keyframes cardIn{from{opacity:0;transform:perspective(700px) translateY(60px) rotateX(35deg) scale(.85)}}
 .card::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .2s;background:radial-gradient(circle at var(--mx,50%) 30%,rgba(255,255,255,.18),transparent 55%)}
 .card:hover::before{opacity:1}
@@ -93,3 +93,83 @@ html,body{overflow-x:clip}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:80;background:#2a1216;border:1px solid var(--bad);color:#ffd3d3;padding:10px 18px;max-width:90vw;animation:fadeUp .3s both}
 .netbar{position:sticky;top:57px;z-index:9;background:#3a2a10;border-bottom:1px solid var(--att);color:#ffd9a8;text-align:center;padding:8px;font-size:14px}
 #waitHint{color:var(--def);min-height:1.2em}
+
+/* ===== Capa de presentacion: profundidad, respuesta al tacto y atmosfera ===== */
+
+/* foco visible coherente (teclado) */
+:focus-visible{outline:2px solid var(--c,var(--def));outline-offset:2px}
+
+/* respuesta al pulsar: onda desde el punto tocado + hundimiento */
+button:not(.site),.card,.spawn,.dopt{position:relative;overflow:hidden}
+.rip{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.38),rgba(255,255,255,0) 66%);transform:scale(0);animation:rip .65s ease-out forwards;z-index:3}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+button:not(:disabled):not(.site):active,.dopt:active,.spawn:active{transform:scale(.985)}
+.go:not(:disabled):active{transform:translateY(2px);filter:brightness(.92)}
+
+/* esquinas tacticas: se abren al pasar el puntero y se fijan al seleccionar */
+.dopt,.spawn,.site,.rbox,.mbtn:not(.primary){--bc:#34405a;--bw:16px}
+.rbox{position:relative}
+.dopt::after,.spawn::after,.site::after,.rbox::after,.mbtn:not(.primary)::after{content:"";position:absolute;inset:0;pointer-events:none;transition:background-size .18s;
+  background:linear-gradient(var(--bc),var(--bc)) 0 0/9px 2px no-repeat,linear-gradient(var(--bc),var(--bc)) 0 0/2px 9px no-repeat,
+    linear-gradient(var(--bc),var(--bc)) 100% 100%/9px 2px no-repeat,linear-gradient(var(--bc),var(--bc)) 100% 100%/2px 9px no-repeat}
+.dopt:hover::after,.spawn:hover::after,.site:hover::after,.rbox:hover::after,.mbtn:not(.primary):hover::after,
+.dopt.on::after,.spawn.sel::after,.site.sel::after{background-size:var(--bw) 2px,2px var(--bw),var(--bw) 2px,2px var(--bw)}
+.dopt:hover,.spawn:hover,.site:hover,.mbtn:hover{--bc:#6f7d99}
+.dopt.on,.site.sel,.mbtn:hover{--bc:var(--def)}
+.spawn.sel{--bc:var(--att)}
+.site.found{--bc:var(--att)}
+
+/* titulos de pantalla con marca de bando */
+.stage h2{position:relative;padding-left:16px}
+.stage h2::before{content:"";position:absolute;left:0;top:.1em;bottom:.1em;width:5px;background:var(--c);transform:skewX(-14deg);box-shadow:0 0 14px -2px var(--c)}
+
+/* ban: la carta elegida queda sellada */
+.pool.ban .card.sel{--c:var(--bad);animation:none;border-color:var(--bad);box-shadow:0 0 0 2px var(--bad) inset,0 0 26px -4px var(--bad)}
+.pool.ban .card.sel img{filter:grayscale(.85) brightness(.55) drop-shadow(0 6px 10px #000a)}
+.pool.ban .card.sel::after{content:var(--stamp);top:42%;left:50%;right:auto;transform:translate(-50%,-50%) rotate(-14deg);font-size:26px;letter-spacing:.18em;font-weight:700;line-height:1;padding:4px 10px 3px;border:3px solid var(--bad);color:var(--bad);background:rgba(22,6,9,.6);animation:stamp .35s cubic-bezier(.2,2,.4,1) both;z-index:2}
+@keyframes stamp{from{opacity:0;transform:translate(-50%,-50%) rotate(-14deg) scale(2.6)}}
+
+/* menu: agentes y bandas diagonales de bando */
+#screenMenu{position:relative;min-height:calc(100vh - 150px)}
+.hero-bg{position:absolute;left:calc(50% - 50vw);width:100vw;top:-96px;bottom:-60px;z-index:-1;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 170px);mask-image:linear-gradient(to bottom,transparent 0,#000 170px);
+  background:linear-gradient(112deg,rgba(255,138,61,.17) 0,rgba(255,138,61,.04) 36%,transparent 36.1%),linear-gradient(292deg,rgba(61,165,255,.17) 0,rgba(61,165,255,.04) 36%,transparent 36.1%),radial-gradient(760px 380px at 50% 26%,rgba(255,255,255,.055),transparent 70%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.022) 0 1px,transparent 1px 4px);-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
+.heroop{position:absolute;bottom:0;width:clamp(200px,21vw,300px);z-index:-1;pointer-events:none;transition:transform .25s ease-out;animation:heroIn .9s .2s cubic-bezier(.2,.9,.3,1) both}
+.heroop.att{--sc:var(--att);left:calc(50% - 50vw + 3vw);transform:translate(calc(var(--px,0) * -14px),calc(var(--py,0) * -6px))}
+.heroop.def{--sc:var(--def);right:calc(50% - 50vw + 3vw);transform:translate(calc(var(--px,0) * 14px),calc(var(--py,0) * -6px))}
+.heroop img{display:block;width:100%;filter:drop-shadow(0 0 32px color-mix(in srgb,var(--sc) 50%,transparent));-webkit-mask-image:linear-gradient(to top,transparent 0,#000 24%);mask-image:linear-gradient(to top,transparent 0,#000 24%)}
+.heroname{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:var(--sc);text-shadow:0 0 12px #000}
+@keyframes heroIn{from{opacity:0;margin-bottom:-40px}}
+
+/* menu: jugar es la accion principal */
+.menugrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mbtn:not(.primary){min-height:120px}
+.mbtn.primary{grid-column:1/-1;min-height:128px;border:2px solid transparent;
+  background:linear-gradient(135deg,rgba(255,138,61,.15),rgba(61,165,255,.15)) padding-box,linear-gradient(var(--panel),var(--panel)) padding-box,linear-gradient(110deg,var(--att),var(--def),var(--att)) border-box;
+  background-size:auto,auto,240% 100%;animation:fadeUp .7s .35s both,borderFlow 7s linear infinite}
+@keyframes borderFlow{to{background-position:0 0,0 0,240% 0}}
+.mbtn.primary b{font-size:28px;letter-spacing:.2em}
+.mbtn.primary b::after{content:"";display:inline-block;width:11px;height:11px;margin-left:16px;border:solid var(--att);border-width:3px 3px 0 0;transform:rotate(45deg);transition:transform .2s}
+.mbtn.primary:hover b::after{transform:translateX(8px) rotate(45deg)}
+.mbtn.primary:hover{box-shadow:0 0 44px -10px var(--att),0 0 44px -10px var(--def)}
+
+/* inicio de ronda */
+.splash{position:fixed;inset:0;z-index:65;display:grid;place-items:center;overflow:hidden;background:#05070b;cursor:pointer;animation:spIn .3s ease-out both}
+.splash.out{animation:spOut .38s ease-in forwards}
+.splash.att{--sc:var(--att)} .splash.def{--sc:var(--def)}
+.sp-bg{position:absolute;inset:-6%;background:center/cover no-repeat;filter:blur(2px) saturate(.9) brightness(.42);animation:spZoom 2.8s ease-out both}
+.splash::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 22%,rgba(5,7,11,.88))}
+.sp-slash{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,transparent 0 38%,color-mix(in srgb,var(--sc) 26%,transparent) 38% 60%,transparent 60%);animation:spSlash .7s cubic-bezier(.2,.9,.3,1) both}
+.sp-body{position:relative;z-index:2;text-align:center;padding:0 16px}
+.sp-kicker{font-size:15px;font-weight:700;letter-spacing:.5em;color:var(--mut);text-transform:uppercase;animation:fadeUp .5s .15s both}
+.sp-map{margin-top:6px;font-size:clamp(34px,9vw,96px);font-weight:700;letter-spacing:.08em;line-height:1.04;text-transform:uppercase;text-shadow:0 4px 30px #000;animation:spMap .7s .2s cubic-bezier(.2,.9,.3,1) both}
+.sp-side{display:inline-block;margin-top:16px;padding:6px 26px 5px;font-size:clamp(18px,4.4vw,30px);font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--sc);border:2px solid var(--sc);background:rgba(5,7,11,.55);box-shadow:0 0 30px -6px var(--sc);animation:slam .6s .45s cubic-bezier(.2,1.8,.4,1) both}
+.sp-line{margin:24px auto 0;width:min(420px,70vw);height:3px;background:rgba(255,255,255,.12);overflow:hidden}
+.sp-line i{display:block;height:100%;width:100%;background:var(--sc);transform-origin:left;animation:spLine 2s .2s linear both}
+@keyframes spIn{from{opacity:0}}
+@keyframes spOut{to{opacity:0;transform:scale(1.03)}}
+@keyframes spZoom{from{transform:scale(1.18)}}
+@keyframes spSlash{from{transform:translateX(-60%);opacity:0}}
+@keyframes spMap{from{opacity:0;transform:translateY(26px) scale(.94);letter-spacing:.2em}}
+@keyframes spLine{from{transform:scaleX(0)}}
+.killtag.ok{color:var(--ok);text-shadow:0 0 20px var(--ok)}

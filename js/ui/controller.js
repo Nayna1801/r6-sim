@@ -52,9 +52,8 @@
     }
 
     async roundStart(p) {
-      UI.banner(T('hud.roundBanner', { n: p.ctx.round }), `${R6.i18n.mapName(p.ctx.mapId)} · ${T(`side.${p.ctx.side}`)}`, 'intro'); UI.sfx.intro();
-      $('log').replaceChildren(); this.endData = null; this.revealed = new Set();
-      await UI.wait(1500);
+      UI.sfx.intro(); $('log').replaceChildren(); this.endData = null; this.revealed = new Set();
+      await UI.splash({ mapId: p.ctx.mapId, side: p.ctx.side, round: p.ctx.round });
     }
 
     // ---- rosters ----
@@ -63,8 +62,9 @@
       const arr = (side, ids) => (v ? (side === 'att' ? v.att : v.def) : ids.map((id) => ({ id, alive: true, kills: 0 })));
       const card = (m, own) => {
         const o = R6.opsById[m.id]; const known = own || this.revealed.has(m.id) || (this.endData && this.endData.over);
-        return h('div', { class: `mini${m.alive ? '' : ' dead'}`, id: `m-${m.id}` }, known ? h('img', { src: o.img, alt: '' }) : h('div', { class: 'unk' }, '?'),
-          m.kills ? h('span', { class: 'k' }, T('ui.killsShort', { n: m.kills })) : null, h('div', { class: 'nm' }, known ? R6.i18n.opName(m.id) : '—'),
+        return h('div', { class: `mini${m.alive ? '' : ' dead'}${known ? ' clickable' : ''}`, id: `m-${m.id}`, onclick: known ? () => UI.opSheet(o) : null }, known ? UI.opIcon(o) : h('div', { class: 'unk' }, '?'),
+          m.kills ? h('span', { class: 'k' }, T('ui.killsShort', { n: m.kills })) : null, !own && m.alive && v && v.known && v.known[mine] && v.known[mine][m.id] > v.phaseNo ? h('span', { class: 'loc', title: T('ui.located') }, '◎') : null,
+          h('div', { class: 'nm' }, known ? R6.i18n.opName(m.id) : '—'),
           own && m.role ? h('span', { class: 'rl' }, T(`role.${m.role}`)) : null);
       };
       $('rosterOwn').replaceChildren(h('h4', {}, T('ui.yourSquad')), h('div', { class: 'mrow' }, arr(mine, this.own).map((m) => card(m, true))));
@@ -77,8 +77,11 @@
       $('log').appendChild(el); $('log').scrollTop = 1e6; return el;
     }
     fx(e, el, mapEls) {
-      const p = e.p || {}; ['killer', 'victim', 'who'].forEach((k) => { if (p[k]) this.revealed.add(p[k]); });
+      const p = e.p || {}; ['killer', 'victim', 'who'].forEach((k) => { if (p[k]) this.revealed.add(p[k]); }); (p.ops || []).forEach((id) => this.revealed.add(id));
       if (e.k.startsWith('ev.kill')) { UI.shake($('screenGame')); UI.sfx.kill(); UI.tag(e.k === 'ev.kill.trade' ? T('ui.trade') : T('ui.eliminated'), 'killtag'); el.classList.add('flashred'); const v = $(`m-${p.victim}`); if (v) v.classList.add('hit', 'dead'); const k = $(`m-${p.killer}`); if (k) { k.classList.add('flash'); setTimeout(() => k.classList.remove('flash'), 500); } }
+      else if (e.k === 'ev.act.down') { UI.sfx.kill(); UI.tag(T('ui.downed'), 'killtag'); const v = $(`m-${p.victim}`); if (v) v.classList.add('hit', 'dead'); }
+      else if (e.k === 'ev.act.revive') { UI.sfx.defuse(); UI.tag(T('ui.revived'), 'killtag ok'); const v = $(`m-${p.victim}`); if (v) v.classList.remove('dead', 'hit'); }
+      else if (e.k === 'ev.act.interrogate.ok') { UI.banner(T('ui.revealedBanner'), R6.i18n.opName(p.who), 'intro'); UI.sfx.alert(); }
       else if (e.k === 'ev.plant.ok') { UI.banner(T('ui.planted'), '', 'plant'); UI.sfx.plant(); $('screenGame').classList.add('planted'); }
       else if (e.k === 'ev.post.defuse') { UI.banner(T('ui.defused'), '', 'defuse'); UI.sfx.defuse(); }
       else if (e.k.startsWith('ev.entry.breach')) UI.sfx.breach();

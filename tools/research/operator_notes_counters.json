@@ -1,0 +1,1208 @@
+{
+ "ace": {
+  "counters": [
+   "bandit",
+   "jager",
+   "kaid",
+   "maestro",
+   "mute",
+   "wamai"
+  ],
+  "synergies": [
+   "flores",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ace/notes.md"
+ },
+ "amaru": {
+  "counters": [
+   "alibi",
+   "aruni",
+   "castle",
+   "frost",
+   "kapkan",
+   "lesion"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/amaru/notes.md"
+ },
+ "ash": {
+  "counters": [
+   "jager",
+   "wamai"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ash/notes.md"
+ },
+ "blackbeard": {
+  "counters": [
+   "kapkan",
+   "mira",
+   "smoke",
+   "vigil"
+  ],
+  "synergies": [
+   "blitz",
+   "montagne"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/blackbeard/notes.md"
+ },
+ "blitz": {
+  "counters": [
+   "clash",
+   "echo",
+   "ela",
+   "lesion",
+   "melusi",
+   "mute",
+   "oryx",
+   "smoke",
+   "solis",
+   "warden"
+  ],
+  "synergies": [
+   "ela"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/blitz/notes.md"
+ },
+ "brava": {
+  "counters": [
+   "ace",
+   "flores",
+   "mozzie",
+   "mute",
+   "nomad",
+   "solis",
+   "thermite",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "iq",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/brava/notes.md"
+ },
+ "buck": {
+  "counters": [],
+  "synergies": [
+   "sledge"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/buck/notes.md"
+ },
+ "capitao": {
+  "counters": [
+   "doc",
+   "smoke",
+   "tachanka",
+   "wamai",
+   "warden"
+  ],
+  "synergies": [
+   "smoke"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/capitao/notes.md"
+ },
+ "deimos": {
+  "counters": [
+   "mute",
+   "tubarao",
+   "vigil"
+  ],
+  "synergies": [
+   "brava",
+   "dokkaebi",
+   "jackal",
+   "lion",
+   "mute",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/deimos/notes.md"
+ },
+ "dokkaebi": {
+  "counters": [
+   "mute",
+   "vigil"
+  ],
+  "synergies": [
+   "blitz",
+   "iq",
+   "jackal",
+   "lion"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/dokkaebi/notes.md"
+ },
+ "finka": {
+  "counters": [
+   "echo",
+   "lesion",
+   "pulse",
+   "smoke"
+  ],
+  "synergies": [
+   "ying"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/finka/notes.md"
+ },
+ "flores": {
+  "counters": [
+   "aruni",
+   "bandit",
+   "kaid",
+   "maestro",
+   "mozzie",
+   "mute",
+   "twitch",
+   "vigil"
+  ],
+  "synergies": [
+   "ace",
+   "bandit",
+   "hibana",
+   "kaid",
+   "maestro",
+   "melusi",
+   "thermite"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/flores/notes.md"
+ },
+ "fuze": {
+  "counters": [
+   "jager",
+   "mute",
+   "wamai"
+  ],
+  "synergies": [
+   "castle",
+   "flores",
+   "iq",
+   "jager",
+   "mira",
+   "mute",
+   "osa",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/fuze/notes.md"
+ },
+ "glaz": {
+  "counters": [
+   "jager",
+   "smoke",
+   "warden"
+  ],
+  "synergies": [
+   "capitao",
+   "sens",
+   "smoke"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/glaz/notes.md"
+ },
+ "gridlock": {
+  "counters": [
+   "wamai"
+  ],
+  "synergies": [
+   "nomad"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/gridlock/notes.md"
+ },
+ "grim": {
+  "counters": [
+   "aruni",
+   "bandit",
+   "jager",
+   "kaid",
+   "mute",
+   "vigil",
+   "wamai"
+  ],
+  "synergies": [
+   "jackal",
+   "lion"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/grim/notes.md"
+ },
+ "hibana": {
+  "counters": [
+   "bandit",
+   "kaid",
+   "maestro",
+   "mute",
+   "thermite"
+  ],
+  "synergies": [
+   "flores",
+   "iq",
+   "kali",
+   "maverick",
+   "thatcher",
+   "thermite",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/hibana/notes.md"
+ },
+ "iana": {
+  "counters": [
+   "bandit",
+   "kaid",
+   "maestro",
+   "mute",
+   "vigil"
+  ],
+  "synergies": [
+   "blitz",
+   "ying"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/iana/notes.md"
+ },
+ "iq": {
+  "counters": [
+   "solis"
+  ],
+  "synergies": [
+   "dokkaebi",
+   "flores",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/iq/notes.md"
+ },
+ "jackal": {
+  "counters": [
+   "caveira",
+   "echo",
+   "ela",
+   "mute"
+  ],
+  "synergies": [
+   "finka",
+   "flores",
+   "gridlock",
+   "iq",
+   "kali",
+   "lion",
+   "mute",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/jackal/notes.md"
+ },
+ "kali": {
+  "counters": [
+   "jager",
+   "rook",
+   "wamai"
+  ],
+  "synergies": [
+   "ace",
+   "hibana",
+   "thermite"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/kali/notes.md"
+ },
+ "lion": {
+  "counters": [
+   "mute"
+  ],
+  "synergies": [
+   "dokkaebi",
+   "fuze",
+   "hibana",
+   "jackal",
+   "thatcher",
+   "thermite",
+   "twitch"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/lion/notes.md"
+ },
+ "maverick": {
+  "counters": [
+   "bandit",
+   "kaid"
+  ],
+  "synergies": [
+   "blackbeard",
+   "fuze",
+   "glaz",
+   "iq",
+   "lion",
+   "mira",
+   "smoke"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/maverick/notes.md"
+ },
+ "montagne": {
+  "counters": [
+   "bandit",
+   "clash",
+   "echo",
+   "ela",
+   "frost",
+   "lesion",
+   "melusi",
+   "oryx",
+   "smoke"
+  ],
+  "synergies": [
+   "ace",
+   "ash",
+   "buck",
+   "flores",
+   "hibana",
+   "maverick",
+   "sledge",
+   "thermite",
+   "zofia"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/montagne/notes.md"
+ },
+ "nomad": {
+  "counters": [
+   "bandit",
+   "jager",
+   "kaid",
+   "mute",
+   "wamai"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/nomad/notes.md"
+ },
+ "nokk": {
+  "counters": [
+   "alibi",
+   "ela",
+   "kapkan",
+   "lesion",
+   "melusi",
+   "pulse",
+   "solis"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/nokk/notes.md"
+ },
+ "osa": {
+  "counters": [
+   "castle",
+   "clash",
+   "goyo",
+   "oryx",
+   "smoke",
+   "tachanka"
+  ],
+  "synergies": [
+   "aruni"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/osa/notes.md"
+ },
+ "ram": {
+  "counters": [
+   "caveira",
+   "mira",
+   "mute",
+   "solis",
+   "vigil"
+  ],
+  "synergies": [
+   "ace",
+   "amaru",
+   "azami",
+   "brava",
+   "castle",
+   "flores",
+   "fuze",
+   "gridlock",
+   "hibana",
+   "lion",
+   "maverick",
+   "mute",
+   "nomad",
+   "thermite",
+   "twitch"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ram/notes.md"
+ },
+ "rauora": {
+  "counters": [],
+  "synergies": [],
+  "source": null
+ },
+ "sens": {
+  "counters": [
+   "aruni",
+   "jager",
+   "maestro",
+   "mute",
+   "wamai",
+   "warden"
+  ],
+  "synergies": [
+   "glaz"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/sens/notes.md"
+ },
+ "sledge": {
+  "counters": [
+   "goyo",
+   "pulse"
+  ],
+  "synergies": [
+   "ace",
+   "ash",
+   "blitz",
+   "buck",
+   "flores",
+   "hibana",
+   "iq",
+   "kali",
+   "maverick",
+   "montagne",
+   "thatcher",
+   "thermite",
+   "twitch",
+   "zero",
+   "zofia"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/sledge/notes.md"
+ },
+ "thatcher": {
+  "counters": [
+   "aruni",
+   "echo",
+   "frost",
+   "goyo",
+   "jager",
+   "wamai"
+  ],
+  "synergies": [
+   "ace",
+   "bandit",
+   "blitz",
+   "flores",
+   "hibana",
+   "iq",
+   "kaid",
+   "kali",
+   "mute",
+   "thermite",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thatcher/notes.md"
+ },
+ "thermite": {
+  "counters": [
+   "bandit",
+   "kaid",
+   "maestro",
+   "mute"
+  ],
+  "synergies": [
+   "bandit",
+   "brava",
+   "flores",
+   "kaid",
+   "kali",
+   "mute",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thermite/notes.md"
+ },
+ "twitch": {
+  "counters": [
+   "bandit",
+   "frost",
+   "kaid",
+   "maestro",
+   "mozzie",
+   "mute",
+   "vigil"
+  ],
+  "synergies": [
+   "ace",
+   "bandit",
+   "fuze",
+   "hibana",
+   "iana",
+   "iq",
+   "kaid",
+   "mute",
+   "thatcher",
+   "thermite"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/twitch/notes.md"
+ },
+ "ying": {
+  "counters": [
+   "aruni",
+   "bandit",
+   "jager",
+   "mute",
+   "solis",
+   "wamai",
+   "warden"
+  ],
+  "synergies": [
+   "aruni",
+   "capitao",
+   "flores",
+   "fuze",
+   "iq",
+   "jager",
+   "kali",
+   "smoke",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ying/notes.md"
+ },
+ "zero": {
+  "counters": [
+   "bandit",
+   "jager",
+   "kaid",
+   "maestro",
+   "mute",
+   "wamai"
+  ],
+  "synergies": [
+   "ace",
+   "fuze",
+   "hibana",
+   "iq",
+   "thatcher",
+   "thermite",
+   "twitch"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/zero/notes.md"
+ },
+ "zofia": {
+  "counters": [
+   "jager",
+   "wamai"
+  ],
+  "synergies": [
+   "finka"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/zofia/notes.md"
+ },
+ "alibi": {
+  "counters": [
+   "brava",
+   "flores",
+   "glaz",
+   "iq",
+   "jackal",
+   "kali",
+   "nokk",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/alibi/notes.md"
+ },
+ "aruni": {
+  "counters": [
+   "finka",
+   "fuze",
+   "gridlock",
+   "hibana",
+   "iana",
+   "osa",
+   "thatcher",
+   "ying"
+  ],
+  "synergies": [
+   "bandit",
+   "castle",
+   "kaid",
+   "maestro",
+   "mute"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/aruni/notes.md"
+ },
+ "azami": {
+  "counters": [
+   "ash",
+   "flores",
+   "kali",
+   "sledge",
+   "zofia"
+  ],
+  "synergies": [
+   "mira"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/azami/notes.md"
+ },
+ "bandit": {
+  "counters": [
+   "brava",
+   "flores",
+   "iq",
+   "kali",
+   "maverick",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "frost",
+   "mira",
+   "mute"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/bandit/notes.md"
+ },
+ "castle": {
+  "counters": [
+   "ace",
+   "ash",
+   "flores",
+   "fuze",
+   "hibana",
+   "kali",
+   "maverick",
+   "sledge",
+   "ying",
+   "zofia"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/castle/notes.md"
+ },
+ "caveira": {
+  "counters": [
+   "deimos",
+   "dokkaebi",
+   "finka",
+   "gridlock",
+   "jackal",
+   "lion",
+   "nomad"
+  ],
+  "synergies": [
+   "echo",
+   "ela",
+   "frost",
+   "lesion",
+   "valkyrie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/caveira/notes.md"
+ },
+ "clash": {
+  "counters": [
+   "capitao",
+   "ela",
+   "flores",
+   "gridlock",
+   "iq",
+   "kali",
+   "nomad",
+   "thatcher",
+   "zofia"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/clash/notes.md"
+ },
+ "denari": {
+  "counters": [],
+  "synergies": [],
+  "source": null
+ },
+ "doc": {
+  "counters": [],
+  "synergies": [
+   "rook"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/doc/notes.md"
+ },
+ "echo": {
+  "counters": [
+   "brava",
+   "dokkaebi",
+   "finka",
+   "flores",
+   "iq",
+   "kali",
+   "mozzie",
+   "nokk",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "dokkaebi",
+   "flores",
+   "fuze",
+   "iana",
+   "montagne",
+   "thermite"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/echo/notes.md"
+ },
+ "ela": {
+  "counters": [
+   "brava",
+   "finka",
+   "flores",
+   "iq",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero",
+   "zofia"
+  ],
+  "synergies": [
+   "echo"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ela/notes.md"
+ },
+ "fenrir": {
+  "counters": [
+   "ash",
+   "brava",
+   "finka",
+   "flores",
+   "fuze",
+   "iq",
+   "kali",
+   "montagne",
+   "sledge",
+   "thatcher",
+   "twitch",
+   "zero",
+   "zofia"
+  ],
+  "synergies": [
+   "caveira",
+   "clash",
+   "frost",
+   "lesion",
+   "maestro",
+   "melusi",
+   "solis",
+   "thorn",
+   "valkyrie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/fenrir/notes.md"
+ },
+ "frost": {
+  "counters": [
+   "flores"
+  ],
+  "synergies": [
+   "bandit",
+   "caveira",
+   "kaid",
+   "lesion",
+   "oryx",
+   "smoke",
+   "thorn"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/frost/notes.md"
+ },
+ "goyo": {
+  "counters": [
+   "amaru",
+   "ash",
+   "twitch",
+   "zero",
+   "zofia"
+  ],
+  "synergies": [
+   "aruni",
+   "castle",
+   "jager",
+   "kapkan",
+   "maestro",
+   "melusi",
+   "wamai"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/goyo/notes.md"
+ },
+ "jager": {
+  "counters": [
+   "ash",
+   "brava",
+   "capitao",
+   "flores",
+   "fuze",
+   "hibana",
+   "iq",
+   "kali",
+   "smoke",
+   "thatcher",
+   "twitch",
+   "ying",
+   "zero",
+   "zofia"
+  ],
+  "synergies": [
+   "wamai"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/jager/notes.md"
+ },
+ "kaid": {
+  "counters": [
+   "bandit",
+   "flores",
+   "iq",
+   "kali",
+   "maverick",
+   "thatcher",
+   "thermite",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "bandit",
+   "frost",
+   "mute"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/kaid/notes.md"
+ },
+ "kapkan": {
+  "counters": [
+   "ash",
+   "brava",
+   "flores",
+   "iq",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero",
+   "zofia"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/kapkan/notes.md"
+ },
+ "lesion": {
+  "counters": [
+   "flores",
+   "kali",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "caveira",
+   "ela",
+   "fenrir",
+   "frost",
+   "goyo",
+   "kapkan",
+   "melusi",
+   "tachanka",
+   "thorn"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/lesion/notes.md"
+ },
+ "maestro": {
+  "counters": [
+   "ash",
+   "brava",
+   "dokkaebi",
+   "flores",
+   "fuze",
+   "iq",
+   "kali",
+   "maverick",
+   "nokk",
+   "sledge",
+   "twitch",
+   "zero",
+   "zofia"
+  ],
+  "synergies": [
+   "thatcher"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/maestro/notes.md"
+ },
+ "melusi": {
+  "counters": [
+   "ash",
+   "brava",
+   "finka",
+   "flores",
+   "fuze",
+   "kali",
+   "maverick",
+   "thatcher",
+   "twitch",
+   "zofia"
+  ],
+  "synergies": [
+   "bandit",
+   "clash",
+   "goyo",
+   "kaid",
+   "mira",
+   "smoke"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/melusi/notes.md"
+ },
+ "mira": {
+  "counters": [
+   "ace",
+   "ash",
+   "blitz",
+   "hibana",
+   "kali",
+   "maverick",
+   "thermite",
+   "twitch",
+   "ying",
+   "zero"
+  ],
+  "synergies": [
+   "azami",
+   "bandit",
+   "kaid",
+   "mute"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/mira/notes.md"
+ },
+ "mozzie": {
+  "counters": [
+   "brava",
+   "flores",
+   "iq",
+   "kali",
+   "nokk",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "mute",
+   "twitch",
+   "valkyrie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/mozzie/notes.md"
+ },
+ "mute": {
+  "counters": [
+   "ash",
+   "brava",
+   "flores",
+   "iq",
+   "kali",
+   "maverick",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "castle",
+   "fuze",
+   "maestro",
+   "mozzie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/mute/notes.md"
+ },
+ "noor": {
+  "counters": [],
+  "synergies": [],
+  "source": null
+ },
+ "oryx": {
+  "counters": [
+   "gridlock",
+   "jackal",
+   "lion",
+   "nomad",
+   "zofia"
+  ],
+  "synergies": [
+   "clash",
+   "doc",
+   "ela",
+   "frost",
+   "kapkan",
+   "thunderbird",
+   "valkyrie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/oryx/notes.md"
+ },
+ "pulse": {
+  "counters": [
+   "iq",
+   "thatcher"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/pulse/notes.md"
+ },
+ "rook": {
+  "counters": [
+   "blackbeard",
+   "sledge"
+  ],
+  "synergies": [
+   "doc",
+   "thunderbird"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/rook/notes.md"
+ },
+ "skopos": {
+  "counters": [],
+  "synergies": [],
+  "source": null
+ },
+ "smoke": {
+  "counters": [
+   "flores",
+   "glaz",
+   "iq",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "frost",
+   "lesion",
+   "melusi",
+   "warden"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/smoke/notes.md"
+ },
+ "solis": {
+  "counters": [
+   "iq",
+   "thatcher"
+  ],
+  "synergies": [
+   "bandit",
+   "kaid",
+   "mute"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/solis/notes.md"
+ },
+ "tachanka": {
+  "counters": [],
+  "synergies": [
+   "blitz",
+   "echo",
+   "goyo",
+   "maestro",
+   "melusi",
+   "montagne",
+   "smoke",
+   "valkyrie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/tachanka/notes.md"
+ },
+ "thorn": {
+  "counters": [
+   "brava",
+   "iq",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "clash",
+   "lesion",
+   "melusi"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thorn/notes.md"
+ },
+ "thunderbird": {
+  "counters": [
+   "brava",
+   "iq",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "jager",
+   "oryx",
+   "wamai"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thunderbird/notes.md"
+ },
+ "tubarao": {
+  "counters": [
+   "maverick",
+   "zofia"
+  ],
+  "synergies": [
+   "bandit",
+   "fenrir",
+   "kaid",
+   "kapkan",
+   "maestro",
+   "mute",
+   "pulse",
+   "solis",
+   "thorn",
+   "valkyrie"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/tubarao/notes.md"
+ },
+ "valkyrie": {
+  "counters": [
+   "dokkaebi",
+   "iq",
+   "nokk",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "caveira",
+   "pulse"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/valkyrie/notes.md"
+ },
+ "vigil": {
+  "counters": [
+   "gridlock",
+   "grim",
+   "iq",
+   "jackal",
+   "lion",
+   "thatcher"
+  ],
+  "synergies": [],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/vigil/notes.md"
+ },
+ "wamai": {
+  "counters": [
+   "fuze",
+   "iq",
+   "kali",
+   "thatcher",
+   "twitch",
+   "zero"
+  ],
+  "synergies": [
+   "goyo"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/wamai/notes.md"
+ },
+ "warden": {
+  "counters": [
+   "glaz",
+   "iq",
+   "thatcher"
+  ],
+  "synergies": [
+   "smoke"
+  ],
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/warden/notes.md"
+ }
+}

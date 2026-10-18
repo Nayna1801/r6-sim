@@ -39,6 +39,8 @@ En GitHub Pages funciona tal cual. El modo online usa PeerJS (broker publico gra
 | `config/balance.json` | todas las constantes que deciden resultados |
 | `config/decisions.json` | opciones de cada fase y sus modificadores |
 | `config/ai.json`, `config/ui.json`, `config/i18n.json` | IA, presentacion, idiomas |
+| `config/actions.json` | acciones propias de los 75 agentes (ver `docs/diseno-acciones-de-agente.md`). **Generado** por `tools/derive_actions.py` desde `tools/research/action_specs.json` (no editar a mano); interruptor en `balance.json > actions.enabled` |
+| `config/gadgets.json` | efecto de cada gadget secundario en las estadisticas del motor (peso global en `balance.json > gadgets.weight`) |
 | `data/operators.json`, `data/maps.json` | operadores y mapas (generados con `tools/build_data.py`) |
 | `locales/*.json` | textos (es, en). Se generan con `tools/gen_locales*.py` |
 | `js/engine.js` | motor de ronda por fases (sin textos ni numeros incrustados) |
@@ -46,8 +48,18 @@ En GitHub Pages funciona tal cual. El modo online usa PeerJS (broker publico gra
 | `js/match.js` | controlador de partida (formato, bans, cambio de bando) |
 | `js/net.js` | P2P con PeerJS: el anfitrion ejecuta la partida, el invitado es un cliente de UI |
 | `js/ui/*`, `js/app.js`, `js/i18n.js` | interfaz e internacionalizacion |
+| `sw.js` | service worker: cache de imagenes/fuentes y juego sin conexion (sube `ASSET_VERSION` al cambiar assets) |
 
 El motor emite eventos con **clave i18n + parametros**, nunca frases; cada cliente los traduce a su idioma.
+
+## Agentes: especialidades, habilidades y gadgets
+`data/operators.json` junta dos cosas:
+- **Estadisticas del motor** (`aim`, `intel`, `anchor`...): diseno propio (`tools/_ops_dump.json`). Reflejan la habilidad unica de cada agente.
+- **Datos oficiales** (especialidades, gadgets secundarios, salud/velocidad, habilidad): de [danielwerg/r6data](https://github.com/danielwerg/r6data) (MIT) via `tools/fetch_operator_data.py`; los agentes que aun no recoge van a mano, con su fuente, en `tools/research/operators_manual.json`.
+
+Los gadgets secundarios si cuentan en la simulacion: la estadistica efectiva es `base + peso * efectos` (ver `config/gadgets.json`) y la ficha del agente (boton `i` de la carta) muestra de donde sale cada cifra. Al ajustar `config/gadgets.json` comprueba el equilibrio con `node tools/gadget_lift.js` y `node tools/opwin.js`.
+
+> "Trapper" es una **especialidad** del juego, no un agente: no hay ningun agente con ese nombre.
 
 ## Datos de mapas y su fiabilidad
 
@@ -76,4 +88,17 @@ BAL='{"post":{"defuseBase":0.5}}' node tools/sim.js 500   # probar un ajuste de 
 node tools/dominance.js 300      # detecta decisiones dominantes (resultado medio de cada opcion)
 node tools/check_i18n.js         # cobertura de traducciones
 python tools/build_data.py       # regenera data/*.json desde tools/research/
+python tools/fetch_operator_data.py   # descarga los datos oficiales de agentes (requiere `gh`)
+node tools/test_actions.js       # pruebas de las acciones de agente: infraestructura (F0)
+node tools/test_actions_f1.js    # pruebas de F1: derribado, revelado, contrarrestos y los 7 agentes
+node tools/test_actions_f3.js    # pruebas de F3: bonus de equipo, gadgets persistentes, supresion, trampas y cobertura de los 75 agentes
+node tools/action_lift.js 2500   # empuje de cada accion (forzada vs no) en puntos de victoria; revisar las que superan +-3
+node tools/action_lift_parallel.js 2000   # lo mismo para las 75 acciones, repartido en 12 procesos (~15 min)
+python tools/derive_actions.py   # regenera config/actions.json tras editar action_specs.json (--check: verifica que esta al dia)
+python tools/fetch_operator_notes.py   # contrarrestos citados en las notas de r6data (alimenta los textos de las acciones)
+node tools/validate_actions.js   # valida config/actions.json
+python tools/audit_roles.py      # agentes cuya especialidad oficial no tiene respaldo en sus estadisticas
+node tools/opwin.js 8000         # tasa de victoria por agente (detecta dominantes o inutiles)
+node tools/gadget_lift.js 8000   # empuje de cada gadget (con/sin) y dispersion de tasas por agente
+python tools/optimize_images.py  # retratos WebP (240 px y 150 px movil) desde tools/src_images/
 ```

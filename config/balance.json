@@ -1,5 +1,8 @@
 {
   "_doc": "Constantes de balance del motor. Todo numero que decide un resultado vive aqui. Valores de diseno propio, ajustables con tools/balance.js.",
+  "gadgets": { "weight": 1 },
+  "actions": { "enabled": true, "knownBonus": 0.4, "knownAmbush": 0.35, "knownDetect": 0.4, "fizzleBelow": 0.4,
+    "downChance": 0.35, "reviveExposed": { "base": 0.2, "perFoe": 0.1, "max": 0.65 }, "reviverCut": 0.3 },
   "duel": {
     "k": 0.62,
     "entry": 0.28,

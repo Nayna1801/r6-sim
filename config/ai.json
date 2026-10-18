@@ -1,7 +1,7 @@
 {
   "_doc": "Parametros de la IA rival. Sus decisiones se evaluan con simulaciones del propio motor.",
   "sims": 14,
-  "noise": 0.15,
+  "noise": 0.15, "actionMargin": 0.1,
   "roamerWeights": [
     0.3,
     0.45,

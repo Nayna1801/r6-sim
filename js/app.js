@@ -10,11 +10,26 @@
   const saveSettings = () => { try { localStorage.setItem('r6sim.settings', JSON.stringify(S.settings)); } catch (e) { console.warn('settings', e); } };
 
   async function boot() {
-    const [rules, balance, decisions, ai, ui, i18n, operators, maps] = await Promise.all(['rules', 'balance', 'decisions', 'ai', 'ui', 'i18n'].map((n) => J(`config/${n}.json`)).concat([J('data/operators.json'), J('data/maps.json')]));
-    operators.forEach((o) => { o.img = `assets/ops/${o.id}.webp`; });
-    R6.Engine.configure({ rules, balance, decisions, operators, maps }); R6.AI.configure(ai); R6.UI.setCfg(ui); R6.UICFG = ui; R6.RULES = rules; R6.OPERATORS = operators; R6.MAPS = maps.filter((m) => m.playable);
+    const [rules, balance, decisions, ai, ui, i18n, gadgets, actions, operators, maps] = await Promise.all(['rules', 'balance', 'decisions', 'ai', 'ui', 'i18n', 'gadgets', 'actions'].map((n) => J(`config/${n}.json`)).concat([J('data/operators.json'), J('data/maps.json')]));
+    operators.forEach((o) => { o.img = `assets/ops/${o.id}.webp`; o.imgS = `assets/ops/s/${o.id}.webp`; o.icon = `assets/icons/${o.id}.svg`; });
+    R6.Engine.configure({ rules, balance, decisions, operators, maps, gadgets, actions }); R6.GADGETS = gadgets; R6.ACTIONS = actions; R6.AI.configure(ai); R6.UI.setCfg(ui); R6.UICFG = ui; R6.RULES = rules; R6.OPERATORS = operators; R6.MAPS = maps.filter((m) => m.playable);
     await R6.i18n.init(i18n); R6.I18NCFG = i18n;
-    UI.sparks(); buildHeader(); showMenu();
+    UI.sparks(); UI.initFeedback(); buildHeader(); showMenu(); registerSw(); warmAssets();
+  }
+
+  // ---------- cache de imagenes: service worker + precarga en reposo ----------
+  function registerSw() {
+    if (!('serviceWorker' in navigator) || !/^https?:$/.test(location.protocol)) return;
+    navigator.serviceWorker.register('sw.js').catch((e) => console.warn('sw', e));
+  }
+  // Descarga los retratos (y luego las insignias) cuando el navegador esta ocioso; el SW los guarda para las pantallas de ban/pick.
+  function warmAssets() {
+    const net = navigator.connection; if (net && (net.saveData || /(^|-)2g$/.test(net.effectiveType || ''))) return;
+    const small = g.matchMedia('(max-width:760px)').matches;
+    const urls = R6.OPERATORS.map((o) => (small ? o.imgS : o.img)).concat(R6.OPERATORS.map((o) => o.icon));
+    const idle = g.requestIdleCallback || ((fn) => setTimeout(fn, 1500));
+    const next = () => { const u = urls.shift(); if (!u) return; fetch(u).catch(() => {}).finally(() => idle(next)); };
+    idle(() => { next(); next(); });
   }
 
   // ---------- cabecera ----------
@@ -41,17 +56,29 @@
     const codeIn = h('input', { id: 'codeIn', maxlength: 5, placeholder: T('menu.codePlaceholder'), autocomplete: 'off', onkeydown: (e) => { if (e.key === 'Enter') doJoin(codeIn, status); } });
     const mapSel = S.settings.mapMode === 'choose' ? h('select', { onchange: (e) => { S.settings.mapId = e.target.value; saveSettings(); } }, R6.MAPS.map((m) => h('option', { value: m.id, selected: m.id === S.settings.mapId }, R6.i18n.mapName(m.id)))) : null;
     if (S.settings.mapMode === 'choose' && !S.settings.mapId) S.settings.mapId = R6.MAPS[0].id;
-    $('screenMenu').replaceChildren(h('div', { class: 'menu' },
+    const menu = h('div', { class: 'menu' },
       h('h1', {}, 'R6 ', h('span', {}, T('app.subtitle'))), h('p', { class: 'hint' }, T('menu.tagline')),
       h('div', { class: 'settings' },
         h('label', {}, h('span', {}, T('menu.draftMode')), sel('draftMode', R6.RULES.draft.modes, 'draft')),
         h('label', {}, h('span', {}, T('menu.mapMode')), sel('mapMode', ['ranked', 'all', 'choose'], 'mapmode')), mapSel,
         h('label', { class: 'chk' }, h('input', { type: 'checkbox', checked: S.settings.timers, onchange: (e) => { S.settings.timers = e.target.checked; saveSettings(); } }), h('span', {}, T('menu.timers')))),
       h('div', { class: 'menugrid' },
-        h('button', { class: 'mbtn', onclick: () => startCpu() }, h('b', {}, T('menu.cpu')), h('span', {}, T('menu.cpuDesc'))),
+        h('button', { class: 'mbtn primary', onclick: () => startCpu() }, h('b', {}, T('menu.cpu')), h('span', {}, T('menu.cpuDesc'))),
         h('button', { class: 'mbtn', onclick: () => doHost(status) }, h('b', {}, T('menu.host')), h('span', {}, T('menu.hostDesc'))),
         h('div', { class: 'mbtn join' }, h('b', {}, T('menu.join')), h('span', {}, T('menu.joinDesc')), h('div', { class: 'joinrow' }, codeIn, h('button', { onclick: () => doJoin(codeIn, status) }, T('menu.enter'))))),
-      status, h('p', { class: 'foot' }, T('menu.dataNote'))));
+      status, h('p', { class: 'foot' }, T('menu.dataNote')));
+    $('screenMenu').replaceChildren(...[h('div', { class: 'hero-bg', 'aria-hidden': 'true' }), heroOp('att'), heroOp('def'), menu].filter(Boolean));
+    // paralaje suave de los agentes con el puntero
+    $('screenMenu').onpointermove = (e) => { const s = $('screenMenu'); s.style.setProperty('--px', (e.clientX / g.innerWidth - 0.5).toFixed(3)); s.style.setProperty('--py', (e.clientY / g.innerHeight - 0.5).toFixed(3)); };
+  }
+
+  // Agentes decorativos del menu (uno por bando, fijos durante la sesion). Solo en pantallas anchas: no se descargan en movil.
+  function heroOp(side) {
+    if (!g.matchMedia('(min-width:1200px)').matches) return null;
+    S.hero = S.hero || {};
+    if (!S.hero[side]) { const list = R6.OPERATORS.filter((o) => o.side === side); S.hero[side] = list[Math.floor(Math.random() * list.length)]; }
+    const o = S.hero[side];
+    return h('div', { class: `heroop ${side}`, 'aria-hidden': 'true' }, h('img', { src: o.img, alt: '', decoding: 'async' }), h('span', { class: 'heroname' }, R6.i18n.opName(o.id)));
   }
   const setStatus = (el, html, err) => { el.className = `netstatus${err ? ' err' : ''}`; el.replaceChildren(...[].concat(html)); };
 

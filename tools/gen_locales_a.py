@@ -44,7 +44,7 @@ for k, es, en in [
     ('ui.waitingRival', 'Esperando al rival...', 'Waiting for the rival...'),
     ('ui.bansAgainst', 'Operadores vetados contra ti: {ops}', 'Operators banned against you: {ops}'),
     ('ui.skip', 'Saltar', 'Skip'), ('ui.resolving', 'Resolviendo la fase...', 'Resolving the phase...'),
-    ('ui.trade', 'TRADE', 'TRADE'), ('ui.eliminated', 'ELIMINADO', 'ELIMINATED'),
+    ('ui.trade', 'TRADE', 'TRADE'), ('ui.eliminated', 'ELIMINADO', 'ELIMINATED'), ('ui.vetoStamp', 'VETO', 'BAN'),
     ('ui.planted', 'BOMBA PLANTADA', 'DEFUSER PLANTED'), ('ui.defused', 'BOMBA DESACTIVADA', 'DEFUSED'),
     ('ui.victory', 'VICTORIA', 'VICTORY'), ('ui.defeat', 'DERROTA', 'DEFEAT'),
     ('ui.nextRound', 'Siguiente ronda', 'Next round'), ('ui.finish', 'Finalizar partida', 'Finish match'),

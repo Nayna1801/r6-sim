@@ -1,0 +1,1728 @@
+[
+ {
+  "id": "ace",
+  "name": "Ace",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 18,
+  "specialties": [
+   "anti-gadget",
+   "breach"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": {
+   "id": "s.e.l.m.a._aqua_breacher",
+   "name": "S.E.L.M.A. Aqua Breacher",
+   "type": "count",
+   "description": "Throwable breach charge that creates line of sight or entryways in breakable and reinforced surfaces.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ace/index.ts"
+ },
+ {
+  "id": "alibi",
+  "name": "Alibi",
+  "side": "def",
+  "health": 1,
+  "speed": 3,
+  "season": 10,
+  "specialties": [
+   "intel",
+   "trapper"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "prisma",
+   "name": "Prisma",
+   "type": "count",
+   "description": "Deploys holograms of Alibi that reveal an opponent's location when fired upon or interacted with.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/alibi/index.ts"
+ },
+ {
+  "id": "amaru",
+  "name": "Amaru",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 15,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "stun_grenade"
+  ],
+  "ability": {
+   "id": "garra_hook",
+   "name": "Garra Hook",
+   "type": "count",
+   "description": "Grappling gun that provides a quick rappel up ledges and windows at limited distances.",
+   "info": "Garra Hook has a cooldown time between uses."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/amaru/index.ts"
+ },
+ {
+  "id": "aruni",
+  "name": "Aruni",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 20,
+  "specialties": [
+   "anti-entry",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "bulletproof_camera"
+  ],
+  "ability": {
+   "id": "surya_gate",
+   "name": "Surya Gate",
+   "type": "count",
+   "description": "Laser gate that denies entry and intel by injuring opponents and destroying devices that pass through it.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/aruni/index.ts"
+ },
+ {
+  "id": "ash",
+  "name": "Ash",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 0,
+  "specialties": [
+   "breach",
+   "front-line"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": {
+   "id": "breaching_rounds",
+   "name": "Breaching Rounds",
+   "type": "count",
+   "description": "Launcher with explosive rounds that destroy utility and create entryways in breakable surfaces.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ash/index.ts"
+ },
+ {
+  "id": "azami",
+  "name": "Azami",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 25,
+  "specialties": [
+   "anti-entry",
+   "support"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "impact_grenade"
+  ],
+  "ability": {
+   "id": "kiba_barrier",
+   "name": "Kiba Barrier",
+   "type": "count",
+   "description": "Throwable device that sticks to surfaces and creates a bulletproof barrier that blocks entryways and line of sight.",
+   "info": "1 Kiba charges over time, up to a maximum of 5."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/azami/index.ts"
+ },
+ {
+  "id": "bandit",
+  "name": "Bandit",
+  "side": "def",
+  "health": 1,
+  "speed": 3,
+  "season": 0,
+  "specialties": [
+   "anti-entry",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "nitro_cell"
+  ],
+  "ability": {
+   "id": "shock_wire",
+   "name": "Shock Wire",
+   "type": "count",
+   "description": "Electrical device that's deployed on the ground to electrify nearby metal utility.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/bandit/index.ts"
+ },
+ {
+  "id": "blackbeard",
+  "name": "Blackbeard",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 2,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "claymore",
+   "stun_grenade",
+   "frag_grenade"
+  ],
+  "ability": {
+   "id": "rifle_shield",
+   "name": "Rifle Shield",
+   "type": "count",
+   "description": "Primary weapon shield attachment that provides frontal protection from headshots before breaking.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/blackbeard/index.ts"
+ },
+ {
+  "id": "blitz",
+  "name": "Blitz",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "breach_charge"
+  ],
+  "ability": {
+   "id": "flash_shield",
+   "name": "Flash Shield",
+   "type": "count",
+   "description": "Ballistic shield with a flash attachment that can be activated to temporarily blind Operators.",
+   "info": "The shield holds 4 flash charges that have a cooldown time between uses."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/blitz/index.ts"
+ },
+ {
+  "id": "brava",
+  "name": "Brava",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 29,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "claymore"
+  ],
+  "ability": {
+   "id": "kludge_drone",
+   "name": "Kludge Drone",
+   "type": "count",
+   "description": "Deployable drone that either takes control of electronic devices or destroys them after a short delay.",
+   "info": "Each drone has 3 shots."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/brava/index.ts"
+ },
+ {
+  "id": "buck",
+  "name": "Buck",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 1,
+  "specialties": [
+   "breach",
+   "support"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "hard_breach_charge"
+  ],
+  "ability": {
+   "id": "skeleton_key",
+   "name": "Skeleton Key",
+   "type": "count",
+   "description": "Primary weapon shotgun attachment used to create entryways or line of sight in breakable surfaces.",
+   "info": "Amount of ammo for the shotgun attachment."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/buck/index.ts"
+ },
+ {
+  "id": "capitao",
+  "name": "Capitão",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 3,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "claymore",
+   "hard_breach_charge",
+   "impact_emp_grenade"
+  ],
+  "ability": {
+   "id": "tactical_crossbow",
+   "name": "Tactical Crossbow",
+   "type": "switch",
+   "description": "Crossbow that fires Incendiary Bolts for area control and Micro Smoke Grenades to cover advances.",
+   "info": "2 Incendiary Bolts and 2 Micro Smoke Grenades."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/capitao/index.ts"
+ },
+ {
+  "id": "castle",
+  "name": "Castle",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "anti-entry",
+   "support"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "proximity_alarm"
+  ],
+  "ability": {
+   "id": "armor_panel",
+   "name": "Armor Panel",
+   "type": "count",
+   "description": "Bulletproof barricades that are deployed on windows and doors to deny entry to opponents.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/castle/index.ts"
+ },
+ {
+  "id": "caveira",
+  "name": "Caveira",
+  "side": "def",
+  "health": 1,
+  "speed": 3,
+  "season": 3,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "proximity_alarm",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "silent_step",
+   "name": "Silent Step",
+   "type": "infinite_recharge_bar",
+   "description": "Move around quietly to sneak up on opponents and down them, then interrogate them to reveal opponent positions.",
+   "info": "Gauge that empties while in use and fills up when ability is inactive."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/caveira/index.ts"
+ },
+ {
+  "id": "clash",
+  "name": "Clash",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 11,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "impact_grenade",
+   "deployable_shield"
+  ],
+  "ability": {
+   "id": "cce_shield",
+   "name": "CCE Shield",
+   "type": "infinite_recharge_bar",
+   "description": "Extendable electro-shield that protects against incoming rushes by slowing opponents and injuring them over time.",
+   "info": "Gauge that empties while in use and fills up when ability is inactive."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/clash/index.ts"
+ },
+ {
+  "id": "deimos",
+  "name": "Deimos",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 33,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "frag_grenade",
+   "hard_breach_charge",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "deathmark_tracker",
+   "name": "DeathMARK Tracker",
+   "type": "recharge_count",
+   "description": "Small probe that reveals an Opponent and Deimos to each other for a limited time.",
+   "info": "1 DeathMARK charges over time, up to a maximum of 3."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/deimos/index.ts"
+ },
+ {
+  "id": "doc",
+  "name": "Doc",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "barbed_wire"
+  ],
+  "ability": {
+   "id": "stim_pistol",
+   "name": "Stim Pistol",
+   "type": "count",
+   "description": "Fires a shot that provides Doc and his team with a health boost or revive from a distance.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/doc/index.ts"
+ },
+ {
+  "id": "dokkaebi",
+  "name": "Dokkaebi",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 8,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "stun_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": {
+   "id": "logic_bomb",
+   "name": "Logic Bomb",
+   "type": "count",
+   "description": "Calls Defender phones to compromise their locations, interrupt use of Observation Tools and leave them open to hacking.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/dokkaebi/index.ts"
+ },
+ {
+  "id": "echo",
+  "name": "Echo",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 4,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "deployable_shield"
+  ],
+  "ability": {
+   "id": "yokai",
+   "name": "Yokai",
+   "type": "count",
+   "description": "Drone that can hover on ceilings and manually fires sonic bursts to stun opponents and interrupt their actions.",
+   "info": "Each Yokai has 2 sonic burst charges that recharge after use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/echo/index.ts"
+ },
+ {
+  "id": "ela",
+  "name": "Ela",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 7,
+  "specialties": [
+   "crowd_control",
+   "trapper"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "deployable_shield",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "grzmot_mine",
+   "name": "Grzmot Mine",
+   "type": "count",
+   "description": "Concussion mine that sticks to surfaces and detonates when it detects nearby opponents to disorient them.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ela/index.ts"
+ },
+ {
+  "id": "fenrir",
+  "name": "Fenrir",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 30,
+  "specialties": [
+   "crowd_control",
+   "trapper"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "barbed_wire"
+  ],
+  "ability": {
+   "id": "f-natt_dread_mine",
+   "name": "F-Natt Dread Mine",
+   "type": "count",
+   "description": "Throwable device that sticks to surfaces and releases a fear-inducing gas when it detects nearby opponents.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/fenrir/index.ts"
+ },
+ {
+  "id": "finka",
+  "name": "Finka",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 9,
+  "specialties": [
+   "front-line",
+   "support"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "stun_grenade",
+   "frag_grenade"
+  ],
+  "ability": {
+   "id": "adrenal_surge",
+   "name": "Adrenal Surge",
+   "type": "count",
+   "description": "Gives Finka and her team a health boost or revive and enhances their combat capabilities.",
+   "info": "Adrenal Surge has a cooldown time between uses."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/finka/index.ts"
+ },
+ {
+  "id": "flores",
+  "name": "Flores",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 21,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "claymore"
+  ],
+  "ability": {
+   "id": "rce-ratero_charge",
+   "name": "RCE-Ratero Charge",
+   "type": "count",
+   "description": "Remote-controlled charge that anchors to a surface and becomes bulletproof, then detonates.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/flores/index.ts"
+ },
+ {
+  "id": "frost",
+  "name": "Frost",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 1,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "deployable_shield"
+  ],
+  "ability": {
+   "id": "welcome_mat",
+   "name": "Welcome Mat",
+   "type": "count",
+   "description": "Floor trap that instantly downs opponents and prevents them from moving.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/frost/index.ts"
+ },
+ {
+  "id": "fuze",
+  "name": "Fuze",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "hard_breach_charge",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "cluster_charge",
+   "name": "Cluster Charge",
+   "type": "count",
+   "description": "Charge that's deployed on breakable and reinforced surfaces to injure opponents and clear devices on the other side.",
+   "info": "Each charge releases 4 sub-grenades."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/fuze/index.ts"
+ },
+ {
+  "id": "glaz",
+  "name": "Glaz",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "frag_grenade",
+   "claymore"
+  ],
+  "ability": {
+   "id": "flip_sight",
+   "name": "Flip Sight",
+   "type": "none",
+   "description": "Magnifying scope that's equipped onto the primary weapon to outline opponents and see through smoke.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/glaz/index.ts"
+ },
+ {
+  "id": "goyo",
+  "name": "Goyo",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 15,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "bulletproof_camera",
+   "impact_grenade"
+  ],
+  "ability": {
+   "id": "volcan_shield",
+   "name": "Volcan Shield",
+   "type": "count",
+   "description": "Incendiary bomb in a partially bulletproof casing that creates fire when destroyed.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/goyo/index.ts"
+ },
+ {
+  "id": "gridlock",
+  "name": "Gridlock",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 13,
+  "specialties": [
+   "support",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "impact_emp_grenade",
+   "frag_grenade"
+  ],
+  "ability": {
+   "id": "trax_stingers",
+   "name": "Trax Stingers",
+   "type": "count",
+   "description": "Device that deploys barbed mats to slow and injure opponents that walk on them.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/gridlock/index.ts"
+ },
+ {
+  "id": "grim",
+  "name": "Grim",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 27,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "impact_emp_grenade",
+   "claymore",
+   "hard_breach_charge"
+  ],
+  "ability": {
+   "id": "kawan_hive_launcher",
+   "name": "Kawan Hive Launcher",
+   "type": "count",
+   "description": "Launcher that fires a canister, releasing a swarm of bots that reveals opponents passing through it for a limited time.",
+   "info": "Each Kawan Hive drops a canister that releases a swarm of bots."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/grim/index.ts"
+ },
+ {
+  "id": "hibana",
+  "name": "Hibana",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 4,
+  "specialties": [
+   "breach",
+   "front-line"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "breach_charge"
+  ],
+  "ability": {
+   "id": "x-kairos",
+   "name": "X-Kairos",
+   "type": "count",
+   "description": "Fires pellets that are manually detonated to create line of sight or entryways in breakable and reinforced surfaces.",
+   "info": "Fires 6, 4 or 2 pellets at a time."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/hibana/index.ts"
+ },
+ {
+  "id": "iana",
+  "name": "Iana",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 17,
+  "specialties": [
+   "front-line",
+   "intel"
+  ],
+  "gadgets": [
+   "impact_emp_grenade",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "gemini_replicator",
+   "name": "Gemini Replicator",
+   "type": "infinite_recharge_bar",
+   "description": "Deploys a remote-controlled hologram of lana to deceive opponents and gather intel.",
+   "info": "Gauge that empties while in use and has a cooldown time before reactivating."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/iana/index.ts"
+ },
+ {
+  "id": "iq",
+  "name": "IQ",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore",
+   "frag_grenade"
+  ],
+  "ability": {
+   "id": "electronics_detector",
+   "name": "Electronics Detector",
+   "type": "none",
+   "description": "Wearable device that locates nearby electronics through objects and surfaces.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/iq/index.ts"
+ },
+ {
+  "id": "jackal",
+  "name": "Jackal",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 5,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "claymore",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "eyenox_model_iii",
+   "name": "Eyenox Model III",
+   "type": "count",
+   "description": "Headgear that can be activated to reveal opponent footprints and scan them to ping the opponent's location.",
+   "info": "The headgear has limited scans available but no limit on revealing footprints."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/jackal/index.ts"
+ },
+ {
+  "id": "jager",
+  "name": "Jäger",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "anti-gadget",
+   "support"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "active_defense_system",
+   "name": "Active Defense System",
+   "type": "count",
+   "description": "Deployable device that intercepts and destroys projectiles before they detonate.",
+   "info": "Each device holds 1 charge that recharges after use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/jager/index.ts"
+ },
+ {
+  "id": "kaid",
+  "name": "Kaid",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 12,
+  "specialties": [
+   "anti-entry",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "barbed_wire",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "rtila_electroclaw",
+   "name": "\"Rtila\" Electroclaw",
+   "type": "count",
+   "description": "Electrical device that sticks to surfaces and electrifies nearby metal utility.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/kaid/index.ts"
+ },
+ {
+  "id": "kali",
+  "name": "Kali",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 16,
+  "specialties": [
+   "anti-gadget",
+   "support"
+  ],
+  "gadgets": [
+   "claymore",
+   "breach_charge"
+  ],
+  "ability": {
+   "id": "lv_explosive_lance",
+   "name": "LV Explosive Lance",
+   "type": "count",
+   "description": "Under-barrel projectile on primary weapon that detonates to destroy devices on either side of breakable and reinforced surfaces.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/kali/index.ts"
+ },
+ {
+  "id": "kapkan",
+  "name": "Kapkan",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "nitro_cell"
+  ],
+  "ability": {
+   "id": "entry_denial_device",
+   "name": "Entry Denial Device",
+   "type": "count",
+   "description": "Explosive trap that's attached to doorframes and window frames.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/kapkan/index.ts"
+ },
+ {
+  "id": "lesion",
+  "name": "Lesion",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 7,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "observation_blocker",
+   "bulletproof_camera"
+  ],
+  "ability": {
+   "id": "gu_mines",
+   "name": "Gu Mines",
+   "type": "recharge_count",
+   "description": "Toxic mines that inject a compound, injuring opponents and limiting their speed",
+   "info": "1 GU charges over time, up to a maximum of 9."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/lesion/index.ts"
+ },
+ {
+  "id": "lion",
+  "name": "Lion",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 9,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "claymore",
+   "frag_grenade"
+  ],
+  "ability": {
+   "id": "ee-one-d",
+   "name": "EE-ONE-D",
+   "type": "count",
+   "description": "Drone that hovers above the map and scans it for movement to reveal opponent locations.",
+   "info": "The drone has a cooldown time between scans."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/lion/index.ts"
+ },
+ {
+  "id": "maestro",
+  "name": "Maestro",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 10,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "impact_grenade",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "evil_eye",
+   "name": "Evil Eye",
+   "type": "count",
+   "description": "Bulletproof camera with a turret that manually fires lasers to injure opponents or destroy devices.",
+   "info": "Each Evil Eye has unlimited ammo but temporarily overheats when firing the turret for too long."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/maestro/index.ts"
+ },
+ {
+  "id": "maverick",
+  "name": "Maverick",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 11,
+  "specialties": [
+   "breach",
+   "front-line"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "claymore",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "breaching_torch",
+   "name": "Breaching Torch",
+   "type": "count",
+   "description": "Blowtorch that quietly burns holes to create line of sight or entryways in breakable and reinforced surfaces.",
+   "info": "Breaching Torch has a limited number of fuel tanks, each with a gauge that empties while in use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/maverick/index.ts"
+ },
+ {
+  "id": "melusi",
+  "name": "Melusi",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 18,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "impact_grenade"
+  ],
+  "ability": {
+   "id": "banshee_sonic_defense",
+   "name": "Banshee Sonic Defense",
+   "type": "count",
+   "description": "Bulletproof device that activates when opponents are near and uses sound to slow them.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/melusi/index.ts"
+ },
+ {
+  "id": "mira",
+  "name": "Mira",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 5,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "nitro_cell"
+  ],
+  "ability": {
+   "id": "black_mirror",
+   "name": "Black Mirror",
+   "type": "count",
+   "description": "Device that's deployed on breakable or reinforced walls to create a bulletproof one-way window.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/mira/index.ts"
+ },
+ {
+  "id": "montagne",
+  "name": "Montagne",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "smoke_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": {
+   "id": "extendable_shield",
+   "name": "Extendable Shield",
+   "type": "none",
+   "description": "Shield that can be extended for full frontal protection to gather intel and provide cover for teammates.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/montagne/index.ts"
+ },
+ {
+  "id": "mozzie",
+  "name": "Mozzie",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 13,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "nitro_cell"
+  ],
+  "ability": {
+   "id": "pest_launcher",
+   "name": "Pest Launcher",
+   "type": "count",
+   "description": "Launches bots that automatically latch onto opponent drones in range to take control of them.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/mozzie/index.ts"
+ },
+ {
+  "id": "mute",
+  "name": "Mute",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "anti-gadget",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "bulletproof_camera"
+  ],
+  "ability": {
+   "id": "signal_disruptor",
+   "name": "Signal Disruptor",
+   "type": "count",
+   "description": "Signal jammer that deactivates opponent electronic devices in range.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/mute/index.ts"
+ },
+ {
+  "id": "nokk",
+  "name": "Nøkk",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 14,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "frag_grenade",
+   "hard_breach_charge",
+   "impact_emp_grenade"
+  ],
+  "ability": {
+   "id": "hel_presence_reduction",
+   "name": "HEL Presence Reduction",
+   "type": "infinite_recharge_bar",
+   "description": "Wipes Nøkk's image from nearby drones and Observation Tools and muffles the sound of her movement.",
+   "info": "Gauge that empties while in use and fills up when ability is inactive."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/nokk/index.ts"
+ },
+ {
+  "id": "nomad",
+  "name": "Nomad",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 12,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "breach_charge"
+  ],
+  "ability": {
+   "id": "airjab_launcher",
+   "name": "Airjab Launcher",
+   "type": "count",
+   "description": "Primary weapon attachment that fires a device that detonates and pushes Operators to the ground.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/nomad/index.ts"
+ },
+ {
+  "id": "oryx",
+  "name": "Oryx",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 17,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "proximity_alarm"
+  ],
+  "ability": {
+   "id": "remah_dash",
+   "name": "Remah Dash",
+   "type": "infinite_recharge_count",
+   "description": "Dash attack that creates entryways in breakable walls, pushes opponents to the ground, and allows for faster roaming.",
+   "info": "Remah Dashes recharge after use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/oryx/index.ts"
+ },
+ {
+  "id": "osa",
+  "name": "Osa",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 23,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "claymore",
+   "frag_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": {
+   "id": "talon-8_clear_shield",
+   "name": "TALON-8 Clear Shield",
+   "type": "count",
+   "description": "Transparent, bulletproof shield that can be carried or deployed on the ground and entryways.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/osa/index.ts"
+ },
+ {
+  "id": "pulse",
+  "name": "Pulse",
+  "side": "def",
+  "health": 1,
+  "speed": 3,
+  "season": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "deployable_shield",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "heartbeat_sensor",
+   "name": "Heartbeat Sensor",
+   "type": "none",
+   "description": "Detects the heartbeats of nearby opponents through objects and surfaces.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/pulse/index.ts"
+ },
+ {
+  "id": "ram",
+  "name": "Ram",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 31,
+  "specialties": [
+   "breach",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "bu-gi_auto-breacher",
+   "name": "BU-GI Auto-Breacher",
+   "type": "none",
+   "description": "Deployable mini-tank that moves along a set path destroying devices and breakable surfaces in its way.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ram/index.ts"
+ },
+ {
+  "id": "rook",
+  "name": "Rook",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "impact_grenade",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "armor_pack",
+   "name": "Armor Pack",
+   "type": "count",
+   "description": "A pack of armor plates that give teammates additional health and protect them against elimination one time.",
+   "info": "Armor Pack has 5 armor plates."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/rook/index.ts"
+ },
+ {
+  "id": "sens",
+  "name": "Sens",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 26,
+  "specialties": [
+   "support",
+   "map_control"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "claymore",
+   "frag_grenade"
+  ],
+  "ability": {
+   "id": "r.o.u._projector_system",
+   "name": "R.O.U. Projector System",
+   "type": "count",
+   "description": "Throwable device that rolls and drops projectors to create a screen that blocks line of sight.",
+   "info": "Each R.O.U. device drops projectors that stay active for 13 seconds."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/sens/index.ts"
+ },
+ {
+  "id": "sledge",
+  "name": "Sledge",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "anti-gadget",
+   "breach"
+  ],
+  "gadgets": [
+   "frag_grenade",
+   "stun_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": {
+   "id": "tactical_breaching_hammer",
+   "name": "Tactical Breaching Hammer",
+   "type": "count",
+   "description": "Hammer that creates entryways or line of sight in breakable surfaces and destroys bulletproof devices.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/sledge/index.ts"
+ },
+ {
+  "id": "smoke",
+  "name": "Smoke",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "proximity_alarm"
+  ],
+  "ability": {
+   "id": "remote_gas_grenade",
+   "name": "Remote Gas Grenade",
+   "type": "count",
+   "description": "Throwable canister that sticks to surfaces and manually detonates to release a cloud of toxic gas.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/smoke/index.ts"
+ },
+ {
+  "id": "solis",
+  "name": "Solis",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 28,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "bulletproof_camera"
+  ],
+  "ability": {
+   "id": "spec-io_electro-sensor",
+   "name": "SPEC-IO Electro-Sensor",
+   "type": "infinite_recharge_bar",
+   "description": "Device that identifies opponent electronic devices, then scans them to ping their locations.",
+   "info": "Gauge that empties while in use and fills up when ability is inactive. Scan function drains the gauge completely."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/solis/index.ts"
+ },
+ {
+  "id": "tachanka",
+  "name": "Tachanka",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "anti-entry",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "deployable_shield",
+   "proximity_alarm"
+  ],
+  "ability": {
+   "id": "shumikha_launcher",
+   "name": "Shumikha Launcher",
+   "type": "count",
+   "description": "Launches incendiary grenades that create a fire on detonation.",
+   "info": "Magazine size: 5"
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/tachanka/index.ts"
+ },
+ {
+  "id": "thatcher",
+  "name": "Thatcher",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 0,
+  "specialties": [
+   "anti-gadget",
+   "support"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": {
+   "id": "emp_grenade",
+   "name": "EMP Grenade",
+   "type": "count",
+   "description": "Non-damaging grenade that temporarily deactivates nearby opponent electronic devices.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thatcher/index.ts"
+ },
+ {
+  "id": "thermite",
+  "name": "Thermite",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "breach",
+   "support"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "stun_grenade"
+  ],
+  "ability": {
+   "id": "exothermic_charge",
+   "name": "Exothermic Charge",
+   "type": "count",
+   "description": "Explosive device that's manually detonated to create large entryways in breakable and reinforced surfaces.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thermite/index.ts"
+ },
+ {
+  "id": "thorn",
+  "name": "Thorn",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 24,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "deployable_shield",
+   "barbed_wire"
+  ],
+  "ability": {
+   "id": "razorbloom_shell",
+   "name": "Razorbloom Shell",
+   "type": "count",
+   "description": "Throwable device that sticks to surfaces and sends out a set of sharp blades when it detects nearby opponents.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thorn/index.ts"
+ },
+ {
+  "id": "thunderbird",
+  "name": "Thunderbird",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 22,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "bulletproof_camera",
+   "deployable_shield"
+  ],
+  "ability": {
+   "id": "kona_station",
+   "name": "KÓNA Station",
+   "type": "count",
+   "description": "Device that automatically heals or revives any injured Operators in range, including opponents.",
+   "info": "Each K6na Station has 1 heal that recharges after use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/thunderbird/index.ts"
+ },
+ {
+  "id": "tubarao",
+  "name": "Tubarão",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 32,
+  "specialties": [
+   "anti-gadget",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "proximity_alarm"
+  ],
+  "ability": {
+   "id": "zoto_canister",
+   "name": "Zoto Canister",
+   "type": "count",
+   "description": "Throwable device that sticks to surfaces and releases a freezing gas, deactivating devices and slowing enemies.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/tubarao/index.ts"
+ },
+ {
+  "id": "twitch",
+  "name": "Twitch",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "claymore",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "shock_drones",
+   "name": "Shock Drones",
+   "type": "count",
+   "description": "Drone that manually fires lasers to clear rooms of opponent devices.",
+   "info": "Each drone has 3 laser charges that recharge after use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/twitch/index.ts"
+ },
+ {
+  "id": "valkyrie",
+  "name": "Valkyrie",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 2,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "nitro_cell"
+  ],
+  "ability": {
+   "id": "black_eye",
+   "name": "Black Eye",
+   "type": "count",
+   "description": "Throwable cameras that stick to surfaces and can be used by Valkyrie and her team to gather intel.",
+   "info": null
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/valkyrie/index.ts"
+ },
+ {
+  "id": "vigil",
+  "name": "Vigil",
+  "side": "def",
+  "health": 1,
+  "speed": 3,
+  "season": 8,
+  "specialties": [
+   "anti-gadget",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "impact_grenade"
+  ],
+  "ability": {
+   "id": "erc-7",
+   "name": "ERC-7",
+   "type": "infinite_recharge_bar",
+   "description": "Wipes Vigil's image from nearby drones and Observation Tools so he can't be scanned.",
+   "info": "Gauge that empties while in use and fills up when ability is inactive."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/vigil/index.ts"
+ },
+ {
+  "id": "wamai",
+  "name": "Wamai",
+  "side": "def",
+  "health": 2,
+  "speed": 2,
+  "season": 16,
+  "specialties": [
+   "anti-gadget",
+   "trapper"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "proximity_alarm"
+  ],
+  "ability": {
+   "id": "mag-net_system",
+   "name": "Mag-net System",
+   "type": "recharge_count",
+   "description": "Throwable device that captures incoming grenades and projectiles and detonates them after a delay.",
+   "info": "1 Mag-NET recharges over time, up to a maximum of 6."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/wamai/index.ts"
+ },
+ {
+  "id": "warden",
+  "name": "Warden",
+  "side": "def",
+  "health": 3,
+  "speed": 1,
+  "season": 14,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "deployable_shield",
+   "nitro_cell",
+   "observation_blocker"
+  ],
+  "ability": {
+   "id": "glance_smart_glasses",
+   "name": "Glance Smart Glasses",
+   "type": "infinite_recharge_bar",
+   "description": "Eyewear that improves visibility in smoke and protects against flash blindness.",
+   "info": "Gauge that empties while in use and fills up when ability is inactive."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/warden/index.ts"
+ },
+ {
+  "id": "ying",
+  "name": "Ying",
+  "side": "att",
+  "health": 2,
+  "speed": 2,
+  "season": 7,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "smoke_grenade"
+  ],
+  "ability": {
+   "id": "candela",
+   "name": "Candela",
+   "type": "count",
+   "description": "Device that deploys a cluster of flash charges to temporarily blind Operators.",
+   "info": "Each Candela releases 3 flash charges."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/ying/index.ts"
+ },
+ {
+  "id": "zero",
+  "name": "Zero",
+  "side": "att",
+  "health": 1,
+  "speed": 3,
+  "season": 19,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "claymore"
+  ],
+  "ability": {
+   "id": "argus_launcher",
+   "name": "ARGUS Launcher",
+   "type": "count",
+   "description": "Launcher that deploys cameras capable of piercing into breakable and reinforced surfaces to surveil both sides.",
+   "info": "Each camera has 1 laser charge that recharges after use."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/zero/index.ts"
+ },
+ {
+  "id": "zofia",
+  "name": "Zofia",
+  "side": "att",
+  "health": 3,
+  "speed": 1,
+  "season": 8,
+  "specialties": [
+   "breach",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": {
+   "id": "ks79_lifeline",
+   "name": "KS79 Lifeline",
+   "type": "switch",
+   "description": "Launcher that fires two types of grenades to disorient opponents or create entryways in breakable surfaces.",
+   "info": "2 Impact Grenades and 2 Concussion Grenades."
+  },
+  "source": "https://github.com/danielwerg/r6data/blob/master/src/operators/zofia/index.ts"
+ }
+]

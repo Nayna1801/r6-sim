@@ -1,0 +1,20 @@
+{
+ "_doc": "Efecto de cada gadget secundario en las estadisticas del motor. Estadistica efectiva = base + peso * suma de efectos (peso en balance.json > gadgets.weight). Las habilidades unicas ya estan reflejadas en las estadisticas base (data/operators.json). Magnitudes pequenas a proposito: un gadget matiza, no sustituye a la habilidad.",
+ "stats": ["aim", "intel", "entry", "hb", "flank", "clear", "smoke", "aUtil", "deny", "anchor", "roam", "aIntel", "aHB", "aNade", "vis", "sup", "long", "vtl", "post"],
+ "effects": {
+  "hard_breach_charge": { "side": "att", "stats": { "hb": 0.5 } },
+  "breach_charge": { "side": "att", "stats": { "vtl": 0.5 } },
+  "frag_grenade": { "side": "att", "stats": { "clear": 0.5 } },
+  "smoke_grenade": { "side": "att", "stats": { "smoke": 0.5 } },
+  "stun_grenade": { "side": "att", "stats": { "smoke": 0.25, "clear": 0.25 } },
+  "claymore": { "side": "att", "stats": { "flank": 0.5, "post": 0.25 } },
+  "impact_emp_grenade": { "side": "att", "stats": { "aUtil": 0.5 } },
+  "deployable_shield": { "side": "def", "stats": { "anchor": 0.5 } },
+  "nitro_cell": { "side": "def", "stats": { "deny": 0.5 } },
+  "impact_grenade": { "side": "def", "stats": { "deny": 0.25 } },
+  "barbed_wire": { "side": "def", "stats": { "deny": 0.5 } },
+  "bulletproof_camera": { "side": "def", "stats": { "intel": 0.5 } },
+  "proximity_alarm": { "side": "def", "stats": { "intel": 0.25, "anchor": 0.25 } },
+  "observation_blocker": { "side": "def", "stats": { "aIntel": 0.15 } }
+ }
+}

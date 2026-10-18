@@ -17,6 +17,11 @@ const dec = J('config/decisions.json'), rules = J('config/rules.json'), ui = J('
 dec.phases.forEach((ph) => { need.add(`phase.${ph}.title`); need.add(`phase.${ph}.resolving`);
   ['att', 'def'].forEach((sd) => { need.add(`phase.${ph}.${sd}.goal`); Object.entries(dec[ph][sd]).forEach(([g, opts]) => { need.add(`dec.group.${ph}.${sd}.${g}`); Object.keys(opts).forEach((o) => { need.add(`dec.${ph}.${sd}.${g}.${o}`); need.add(`dec.${ph}.${sd}.${g}.${o}.desc`); }); }); }); });
 ui.tags.forEach((t) => need.add(`tag.${t.id}`));
+// datos de agentes: especialidades, gadgets y habilidad de cada uno (la ficha de agente las pide por clave derivada)
+J('data/operators.json').forEach((o) => { need.add(`ability.${o.ability}`); need.add(`ability.${o.ability}.desc`); o.specialties.forEach((sp) => { need.add(`spec.${sp}`); need.add(`spec.${sp}.desc`); }); o.gadgets.forEach((gd) => { need.add(`gadget.${gd}`); need.add(`gadget.${gd}.desc`); }); });
+['health', 'speed'].forEach((k) => need.add(`sheet.${k}`));
+// acciones de agente: nombre, descripcion y opciones (menos 'off', que usa ui.actionOff)
+Object.entries(J('config/actions.json').actions).forEach(([id, a]) => { need.add(`action.${id}`); need.add(`action.${id}.desc`); need.add(`action.${id}.counters`); Object.values(a.options).forEach((o) => (o.do || []).forEach((e) => Object.entries(e.mods || {}).forEach(([k, v]) => { if (k.endsWith('Mul') && v > 1) need.add(`mod.${k}.up`); }))); Object.keys(a.options).filter((o) => o !== 'off').forEach((o) => { need.add(`action.${id}.opt.${o}`); need.add(`action.${id}.opt.${o}.desc`); }); });
 [...ui.stats.att, ...ui.stats.def, ...ui.compChips.att.map((c) => c.stat), ...ui.compChips.def.map((c) => c.stat), ...ui.pickFilters.att, ...ui.pickFilters.def].forEach((s) => { need.add(`stat.${s}`); need.add(`stat.${s}.desc`); });
 [...rules.defRoles, ...rules.attRoles, 'planter'].forEach((r) => { need.add(`role.${r}`); need.add(`role.${r}.desc`); });
 rules.lanes.forEach((l) => need.add(`lane.${l}`)); rules.reinforcements.buckets.forEach((b) => { need.add(`reinf.${b}`); need.add(`reinf.${b}.desc`); });
@@ -24,7 +29,7 @@ rules.draft.modes.forEach((m) => need.add(`draft.${m}`)); ['ranked', 'all', 'cho
 ui.modOrder.forEach((m) => need.add(`mod.${m}`));
 for (const ph of dec.phases) for (const sd of ['att', 'def']) for (const g of Object.values(dec[ph][sd])) for (const o of Object.values(g)) Object.keys(o.mods || {}).filter((k) => k.startsWith('carry.')).forEach((k) => need.add(`mod.${k}`));
 ['att', 'def'].forEach((s) => { need.add(`side.${s}`); need.add(`result.${s}`); need.add(`enum.side.${s}`); });
-['kill', 'prep', 'early', 'entry', 'site', 'plant', 'post', 'end', 'adjust'].forEach((k) => need.add(`evtype.${k}`));
+['kill', 'prep', 'early', 'entry', 'site', 'plant', 'post', 'end', 'adjust', 'act'].forEach((k) => need.add(`evtype.${k}`));
 ['alta','media','baja','unknown'].forEach((k) => need.add(`conf.${k}`)); need.add('ui.spawnUndocumented'); need.add('spawn.generic');
 // enums de parametros de eventos
 Object.values(J('config/i18n.json').paramTypes).filter((t) => t.startsWith('enum:')).forEach((t) => { /* los valores se validan abajo */ });

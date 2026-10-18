@@ -9,7 +9,7 @@
     Object.entries(props || {}).forEach(([k, v]) => {
       if (v === false || v == null) return;
       if (k === 'class') el.className = v;
-      else if (k === 'style' && typeof v === 'object') Object.assign(el.style, v);
+      else if (k === 'style' && typeof v === 'object') Object.entries(v).forEach(([p, val]) => { if (p.startsWith('--')) el.style.setProperty(p, val); else el.style[p] = val; });
       else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
       else if (k === 'dataset') Object.assign(el.dataset, v);
       else el.setAttribute(k, v === true ? '' : v);
@@ -79,5 +79,17 @@
     return { stop: () => clearInterval(iv) };
   }
 
-  Object.assign(UI, { h, $, clear, wait, sfx, beep, setSound, soundOn, banner, tag, shake, confetti, sparks, toast, countdown });
+  // Respuesta al toque: onda desde el punto pulsado y vibracion breve en pantallas tactiles
+  const RIPPLE_HOST = 'button:not(:disabled):not(.site), .card, .spawn, .dopt';
+  function initFeedback() {
+    document.addEventListener('pointerdown', (e) => {
+      const el = e.target.closest(RIPPLE_HOST); if (!el) return;
+      const r = el.getBoundingClientRect(); const d = Math.max(r.width, r.height) * 2;
+      const rip = h('span', { class: 'rip', 'aria-hidden': 'true', style: { width: `${d}px`, height: `${d}px`, left: `${e.clientX - r.left - d / 2}px`, top: `${e.clientY - r.top - d / 2}px` } });
+      el.appendChild(rip); setTimeout(() => rip.remove(), 650);
+      if (e.pointerType === 'touch' && navigator.vibrate) navigator.vibrate(8);
+    }, { passive: true });
+  }
+
+  Object.assign(UI, { h, $, clear, wait, sfx, initFeedback, beep, setSound, soundOn, banner, tag, shake, confetti, sparks, toast, countdown });
 })(typeof window !== 'undefined' ? window : globalThis);

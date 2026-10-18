@@ -85,6 +85,7 @@
     }
   ],
   "maxTags": 3,
+  "sheetStatMax": 5,
   "stats": {
     "att": [
       "aim",

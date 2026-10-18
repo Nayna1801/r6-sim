@@ -21,7 +21,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "breach"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": "s_e_l_m_a_aqua_breacher",
+  "health": 2,
+  "speed": 2,
+  "season": 18
  },
  {
   "id": "amaru",
@@ -45,7 +57,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "stun_grenade"
+  ],
+  "ability": "garra_hook",
+  "health": 2,
+  "speed": 2,
+  "season": 15
  },
  {
   "id": "ash",
@@ -69,7 +93,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "front-line"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": "breaching_rounds",
+  "health": 1,
+  "speed": 3,
+  "season": 0
  },
  {
   "id": "blackbeard",
@@ -93,7 +129,19 @@
   "sup": 0,
   "long": 1,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "claymore",
+   "stun_grenade",
+   "frag_grenade"
+  ],
+  "ability": "rifle_shield",
+  "health": 2,
+  "speed": 2,
+  "season": 2
  },
  {
   "id": "blitz",
@@ -117,7 +165,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "breach_charge"
+  ],
+  "ability": "flash_shield",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "brava",
@@ -141,7 +201,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "claymore"
+  ],
+  "ability": "kludge_drone",
+  "health": 1,
+  "speed": 3,
+  "season": 29
  },
  {
   "id": "buck",
@@ -165,7 +237,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "support"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "hard_breach_charge"
+  ],
+  "ability": "skeleton_key",
+  "health": 2,
+  "speed": 2,
+  "season": 1
  },
  {
   "id": "capitao",
@@ -189,7 +273,20 @@
   "sup": 1,
   "long": 0,
   "vtl": 0,
-  "post": 2
+  "post": 2,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "claymore",
+   "hard_breach_charge",
+   "impact_emp_grenade"
+  ],
+  "ability": "tactical_crossbow",
+  "health": 3,
+  "speed": 1,
+  "season": 3
  },
  {
   "id": "deimos",
@@ -213,7 +310,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "frag_grenade",
+   "hard_breach_charge",
+   "smoke_grenade"
+  ],
+  "ability": "deathmark_tracker",
+  "health": 2,
+  "speed": 2,
+  "season": 33
  },
  {
   "id": "dokkaebi",
@@ -237,7 +347,20 @@
   "sup": 1,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "stun_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": "logic_bomb",
+  "health": 1,
+  "speed": 3,
+  "season": 8
  },
  {
   "id": "finka",
@@ -261,7 +384,20 @@
   "sup": 3,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "support"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "stun_grenade",
+   "frag_grenade"
+  ],
+  "ability": "adrenal_surge",
+  "health": 2,
+  "speed": 2,
+  "season": 9
  },
  {
   "id": "flores",
@@ -285,7 +421,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "claymore"
+  ],
+  "ability": "rce_ratero_charge",
+  "health": 2,
+  "speed": 2,
+  "season": 21
  },
  {
   "id": "fuze",
@@ -309,7 +457,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "hard_breach_charge",
+   "smoke_grenade"
+  ],
+  "ability": "cluster_charge",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "glaz",
@@ -333,7 +493,20 @@
   "sup": 0,
   "long": 2,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "frag_grenade",
+   "claymore"
+  ],
+  "ability": "flip_sight",
+  "health": 1,
+  "speed": 3,
+  "season": 0
  },
  {
   "id": "gridlock",
@@ -357,7 +530,20 @@
   "sup": 1,
   "long": 0,
   "vtl": 0,
-  "post": 2
+  "post": 2,
+  "specialties": [
+   "support",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "impact_emp_grenade",
+   "frag_grenade"
+  ],
+  "ability": "trax_stingers",
+  "health": 3,
+  "speed": 1,
+  "season": 13
  },
  {
   "id": "grim",
@@ -381,7 +567,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "impact_emp_grenade",
+   "claymore",
+   "hard_breach_charge"
+  ],
+  "ability": "kawan_hive_launcher",
+  "health": 1,
+  "speed": 3,
+  "season": 27
  },
  {
   "id": "hibana",
@@ -405,7 +604,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "front-line"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "breach_charge"
+  ],
+  "ability": "x_kairos",
+  "health": 1,
+  "speed": 3,
+  "season": 4
  },
  {
   "id": "iana",
@@ -429,7 +640,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "intel"
+  ],
+  "gadgets": [
+   "impact_emp_grenade",
+   "smoke_grenade"
+  ],
+  "ability": "gemini_replicator",
+  "health": 2,
+  "speed": 2,
+  "season": 17
  },
  {
   "id": "iq",
@@ -453,7 +676,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore",
+   "frag_grenade"
+  ],
+  "ability": "electronics_detector",
+  "health": 1,
+  "speed": 3,
+  "season": 0
  },
  {
   "id": "jackal",
@@ -477,7 +713,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "claymore",
+   "smoke_grenade"
+  ],
+  "ability": "eyenox_model_iii",
+  "health": 2,
+  "speed": 2,
+  "season": 5
  },
  {
   "id": "kali",
@@ -501,7 +749,19 @@
   "sup": 0,
   "long": 2,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "support"
+  ],
+  "gadgets": [
+   "claymore",
+   "breach_charge"
+  ],
+  "ability": "lv_explosive_lance",
+  "health": 2,
+  "speed": 2,
+  "season": 16
  },
  {
   "id": "lion",
@@ -525,7 +785,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "map_control"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "claymore",
+   "frag_grenade"
+  ],
+  "ability": "ee_one_d",
+  "health": 2,
+  "speed": 2,
+  "season": 9
  },
  {
   "id": "maverick",
@@ -549,14 +822,27 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "front-line"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "claymore",
+   "smoke_grenade"
+  ],
+  "ability": "breaching_torch",
+  "health": 1,
+  "speed": 3,
+  "season": 11
  },
  {
   "id": "montagne",
   "name": "Montagne",
   "side": "att",
   "aim": 3,
-  "intel": 0,
+  "intel": 1,
   "entry": 2,
   "hb": 0,
   "flank": 0,
@@ -573,7 +859,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "smoke_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": "extendable_shield",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "nomad",
@@ -597,7 +896,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 2
+  "post": 2,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "breach_charge"
+  ],
+  "ability": "airjab_launcher",
+  "health": 2,
+  "speed": 2,
+  "season": 12
  },
  {
   "id": "nokk",
@@ -621,7 +932,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "frag_grenade",
+   "hard_breach_charge",
+   "impact_emp_grenade"
+  ],
+  "ability": "hel_presence_reduction",
+  "health": 2,
+  "speed": 2,
+  "season": 14
  },
  {
   "id": "osa",
@@ -645,7 +969,20 @@
   "sup": 2,
   "long": 0,
   "vtl": 0,
-  "post": 1
+  "post": 1,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "claymore",
+   "frag_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": "talon_8_clear_shield",
+  "health": 3,
+  "speed": 1,
+  "season": 23
  },
  {
   "id": "ram",
@@ -669,7 +1006,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "stun_grenade",
+   "smoke_grenade"
+  ],
+  "ability": "bu_gi_auto_breacher",
+  "health": 3,
+  "speed": 1,
+  "season": 31
  },
  {
   "id": "rauora",
@@ -690,10 +1039,22 @@
   "aHB": 0,
   "aNade": 0,
   "vis": 0,
-  "sup": 0,
+  "sup": 1,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support",
+   "map_control"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "breach_charge"
+  ],
+  "ability": "dom_panel_launcher",
+  "health": null,
+  "speed": null,
+  "season": null
  },
  {
   "id": "sens",
@@ -717,7 +1078,20 @@
   "sup": 1,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support",
+   "map_control"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "claymore",
+   "frag_grenade"
+  ],
+  "ability": "r_o_u_projector_system",
+  "health": 1,
+  "speed": 3,
+  "season": 26
  },
  {
   "id": "sledge",
@@ -741,7 +1115,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "breach"
+  ],
+  "gadgets": [
+   "frag_grenade",
+   "stun_grenade",
+   "impact_emp_grenade"
+  ],
+  "ability": "tactical_breaching_hammer",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "thatcher",
@@ -765,7 +1152,19 @@
   "sup": 1,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "support"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": "emp_grenade",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "thermite",
@@ -789,7 +1188,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 1,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "support"
+  ],
+  "gadgets": [
+   "smoke_grenade",
+   "stun_grenade"
+  ],
+  "ability": "exothermic_charge",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "twitch",
@@ -813,7 +1224,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "claymore",
+   "smoke_grenade"
+  ],
+  "ability": "shock_drones",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "ying",
@@ -837,7 +1260,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "front-line",
+   "map_control"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "smoke_grenade"
+  ],
+  "ability": "candela",
+  "health": 2,
+  "speed": 2,
+  "season": 7
  },
  {
   "id": "zero",
@@ -861,7 +1296,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "hard_breach_charge",
+   "claymore"
+  ],
+  "ability": "argus_launcher",
+  "health": 1,
+  "speed": 3,
+  "season": 19
  },
  {
   "id": "zofia",
@@ -885,31 +1332,55 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "breach",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "breach_charge",
+   "claymore"
+  ],
+  "ability": "ks79_lifeline",
+  "health": 3,
+  "speed": 1,
+  "season": 8
  },
  {
   "id": "alibi",
   "name": "Alibi",
   "side": "def",
   "aim": 3,
-  "intel": 0,
+  "intel": 1,
   "entry": 0,
   "hb": 0,
   "flank": 0,
   "clear": 0,
   "smoke": 0,
   "aUtil": 0,
-  "deny": 0,
+  "deny": 1,
   "anchor": 1,
   "roam": 1,
-  "aIntel": 2,
+  "aIntel": 0,
   "aHB": 0,
   "aNade": 0,
   "vis": 0,
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "trapper"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "observation_blocker"
+  ],
+  "ability": "prisma",
+  "health": 1,
+  "speed": 3,
+  "season": 10
  },
  {
   "id": "aruni",
@@ -933,7 +1404,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "bulletproof_camera"
+  ],
+  "ability": "surya_gate",
+  "health": 3,
+  "speed": 1,
+  "season": 20
  },
  {
   "id": "azami",
@@ -957,7 +1440,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "support"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "impact_grenade"
+  ],
+  "ability": "kiba_barrier",
+  "health": 2,
+  "speed": 2,
+  "season": 25
  },
  {
   "id": "bandit",
@@ -981,7 +1476,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "nitro_cell"
+  ],
+  "ability": "shock_wire",
+  "health": 1,
+  "speed": 3,
+  "season": 0
  },
  {
   "id": "castle",
@@ -1005,7 +1512,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "support"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "proximity_alarm"
+  ],
+  "ability": "armor_panel",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "caveira",
@@ -1029,14 +1548,27 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "proximity_alarm",
+   "observation_blocker"
+  ],
+  "ability": "silent_step",
+  "health": 1,
+  "speed": 3,
+  "season": 3
  },
  {
   "id": "clash",
   "name": "Clash",
   "side": "def",
   "aim": 2,
-  "intel": 0,
+  "intel": 1,
   "entry": 0,
   "hb": 0,
   "flank": 0,
@@ -1053,7 +1585,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "impact_grenade",
+   "deployable_shield"
+  ],
+  "ability": "cce_shield",
+  "health": 3,
+  "speed": 1,
+  "season": 11
  },
  {
   "id": "denari",
@@ -1077,7 +1622,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "observation_blocker",
+   "deployable_shield"
+  ],
+  "ability": "trip_connector",
+  "health": null,
+  "speed": null,
+  "season": null
  },
  {
   "id": "doc",
@@ -1101,7 +1658,18 @@
   "sup": 3,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "barbed_wire"
+  ],
+  "ability": "stim_pistol",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "echo",
@@ -1125,7 +1693,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "deployable_shield"
+  ],
+  "ability": "yokai",
+  "health": 2,
+  "speed": 2,
+  "season": 4
  },
  {
   "id": "ela",
@@ -1149,7 +1729,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "crowd_control",
+   "trapper"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "deployable_shield",
+   "observation_blocker"
+  ],
+  "ability": "grzmot_mine",
+  "health": 2,
+  "speed": 2,
+  "season": 7
  },
  {
   "id": "fenrir",
@@ -1173,7 +1766,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "crowd_control",
+   "trapper"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "barbed_wire"
+  ],
+  "ability": "f_natt_dread_mine",
+  "health": 2,
+  "speed": 2,
+  "season": 30
  },
  {
   "id": "frost",
@@ -1197,7 +1802,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "deployable_shield"
+  ],
+  "ability": "welcome_mat",
+  "health": 2,
+  "speed": 2,
+  "season": 1
  },
  {
   "id": "goyo",
@@ -1221,7 +1838,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "bulletproof_camera",
+   "impact_grenade"
+  ],
+  "ability": "volcan_shield",
+  "health": 2,
+  "speed": 2,
+  "season": 15
  },
  {
   "id": "jager",
@@ -1245,7 +1875,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "support"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "observation_blocker"
+  ],
+  "ability": "active_defense_system",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "kaid",
@@ -1269,7 +1911,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "anti-gadget"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "barbed_wire",
+   "observation_blocker"
+  ],
+  "ability": "rtila_electroclaw",
+  "health": 3,
+  "speed": 1,
+  "season": 12
  },
  {
   "id": "kapkan",
@@ -1293,7 +1948,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "nitro_cell"
+  ],
+  "ability": "entry_denial_device",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "lesion",
@@ -1317,7 +1984,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "observation_blocker",
+   "bulletproof_camera"
+  ],
+  "ability": "gu_mines",
+  "health": 2,
+  "speed": 2,
+  "season": 7
  },
  {
   "id": "maestro",
@@ -1341,7 +2020,20 @@
   "sup": 0,
   "long": 1,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "impact_grenade",
+   "observation_blocker"
+  ],
+  "ability": "evil_eye",
+  "health": 3,
+  "speed": 1,
+  "season": 10
  },
  {
   "id": "melusi",
@@ -1365,7 +2057,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "impact_grenade"
+  ],
+  "ability": "banshee_sonic_defense",
+  "health": 3,
+  "speed": 1,
+  "season": 18
  },
  {
   "id": "mira",
@@ -1389,7 +2093,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "nitro_cell"
+  ],
+  "ability": "black_mirror",
+  "health": 3,
+  "speed": 1,
+  "season": 5
  },
  {
   "id": "mozzie",
@@ -1413,7 +2129,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "nitro_cell"
+  ],
+  "ability": "pest_launcher",
+  "health": 2,
+  "speed": 2,
+  "season": 13
  },
  {
   "id": "mute",
@@ -1437,23 +2165,35 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "bulletproof_camera"
+  ],
+  "ability": "signal_disruptor",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "noor",
   "name": "Noor",
   "side": "def",
   "aim": 3,
-  "intel": 2,
+  "intel": 0,
   "entry": 0,
   "hb": 0,
   "flank": 0,
   "clear": 0,
   "smoke": 0,
   "aUtil": 0,
-  "deny": 0,
-  "anchor": 0,
-  "roam": 2,
+  "deny": 2,
+  "anchor": 2,
+  "roam": 0,
   "aIntel": 0,
   "aHB": 0,
   "aNade": 0,
@@ -1461,7 +2201,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "deployable_shield",
+   "barbed_wire"
+  ],
+  "ability": "horus_lance_launcher",
+  "health": null,
+  "speed": null,
+  "season": null
  },
  {
   "id": "oryx",
@@ -1485,7 +2237,18 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "proximity_alarm"
+  ],
+  "ability": "remah_dash",
+  "health": 2,
+  "speed": 2,
+  "season": 17
  },
  {
   "id": "pulse",
@@ -1509,7 +2272,20 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "deployable_shield",
+   "observation_blocker"
+  ],
+  "ability": "heartbeat_sensor",
+  "health": 1,
+  "speed": 3,
+  "season": 0
  },
  {
   "id": "rook",
@@ -1533,14 +2309,26 @@
   "sup": 2,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "proximity_alarm",
+   "impact_grenade",
+   "observation_blocker"
+  ],
+  "ability": "armor_pack",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "skopos",
   "name": "Skopós",
   "side": "def",
   "aim": 3,
-  "intel": 1,
+  "intel": 2,
   "entry": 0,
   "hb": 0,
   "flank": 0,
@@ -1557,7 +2345,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "proximity_alarm"
+  ],
+  "ability": "v10_pantheon_shells",
+  "health": null,
+  "speed": null,
+  "season": null
  },
  {
   "id": "smoke",
@@ -1581,7 +2381,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "proximity_alarm"
+  ],
+  "ability": "remote_gas_grenade",
+  "health": 2,
+  "speed": 2,
+  "season": 0
  },
  {
   "id": "solis",
@@ -1605,7 +2417,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "bulletproof_camera"
+  ],
+  "ability": "spec_io_electro_sensor",
+  "health": 2,
+  "speed": 2,
+  "season": 28
  },
  {
   "id": "tachanka",
@@ -1629,7 +2453,20 @@
   "sup": 0,
   "long": 1,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "deployable_shield",
+   "proximity_alarm"
+  ],
+  "ability": "shumikha_launcher",
+  "health": 3,
+  "speed": 1,
+  "season": 0
  },
  {
   "id": "thorn",
@@ -1653,7 +2490,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-entry",
+   "trapper"
+  ],
+  "gadgets": [
+   "deployable_shield",
+   "barbed_wire"
+  ],
+  "ability": "razorbloom_shell",
+  "health": 2,
+  "speed": 2,
+  "season": 24
  },
  {
   "id": "thunderbird",
@@ -1677,31 +2526,19 @@
   "sup": 2,
   "long": 0,
   "vtl": 0,
-  "post": 0
- },
- {
-  "id": "trapper",
-  "name": "Trapper",
-  "side": "def",
-  "aim": 3,
-  "intel": 0,
-  "entry": 0,
-  "hb": 0,
-  "flank": 0,
-  "clear": 0,
-  "smoke": 0,
-  "aUtil": 0,
-  "deny": 2,
-  "anchor": 2,
-  "roam": 0,
-  "aIntel": 1,
-  "aHB": 0,
-  "aNade": 0,
-  "vis": 0,
-  "sup": 0,
-  "long": 0,
-  "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "support"
+  ],
+  "gadgets": [
+   "barbed_wire",
+   "bulletproof_camera",
+   "deployable_shield"
+  ],
+  "ability": "kona_station",
+  "health": 2,
+  "speed": 2,
+  "season": 22
  },
  {
   "id": "tubarao",
@@ -1725,7 +2562,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "nitro_cell",
+   "proximity_alarm"
+  ],
+  "ability": "zoto_canister",
+  "health": 2,
+  "speed": 2,
+  "season": 32
  },
  {
   "id": "valkyrie",
@@ -1749,7 +2598,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "intel",
+   "support"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "nitro_cell"
+  ],
+  "ability": "black_eye",
+  "health": 2,
+  "speed": 2,
+  "season": 2
  },
  {
   "id": "vigil",
@@ -1773,7 +2634,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "crowd_control"
+  ],
+  "gadgets": [
+   "bulletproof_camera",
+   "impact_grenade"
+  ],
+  "ability": "erc_7",
+  "health": 1,
+  "speed": 3,
+  "season": 8
  },
  {
   "id": "wamai",
@@ -1797,7 +2670,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "trapper"
+  ],
+  "gadgets": [
+   "impact_grenade",
+   "proximity_alarm"
+  ],
+  "ability": "mag_net_system",
+  "health": 2,
+  "speed": 2,
+  "season": 16
  },
  {
   "id": "warden",
@@ -1821,6 +2706,19 @@
   "sup": 0,
   "long": 0,
   "vtl": 0,
-  "post": 0
+  "post": 0,
+  "specialties": [
+   "anti-gadget",
+   "intel"
+  ],
+  "gadgets": [
+   "deployable_shield",
+   "nitro_cell",
+   "observation_blocker"
+  ],
+  "ability": "glance_smart_glasses",
+  "health": 3,
+  "speed": 1,
+  "season": 14
  }
 ]

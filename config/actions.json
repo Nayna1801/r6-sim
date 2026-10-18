@@ -1,0 +1,2325 @@
+{
+ "_doc": "GENERADO por tools/derive_actions.py desde tools/research/action_specs.json: no editar a mano. Acciones propias de cada agente (ver docs/diseno-acciones-de-agente.md). Cada accion es un grupo de decision 'act.<id>' cuya primera opcion es siempre 'off'. Efectos: mod (modificadores numericos de equipo), buff (bonus de equipo a una estadistica del motor durante la fase, o toda la ronda si el gadget persiste), time (segundos del reloj de ronda; solo cuenta para acciones atacantes, porque ese reloj corre en su contra), reveal (el bando conoce a enemigos hasta ttl fases mas tarde), ambush (bonus de emboscada del roamer, con derribo y orden condicional 'then': finish | interrogate), breach (potencia extra de un breacher duro), revive (levanta derribados propios al acabar la fase), trapdown (una trampa puede derribar a atacantes). 'persist': el gadget queda colocado toda la ronda. 'when': solo se usa si el equipo eligio ese valor en una decision de equipo. 'tags' + 'counters'/'suppress'/'statCounters' definen el contrajuego. Cifras de diseno propio; las mecanicas salen de las notas de r6data (src/operators/<id>/notes.md).",
+ "maxActive": 2,
+ "effects": [
+  "mod",
+  "time",
+  "reveal",
+  "ambush",
+  "breach",
+  "revive",
+  "buff",
+  "trapdown"
+ ],
+ "tagList": [
+  "stealth",
+  "tracker",
+  "jam",
+  "electrify",
+  "sensor",
+  "electronic",
+  "remote_charge",
+  "breach",
+  "heal",
+  "surge",
+  "drone",
+  "claymore",
+  "emp",
+  "laser",
+  "lance",
+  "hack",
+  "freeze",
+  "detect",
+  "anti_projectile",
+  "camera"
+ ],
+ "counters": [
+  {
+   "_": "Mute: no se activan cargas remotas, drones, curas ni rastreo dentro de su alcance",
+   "source": "jam",
+   "against": [
+    "tracker",
+    "remote_charge",
+    "heal",
+    "drone"
+   ],
+   "scale": 0.3
+  },
+  {
+   "_": "Bandit/Kaid: la carga exotermica se destruye al tocar una pared electrificada",
+   "source": "electrify",
+   "against": [
+    "remote_charge"
+   ],
+   "scale": 0.5
+  },
+  {
+   "_": "Finka: un atacante con Adrenal Surge se detecta desde 14 m en vez de 9",
+   "source": "surge",
+   "against": [
+    "sensor"
+   ],
+   "scale": 1.5
+  },
+  {
+   "_": "Caveira, Vigil, Nokk: el sigilo anula las marcas del Eyenox",
+   "source": "stealth",
+   "against": [
+    "tracker"
+   ],
+   "scale": 0.5
+  },
+  {
+   "_": "Thatcher: el EMP desactiva gadgets electronicos cercanos",
+   "source": "emp",
+   "against": [
+    "electronic"
+   ],
+   "scale": 0.5
+  },
+  {
+   "_": "Jager, Wamai: sus sistemas interceptan proyectiles, EMP incluido",
+   "source": "anti_projectile",
+   "against": [
+    "emp"
+   ],
+   "scale": 0.4
+  },
+  {
+   "_": "Maestro (evil eye), Twitch (drones de choque): sus laseres destruyen cargas, drones y gadgets rivales",
+   "source": "laser",
+   "against": [
+    "electronic",
+    "remote_charge",
+    "drone"
+   ],
+   "scale": 0.6
+  },
+  {
+   "_": "Mozzie, Brava, Dokkaebi: el hackeo toma el control de drones y dispositivos",
+   "source": "hack",
+   "against": [
+    "drone",
+    "electronic"
+   ],
+   "scale": 0.4
+  },
+  {
+   "_": "Tubarao: el gas helado desactiva dispositivos",
+   "source": "freeze",
+   "against": [
+    "electronic",
+    "remote_charge",
+    "drone"
+   ],
+   "scale": 0.5
+  },
+  {
+   "_": "IQ, Solis: detectan los dispositivos electronicos del rival",
+   "source": "detect",
+   "against": [
+    "electronic",
+    "sensor",
+    "remote_charge",
+    "drone"
+   ],
+   "scale": 0.7
+  }
+ ],
+ "suppress": [
+  {
+   "_": "el EMP deja sin efecto, esa fase, los gadgets colocados que contrarrestan al atacante",
+   "source": "emp",
+   "tags": [
+    "jam",
+    "electrify",
+    "sensor"
+   ]
+  },
+  {
+   "_": "la lanza de Kali destruye gadgets anti-breach",
+   "source": "lance",
+   "tags": [
+    "jam",
+    "electrify"
+   ]
+  },
+  {
+   "_": "Brava convierte los inhibidores",
+   "source": "hack",
+   "tags": [
+    "jam"
+   ]
+  }
+ ],
+ "statCounters": [
+  {
+   "_": "anti-util atacante (EMP de Thatcher, laser de Twitch...) debilita gadgets electronicos",
+   "stat": "aUtil",
+   "side": "att",
+   "against": [
+    "electronic"
+   ],
+   "k": 0.12,
+   "min": 0.25
+  },
+  {
+   "_": "informacion atacante (drones, rastreo) reduce la ventaja del sigilo",
+   "stat": "intel",
+   "side": "att",
+   "against": [
+    "stealth"
+   ],
+   "k": 0.07,
+   "min": 0.5
+  }
+ ],
+ "actions": {
+  "caveira.silent_step": {
+   "op": "caveira",
+   "archetype": "roam_hunt",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "requires": {
+    "role": [
+     "roam",
+     "hunt"
+    ]
+   },
+   "tags": [
+    "stealth"
+   ],
+   "options": {
+    "off": {},
+    "hunt_finish": {
+     "do": [
+      {
+       "fx": "ambush",
+       "aim": 0.45,
+       "downs": true,
+       "then": "finish"
+      }
+     ]
+    },
+    "hunt_interrogate": {
+     "do": [
+      {
+       "fx": "ambush",
+       "aim": 0.45,
+       "downs": true,
+       "then": {
+        "fx": "interrogate",
+        "exposed": {
+         "base": 0.1,
+         "perAtt": 0.05,
+         "max": 0.5
+        },
+        "ttl": 2
+       }
+      }
+     ]
+    }
+   }
+  },
+  "jackal.eyenox": {
+   "op": "jackal",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "tracker"
+   ],
+   "options": {
+    "off": {},
+    "track": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": "roamer",
+       "ttl": 1
+      },
+      {
+       "fx": "time",
+       "s": 6
+      }
+     ]
+    }
+   }
+  },
+  "mute.signal_disruptor": {
+   "op": "mute",
+   "archetype": "jam",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "jam",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "jam": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "carry.aHBMul": 1.25
+       }
+      }
+     ]
+    }
+   }
+  },
+  "bandit.shock_wire": {
+   "op": "bandit",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "electrify",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "electrify": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "carry.aHBMul": 1.4
+       }
+      }
+     ]
+    }
+   }
+  },
+  "pulse.heartbeat_sensor": {
+   "op": "pulse",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "site",
+    "plant",
+    "post"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "sensor",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 2,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "thermite.exothermic_charge": {
+   "op": "thermite",
+   "archetype": "breach_hard",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "hard"
+   },
+   "tags": [
+    "remote_charge",
+    "breach"
+   ],
+   "options": {
+    "off": {},
+    "exo": {
+     "do": [
+      {
+       "fx": "breach",
+       "power": 2.0
+      },
+      {
+       "fx": "time",
+       "s": 3
+      }
+     ]
+    }
+   }
+  },
+  "finka.adrenal_surge": {
+   "op": "finka",
+   "archetype": "support_revive",
+   "side": "att",
+   "phases": [
+    "early",
+    "entry",
+    "site",
+    "post"
+   ],
+   "uses": 3,
+   "requires": {},
+   "tags": [
+    "heal",
+    "surge"
+   ],
+   "options": {
+    "off": {},
+    "surge": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "aim": 0.03,
+        "foeAim": -0.02
+       }
+      },
+      {
+       "fx": "revive",
+       "max": 1,
+       "self": true
+      },
+      {
+       "fx": "time",
+       "s": 6
+      }
+     ]
+    }
+   }
+  },
+  "hibana.x_kairos": {
+   "op": "hibana",
+   "archetype": "breach_hard",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "hard"
+   },
+   "tags": [
+    "breach",
+    "remote_charge"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "breach",
+       "power": 1.6
+      },
+      {
+       "fx": "time",
+       "s": 3
+      }
+     ]
+    }
+   }
+  },
+  "ace.s_e_l_m_a_aqua_breacher": {
+   "op": "ace",
+   "archetype": "breach_hard",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "hard"
+   },
+   "tags": [
+    "breach",
+    "remote_charge"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "breach",
+       "power": 1.4
+      },
+      {
+       "fx": "time",
+       "s": 3
+      }
+     ]
+    }
+   }
+  },
+  "maverick.breaching_torch": {
+   "op": "maverick",
+   "archetype": "breach_hard",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "hard"
+   },
+   "tags": [
+    "breach"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "breach",
+       "power": 1.2
+      },
+      {
+       "fx": "time",
+       "s": 6
+      }
+     ]
+    }
+   }
+  },
+  "fuze.cluster_charge": {
+   "op": "fuze",
+   "archetype": "breach_hard",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "hard"
+   },
+   "tags": [
+    "breach",
+    "remote_charge"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "breach",
+       "power": 1.0
+      },
+      {
+       "fx": "buff",
+       "stat": "clear",
+       "v": 1
+      },
+      {
+       "fx": "time",
+       "s": 3
+      }
+     ]
+    }
+   }
+  },
+  "sledge.tactical_breaching_hammer": {
+   "op": "sledge",
+   "archetype": "breach_soft",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "soft"
+   },
+   "tags": [
+    "breach"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vtl",
+       "v": 0.75
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 0.375
+      }
+     ]
+    }
+   }
+  },
+  "buck.skeleton_key": {
+   "op": "buck",
+   "archetype": "breach_soft",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "soft"
+   },
+   "tags": [
+    "breach"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vtl",
+       "v": 0.75
+      }
+     ]
+    }
+   }
+  },
+  "ash.breaching_rounds": {
+   "op": "ash",
+   "archetype": "breach_soft",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "soft"
+   },
+   "tags": [
+    "breach",
+    "remote_charge"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vtl",
+       "v": 0.75
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 0.375
+      }
+     ]
+    }
+   }
+  },
+  "zofia.ks79_lifeline": {
+   "op": "zofia",
+   "archetype": "breach_soft",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "soft"
+   },
+   "tags": [
+    "breach"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vtl",
+       "v": 0.6
+      },
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.03
+       }
+      }
+     ]
+    }
+   }
+  },
+  "ram.bu_gi_auto_breacher": {
+   "op": "ram",
+   "archetype": "breach_soft",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "soft"
+   },
+   "tags": [
+    "breach",
+    "drone"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vtl",
+       "v": 0.75
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 0.375
+      }
+     ]
+    }
+   }
+  },
+  "flores.rce_ratero_charge": {
+   "op": "flores",
+   "archetype": "breach_soft",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "when": {
+    "method": "soft"
+   },
+   "tags": [
+    "breach",
+    "remote_charge",
+    "drone"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vtl",
+       "v": 0.6
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 0.75
+      }
+     ]
+    }
+   }
+  },
+  "amaru.garra_hook": {
+   "op": "amaru",
+   "archetype": "shield",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "aim": 0.1
+       }
+      }
+     ]
+    }
+   }
+  },
+  "blitz.flash_shield": {
+   "op": "blitz",
+   "archetype": "shield",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.1
+       }
+      },
+      {
+       "fx": "buff",
+       "stat": "smoke",
+       "v": 1
+      }
+     ]
+    }
+   }
+  },
+  "montagne.extendable_shield": {
+   "op": "montagne",
+   "archetype": "shield",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.1
+       }
+      }
+     ]
+    }
+   }
+  },
+  "blackbeard.rifle_shield": {
+   "op": "blackbeard",
+   "archetype": "shield",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.06
+       }
+      }
+     ]
+    }
+   }
+  },
+  "osa.talon_8_clear_shield": {
+   "op": "osa",
+   "archetype": "shield",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.08
+       }
+      }
+     ]
+    }
+   }
+  },
+  "lion.ee_one_d": {
+   "op": "lion",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "drone",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 2,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "grim.kawan_hive_launcher": {
+   "op": "grim",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "drone",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 2,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "dokkaebi.logic_bomb": {
+   "op": "dokkaebi",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "hack",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": null,
+       "ttl": 1
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 1
+      }
+     ]
+    }
+   }
+  },
+  "deimos.deathmark_tracker": {
+   "op": "deimos",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "tracker"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": "roamer",
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "iq.electronics_detector": {
+   "op": "iq",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "detect",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": null,
+       "ttl": 0
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 1.5
+      }
+     ]
+    }
+   }
+  },
+  "iana.gemini_replicator": {
+   "op": "iana",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "drone",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": null,
+       "ttl": 1
+      }
+     ]
+    }
+   }
+  },
+  "zero.argus_launcher": {
+   "op": "zero",
+   "archetype": "scout",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "drone",
+    "electronic",
+    "camera"
+   ],
+   "options": {
+    "off": {},
+    "deploy": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": null,
+       "ttl": 1
+      },
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 1
+      }
+     ]
+    }
+   }
+  },
+  "thatcher.emp_grenade": {
+   "op": "thatcher",
+   "archetype": "anti_gadget",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "emp"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "twitch.shock_drones": {
+   "op": "twitch",
+   "archetype": "anti_gadget",
+   "side": "att",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "drone",
+    "electronic",
+    "laser"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 1.5
+      },
+      {
+       "fx": "reveal",
+       "who": "def",
+       "count": 1,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "kali.lv_explosive_lance": {
+   "op": "kali",
+   "archetype": "anti_gadget",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "lance"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 1.2
+      }
+     ]
+    }
+   }
+  },
+  "brava.kludge_drone": {
+   "op": "brava",
+   "archetype": "anti_gadget",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "hack"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aUtil",
+       "v": 1
+      }
+     ]
+    }
+   }
+  },
+  "ying.candela": {
+   "op": "ying",
+   "archetype": "vision",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "smoke",
+       "v": 1
+      },
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.12
+       }
+      }
+     ]
+    }
+   }
+  },
+  "capitao.tactical_crossbow": {
+   "op": "capitao",
+   "archetype": "vision",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "smoke",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "sens.r_o_u_projector_system": {
+   "op": "sens",
+   "archetype": "vision",
+   "side": "att",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "smoke",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "glaz.flip_sight": {
+   "op": "glaz",
+   "archetype": "vision",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "aim": 0.1
+       }
+      }
+     ]
+    }
+   }
+  },
+  "nomad.airjab_launcher": {
+   "op": "nomad",
+   "archetype": "vision",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.1
+       }
+      }
+     ]
+    }
+   }
+  },
+  "nokk.hel_presence_reduction": {
+   "op": "nokk",
+   "archetype": "flank",
+   "side": "att",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "stealth"
+   ],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "flank",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "gridlock.trax_stingers": {
+   "op": "gridlock",
+   "archetype": "flank",
+   "side": "att",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "flank",
+       "v": 1
+      },
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.05
+       }
+      }
+     ]
+    }
+   }
+  },
+  "rauora.dom_panel_launcher": {
+   "op": "rauora",
+   "archetype": "flank",
+   "side": "att",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "use": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.08
+       }
+      }
+     ]
+    }
+   }
+  },
+  "valkyrie.black_eye": {
+   "op": "valkyrie",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "camera",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 1,
+       "prefer": null,
+       "ttl": 1
+      }
+     ]
+    }
+   }
+  },
+  "maestro.evil_eye": {
+   "op": "maestro",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "laser",
+    "camera",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 1,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "echo.yokai": {
+   "op": "echo",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "drone",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 1,
+       "prefer": null,
+       "ttl": 0
+      },
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.06
+       }
+      }
+     ]
+    }
+   }
+  },
+  "alibi.prisma": {
+   "op": "alibi",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 1,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "skopos.v10_pantheon_shells": {
+   "op": "skopos",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "early",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 1,
+       "prefer": null,
+       "ttl": 1
+      }
+     ]
+    }
+   }
+  },
+  "solis.spec_io_electro_sensor": {
+   "op": "solis",
+   "archetype": "reveal",
+   "side": "def",
+   "phases": [
+    "entry",
+    "site"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "detect",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "scan": {
+     "do": [
+      {
+       "fx": "reveal",
+       "who": "att",
+       "count": 1,
+       "prefer": null,
+       "ttl": 0
+      }
+     ]
+    }
+   }
+  },
+  "vigil.erc_7": {
+   "op": "vigil",
+   "archetype": "roam_hunt",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "requires": {
+    "role": [
+     "roam",
+     "hunt"
+    ]
+   },
+   "tags": [
+    "stealth"
+   ],
+   "options": {
+    "off": {},
+    "hunt": {
+     "do": [
+      {
+       "fx": "ambush",
+       "aim": 0.3,
+       "downs": false
+      }
+     ]
+    }
+   }
+  },
+  "ela.grzmot_mine": {
+   "op": "ela",
+   "archetype": "roam_harass",
+   "side": "def",
+   "phases": [
+    "early",
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {
+    "role": [
+     "roam",
+     "hunt"
+    ]
+   },
+   "tags": [],
+   "options": {
+    "off": {},
+    "harass": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.1
+       }
+      }
+     ]
+    }
+   }
+  },
+  "oryx.remah_dash": {
+   "op": "oryx",
+   "archetype": "roam_hunt",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "requires": {
+    "role": [
+     "roam",
+     "hunt"
+    ]
+   },
+   "tags": [],
+   "options": {
+    "off": {},
+    "hunt": {
+     "do": [
+      {
+       "fx": "ambush",
+       "aim": 0.35,
+       "downs": false
+      }
+     ]
+    }
+   }
+  },
+  "mozzie.pest_launcher": {
+   "op": "mozzie",
+   "archetype": "jam",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "hack"
+   ],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "info": -0.07
+       }
+      }
+     ]
+    }
+   }
+  },
+  "tubarao.zoto_canister": {
+   "op": "tubarao",
+   "archetype": "jam",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "freeze"
+   ],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.5
+      }
+     ]
+    }
+   }
+  },
+  "warden.glance_smart_glasses": {
+   "op": "warden",
+   "archetype": "jam",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "vis",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "kaid.rtila_electroclaw": {
+   "op": "kaid",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "electrify",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "reinforce": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "carry.aHBMul": 1.35
+       }
+      }
+     ]
+    }
+   }
+  },
+  "castle.armor_panel": {
+   "op": "castle",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "reinforce": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aHB",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "azami.kiba_barrier": {
+   "op": "azami",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "reinforce": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aHB",
+       "v": 1.5
+      }
+     ]
+    }
+   }
+  },
+  "mira.black_mirror": {
+   "op": "mira",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "reinforce": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aHB",
+       "v": 1.2
+      },
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.03
+       }
+      }
+     ]
+    }
+   }
+  },
+  "jager.active_defense_system": {
+   "op": "jager",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "anti_projectile",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "reinforce": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aNade",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "wamai.mag_net_system": {
+   "op": "wamai",
+   "archetype": "anti_breach",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [
+    "anti_projectile",
+    "electronic"
+   ],
+   "options": {
+    "off": {},
+    "reinforce": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "aNade",
+       "v": 2
+      }
+     ]
+    }
+   }
+  },
+  "kapkan.entry_denial_device": {
+   "op": "kapkan",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "smoke.remote_gas_grenade": {
+   "op": "smoke",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "tachanka.shumikha_launcher": {
+   "op": "tachanka",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "fenrir.f_natt_dread_mine": {
+   "op": "fenrir",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "melusi.banshee_sonic_defense": {
+   "op": "melusi",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "thorn.razorbloom_shell": {
+   "op": "thorn",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "aruni.surya_gate": {
+   "op": "aruni",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "goyo.volcan_shield": {
+   "op": "goyo",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "denari.trip_connector": {
+   "op": "denari",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "noor.horus_lance_launcher": {
+   "op": "noor",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "clash.cce_shield": {
+   "op": "clash",
+   "archetype": "trap",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "place": {
+     "do": [
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.8
+      }
+     ]
+    }
+   }
+  },
+  "frost.welcome_mat": {
+   "op": "frost",
+   "archetype": "trap_down",
+   "side": "def",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "trigger": {
+     "do": [
+      {
+       "fx": "trapdown",
+       "p": 0.11,
+       "n": 1
+      },
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.4
+      }
+     ]
+    }
+   }
+  },
+  "lesion.gu_mines": {
+   "op": "lesion",
+   "archetype": "trap_down",
+   "side": "def",
+   "phases": [
+    "entry"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "trigger": {
+     "do": [
+      {
+       "fx": "trapdown",
+       "p": 0.11,
+       "n": 1
+      },
+      {
+       "fx": "buff",
+       "stat": "deny",
+       "v": 0.4
+      }
+     ]
+    }
+   }
+  },
+  "doc.stim_pistol": {
+   "op": "doc",
+   "archetype": "support_revive",
+   "side": "def",
+   "phases": [
+    "site",
+    "post"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "heal"
+   ],
+   "options": {
+    "off": {},
+    "support": {
+     "do": [
+      {
+       "fx": "revive",
+       "max": 1,
+       "self": true
+      },
+      {
+       "fx": "mod",
+       "mods": {
+        "aim": 0.015
+       }
+      }
+     ]
+    }
+   }
+  },
+  "thunderbird.kona_station": {
+   "op": "thunderbird",
+   "archetype": "support_revive",
+   "side": "def",
+   "phases": [
+    "site",
+    "post"
+   ],
+   "uses": 1,
+   "requires": {},
+   "tags": [
+    "heal"
+   ],
+   "options": {
+    "off": {},
+    "support": {
+     "do": [
+      {
+       "fx": "revive",
+       "max": 1,
+       "self": true
+      },
+      {
+       "fx": "buff",
+       "stat": "sup",
+       "v": 1
+      }
+     ]
+    }
+   }
+  },
+  "rook.armor_pack": {
+   "op": "rook",
+   "archetype": "support_armor",
+   "side": "def",
+   "phases": [
+    "early"
+   ],
+   "uses": 1,
+   "persist": true,
+   "requires": {},
+   "tags": [],
+   "options": {
+    "off": {},
+    "armor": {
+     "do": [
+      {
+       "fx": "mod",
+       "mods": {
+        "foeAim": -0.06
+       }
+      }
+     ]
+    }
+   }
+  }
+ }
+}

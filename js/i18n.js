@@ -27,6 +27,7 @@
     if (!type || type === 'raw' || v == null) return v;
     if (type === 'op') return opName(v);
     if (type === 'opList') return v.map(opName).join(', ');
+    if (type === 'action') return t(`action.${v}`);
     if (type === 'site') return siteName(v);
     if (type === 'spawn') return spawnName(v);
     if (type.startsWith('enum:')) return t(`enum.${type.slice(5)}.${v}`);

@@ -1,0 +1,220 @@
+{
+ "_doc": "Fuente de config/actions.json (generado por tools/derive_actions.py; NO editar el JSON generado). 'config': reglas globales y contrajuego. 'custom': acciones afinadas a mano (se copian tal cual). 'archetypes': plantillas (do con $parametros; 'if': solo se incluye la entrada si el parametro existe y no es 0/null). 'scale': multiplicador de potencia por arquetipo (para calibrar en bloque; escala v, mods, power, aim y p). 'ops': arquetipo y parametros de cada agente (k: multiplicador propio; tags/phases/uses: sustituyen o amplian los del arquetipo). Los nombres y descripciones de las acciones son los de la habilidad oficial; los contrarrestos citados salen de tools/research/operator_notes_counters.json.",
+ "config": {
+  "maxActive": 2,
+  "effects": ["mod", "time", "reveal", "ambush", "breach", "revive", "buff", "trapdown"],
+  "tagList": ["stealth", "tracker", "jam", "electrify", "sensor", "electronic", "remote_charge", "breach", "heal", "surge", "drone", "claymore", "emp", "laser", "lance", "hack", "freeze", "detect", "anti_projectile", "camera"],
+  "counters": [
+   { "_": "Mute: no se activan cargas remotas, drones, curas ni rastreo dentro de su alcance", "source": "jam", "against": ["tracker", "remote_charge", "heal", "drone"], "scale": 0.3 },
+   { "_": "Bandit/Kaid: la carga exotermica se destruye al tocar una pared electrificada", "source": "electrify", "against": ["remote_charge"], "scale": 0.5 },
+   { "_": "Finka: un atacante con Adrenal Surge se detecta desde 14 m en vez de 9", "source": "surge", "against": ["sensor"], "scale": 1.5 },
+   { "_": "Caveira, Vigil, Nokk: el sigilo anula las marcas del Eyenox", "source": "stealth", "against": ["tracker"], "scale": 0.5 },
+   { "_": "Thatcher: el EMP desactiva gadgets electronicos cercanos", "source": "emp", "against": ["electronic"], "scale": 0.5 },
+   { "_": "Jager, Wamai: sus sistemas interceptan proyectiles, EMP incluido", "source": "anti_projectile", "against": ["emp"], "scale": 0.4 },
+   { "_": "Maestro (evil eye), Twitch (drones de choque): sus laseres destruyen cargas, drones y gadgets rivales", "source": "laser", "against": ["electronic", "remote_charge", "drone"], "scale": 0.6 },
+   { "_": "Mozzie, Brava, Dokkaebi: el hackeo toma el control de drones y dispositivos", "source": "hack", "against": ["drone", "electronic"], "scale": 0.4 },
+   { "_": "Tubarao: el gas helado desactiva dispositivos", "source": "freeze", "against": ["electronic", "remote_charge", "drone"], "scale": 0.5 },
+   { "_": "IQ, Solis: detectan los dispositivos electronicos del rival", "source": "detect", "against": ["electronic", "sensor", "remote_charge", "drone"], "scale": 0.7 }
+  ],
+  "suppress": [
+   { "_": "el EMP deja sin efecto, esa fase, los gadgets colocados que contrarrestan al atacante", "source": "emp", "tags": ["jam", "electrify", "sensor"] },
+   { "_": "la lanza de Kali destruye gadgets anti-breach", "source": "lance", "tags": ["jam", "electrify"] },
+   { "_": "Brava convierte los inhibidores", "source": "hack", "tags": ["jam"] }
+  ],
+  "statCounters": [
+   { "_": "anti-util atacante (EMP de Thatcher, laser de Twitch...) debilita gadgets electronicos", "stat": "aUtil", "side": "att", "against": ["electronic"], "k": 0.12, "min": 0.25 },
+   { "_": "informacion atacante (drones, rastreo) reduce la ventaja del sigilo", "stat": "intel", "side": "att", "against": ["stealth"], "k": 0.07, "min": 0.5 }
+  ]
+ },
+ "custom": {
+  "caveira.silent_step": {
+   "op": "caveira", "archetype": "roam_hunt", "side": "def", "phases": ["early"], "uses": 1,
+   "requires": { "role": ["roam", "hunt"] }, "tags": ["stealth"],
+   "options": {
+    "off": {},
+    "hunt_finish": { "do": [ { "fx": "ambush", "aim": 0.45, "downs": true, "then": "finish" } ] },
+    "hunt_interrogate": { "do": [ { "fx": "ambush", "aim": 0.45, "downs": true, "then": { "fx": "interrogate", "exposed": { "base": 0.1, "perAtt": 0.05, "max": 0.5 }, "ttl": 2 } } ] }
+   }
+  },
+  "jackal.eyenox": {
+   "op": "jackal", "archetype": "scout", "side": "att", "phases": ["early"], "uses": 1, "requires": {}, "tags": ["tracker"],
+   "options": { "off": {}, "track": { "do": [ { "fx": "reveal", "who": "def", "count": 1, "prefer": "roamer", "ttl": 1 }, { "fx": "time", "s": 6 } ] } }
+  },
+  "mute.signal_disruptor": {
+   "op": "mute", "archetype": "jam", "side": "def", "phases": ["early"], "uses": 1, "persist": true, "requires": {}, "tags": ["jam", "electronic"],
+   "options": { "off": {}, "jam": { "do": [ { "fx": "mod", "mods": { "carry.aHBMul": 1.25 } } ] } }
+  },
+  "bandit.shock_wire": {
+   "op": "bandit", "archetype": "anti_breach", "side": "def", "phases": ["early"], "uses": 1, "persist": true, "requires": {}, "tags": ["electrify", "electronic"],
+   "options": { "off": {}, "electrify": { "do": [ { "fx": "mod", "mods": { "carry.aHBMul": 1.4 } } ] } }
+  },
+  "pulse.heartbeat_sensor": {
+   "op": "pulse", "archetype": "reveal", "side": "def", "phases": ["site", "plant", "post"], "uses": 1, "requires": {}, "tags": ["sensor", "electronic"],
+   "options": { "off": {}, "scan": { "do": [ { "fx": "reveal", "who": "att", "count": 2, "prefer": null, "ttl": 0 } ] } }
+  },
+  "thermite.exothermic_charge": {
+   "op": "thermite", "archetype": "breach_hard", "side": "att", "phases": ["entry"], "uses": 1, "requires": {}, "when": { "method": "hard" }, "tags": ["remote_charge", "breach"],
+   "options": { "off": {}, "exo": { "do": [ { "fx": "breach", "power": 2.0 }, { "fx": "time", "s": 3 } ] } }
+  },
+  "finka.adrenal_surge": {
+   "op": "finka", "archetype": "support_revive", "side": "att", "phases": ["early", "entry", "site", "post"], "uses": 3, "requires": {}, "tags": ["heal", "surge"],
+   "options": { "off": {}, "surge": { "do": [ { "fx": "mod", "mods": { "aim": 0.03, "foeAim": -0.02 } }, { "fx": "revive", "max": 1, "self": true }, { "fx": "time", "s": 6 } ] } }
+  }
+ },
+ "scale": {
+  "breach_hard": 1, "breach_soft": 0.75, "shield": 1, "scout": 1, "anti_gadget": 1, "vision": 1, "flank": 1,
+  "reveal": 1, "roam_hunt": 1, "roam_harass": 1, "jam": 1, "anti_breach": 1, "trap": 1, "trap_down": 1, "support_revive": 1, "support_armor": 1
+ },
+ "archetypes": {
+  "breach_hard": {
+   "side": "att", "phases": ["entry"], "uses": 1, "when": { "method": "hard" }, "tags": ["breach"], "option": "use", "params": { "power": 1.4, "time": 3 },
+   "do": [ { "fx": "breach", "power": "$power" }, { "fx": "buff", "stat": "clear", "v": "$clear", "if": "clear" }, { "fx": "time", "s": "$time", "if": "time" } ],
+   "text": { "es": ["Usar el breach", "Mejora el breach duro de esta fase."], "en": ["Use the breach", "Improves this phase's hard breach."] }
+  },
+  "breach_soft": {
+   "side": "att", "phases": ["entry"], "uses": 1, "when": { "method": "soft" }, "tags": ["breach"], "option": "use", "params": { "vtl": 1 },
+   "do": [ { "fx": "buff", "stat": "vtl", "v": "$vtl" }, { "fx": "buff", "stat": "aUtil", "v": "$aUtil", "if": "aUtil" }, { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Abrir paso", "Mejora la entrada blanda de esta fase."], "en": ["Open a way", "Improves this phase's soft entry."] }
+  },
+  "shield": {
+   "side": "att", "phases": ["entry", "site"], "uses": 1, "tags": [], "option": "use", "params": {},
+   "do": [ { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" }, { "fx": "mod", "mods": { "aim": "$aim" }, "if": "aim" }, { "fx": "buff", "stat": "smoke", "v": "$smoke", "if": "smoke" } ],
+   "text": { "es": ["Avanzar con cobertura", "Reduce la eficacia del rival mientras entras."], "en": ["Advance under cover", "Weakens the enemy while you enter."] }
+  },
+  "scout": {
+   "side": "att", "phases": ["entry", "site"], "uses": 1, "tags": [], "option": "deploy", "params": { "count": 1, "ttl": 0, "prefer": null },
+   "do": [ { "fx": "reveal", "who": "def", "count": "$count", "prefer": "$prefer", "ttl": "$ttl" }, { "fx": "buff", "stat": "aUtil", "v": "$aUtil", "if": "aUtil" } ],
+   "text": { "es": ["Desplegar y localizar", "Localiza defensores; los conocidos pierden ventaja en los duelos."], "en": ["Deploy and locate", "Locates defenders; known defenders lose their edge in duels."] }
+  },
+  "anti_gadget": {
+   "side": "att", "phases": ["entry"], "uses": 1, "tags": [], "option": "use", "params": { "aUtil": 1 },
+   "do": [ { "fx": "buff", "stat": "aUtil", "v": "$aUtil" }, { "fx": "reveal", "who": "def", "count": "$count", "prefer": null, "ttl": 0, "if": "count" } ],
+   "text": { "es": ["Neutralizar gadgets", "Debilita los gadgets electrónicos rivales de esta fase."], "en": ["Neutralise gadgets", "Weakens the enemy's electronic gadgets this phase."] }
+  },
+  "vision": {
+   "side": "att", "phases": ["entry", "site"], "uses": 1, "tags": [], "option": "use", "params": {},
+   "do": [ { "fx": "buff", "stat": "smoke", "v": "$smoke", "if": "smoke" }, { "fx": "buff", "stat": "clear", "v": "$clear", "if": "clear" }, { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" }, { "fx": "mod", "mods": { "aim": "$aim" }, "if": "aim" } ],
+   "text": { "es": ["Cubrir la entrada", "Mejora la visión y el control de esta fase."], "en": ["Cover the entry", "Improves vision and control this phase."] }
+  },
+  "flank": {
+   "side": "att", "phases": ["early"], "uses": 1, "tags": [], "option": "use", "params": {},
+   "do": [ { "fx": "buff", "stat": "flank", "v": "$flank", "if": "flank" }, { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Flanquear", "Mejora el flanqueo y el control de esta fase."], "en": ["Flank", "Improves flanking and control this phase."] }
+  },
+  "reveal": {
+   "side": "def", "phases": ["site"], "uses": 1, "tags": [], "option": "scan", "params": { "count": 1, "ttl": 0 },
+   "do": [ { "fx": "reveal", "who": "att", "count": "$count", "prefer": null, "ttl": "$ttl" }, { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Localizar atacantes", "Localiza atacantes; los conocidos pierden ventaja en los duelos."], "en": ["Locate attackers", "Locates attackers; known attackers lose their edge in duels."] }
+  },
+  "roam_hunt": {
+   "side": "def", "phases": ["early"], "uses": 1, "requires": { "role": ["roam", "hunt"] }, "tags": [], "option": "hunt", "params": {},
+   "do": [ { "fx": "ambush", "aim": "$aim", "downs": false, "if": "aim" }, { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Cazar", "Emboscada con bonus de puntería a un atacante que entre en contacto."], "en": ["Hunt", "Ambush with an aim bonus against an attacker you run into."] }
+  },
+  "jam": {
+   "side": "def", "phases": ["early"], "uses": 1, "persist": true, "tags": [], "option": "place", "params": {},
+   "do": [ { "fx": "mod", "mods": { "info": "$info" }, "if": "info" }, { "fx": "buff", "stat": "deny", "v": "$deny", "if": "deny" }, { "fx": "buff", "stat": "vis", "v": "$vis", "if": "vis" } ],
+   "text": { "es": ["Colocar", "Contrainformación: frena los gadgets y drones rivales toda la ronda."], "en": ["Place", "Counter-intel: slows the enemy's gadgets and drones all round."] }
+  },
+  "anti_breach": {
+   "side": "def", "phases": ["early"], "uses": 1, "persist": true, "tags": [], "option": "reinforce", "params": {},
+   "do": [ { "fx": "buff", "stat": "aHB", "v": "$aHB", "if": "aHB" }, { "fx": "buff", "stat": "aNade", "v": "$aNade", "if": "aNade" }, { "fx": "mod", "mods": { "carry.aHBMul": "$carryAHBMul" }, "if": "carryAHBMul" }, { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Reforzar", "Refuerza la defensa toda la ronda."], "en": ["Reinforce", "Strengthens the defence all round."] }
+  },
+  "trap": {
+   "side": "def", "phases": ["early"], "uses": 1, "persist": true, "tags": [], "option": "place", "params": { "deny": 0.8 },
+   "do": [ { "fx": "buff", "stat": "deny", "v": "$deny" } ],
+   "text": { "es": ["Colocar trampas", "Retrasa al atacante toda la ronda; el anti-util la debilita."], "en": ["Place traps", "Delays the attacker all round; anti-utility weakens it."] }
+  },
+  "trap_down": {
+   "side": "def", "phases": ["entry"], "uses": 1, "tags": [], "option": "trigger", "params": { "p": 0.4, "n": 1 },
+   "do": [ { "fx": "trapdown", "p": "$p", "n": "$n" }, { "fx": "buff", "stat": "deny", "v": "$deny", "if": "deny" } ],
+   "text": { "es": ["Activar la trampa", "Puede derribar a un atacante en la entrada."], "en": ["Trigger the trap", "May down an attacker on the way in."] }
+  },
+  "support_revive": {
+   "side": "def", "phases": ["site", "post"], "uses": 1, "tags": ["heal"], "option": "support", "params": { "max": 1 },
+   "do": [ { "fx": "revive", "max": "$max", "self": true }, { "fx": "mod", "mods": { "aim": "$aim" }, "if": "aim" }, { "fx": "buff", "stat": "sup", "v": "$sup", "if": "sup" } ],
+   "text": { "es": ["Apoyar", "Reanima a un compañero derribado (o a ti mismo) y mejora al equipo."], "en": ["Support", "Revives a downed teammate (or yourself) and boosts the team."] }
+  },
+  "roam_harass": {
+   "side": "def", "phases": ["early", "entry"], "uses": 1, "requires": { "role": ["roam", "hunt"] }, "tags": [], "option": "harass", "params": {},
+   "do": [ { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Hostigar", "Reduce la eficacia de los atacantes con los que te cruzas."], "en": ["Harass", "Weakens the attackers you run into."] }
+  },
+  "support_armor": {
+   "side": "def", "phases": ["early"], "uses": 1, "persist": true, "tags": [], "option": "armor", "params": {},
+   "do": [ { "fx": "mod", "mods": { "foeAim": "$foeAim" }, "if": "foeAim" } ],
+   "text": { "es": ["Repartir armadura", "Reduce la eficacia del rival toda la ronda."], "en": ["Hand out armor", "Weakens the enemy all round."] }
+  }
+ },
+ "ops": {
+  "hibana": { "archetype": "breach_hard", "p": { "power": 1.6 }, "tags": ["remote_charge"] },
+  "ace": { "archetype": "breach_hard", "p": { "power": 1.4 }, "tags": ["remote_charge"] },
+  "maverick": { "archetype": "breach_hard", "p": { "power": 1.2, "time": 6 } },
+  "fuze": { "archetype": "breach_hard", "p": { "power": 1.0, "clear": 1 }, "tags": ["remote_charge"] },
+  "sledge": { "archetype": "breach_soft", "p": { "vtl": 1, "aUtil": 0.5 } },
+  "buck": { "archetype": "breach_soft", "p": { "vtl": 1 } },
+  "ash": { "archetype": "breach_soft", "p": { "vtl": 1, "aUtil": 0.5 }, "tags": ["remote_charge"] },
+  "zofia": { "archetype": "breach_soft", "p": { "vtl": 0.8, "foeAim": -0.04 } },
+  "ram": { "archetype": "breach_soft", "p": { "vtl": 1, "aUtil": 0.5 }, "tags": ["drone"] },
+  "flores": { "archetype": "breach_soft", "p": { "vtl": 0.8, "aUtil": 1 }, "tags": ["remote_charge", "drone"] },
+  "amaru": { "archetype": "shield", "p": { "aim": 0.10 } },
+  "blitz": { "archetype": "shield", "p": { "foeAim": -0.10, "smoke": 1 }, "tags": ["electronic"] },
+  "montagne": { "archetype": "shield", "p": { "foeAim": -0.10 } },
+  "blackbeard": { "archetype": "shield", "p": { "foeAim": -0.06 } },
+  "osa": { "archetype": "shield", "p": { "foeAim": -0.08 } },
+  "lion": { "archetype": "scout", "p": { "count": 2 }, "tags": ["drone", "electronic"] },
+  "grim": { "archetype": "scout", "p": { "count": 2 }, "tags": ["drone", "electronic"] },
+  "dokkaebi": { "archetype": "scout", "p": { "count": 1, "ttl": 1, "aUtil": 1 }, "tags": ["hack", "electronic"], "phases": ["early", "entry"] },
+  "deimos": { "archetype": "scout", "p": { "count": 1, "ttl": 0, "prefer": "roamer" }, "tags": ["tracker"], "phases": ["early", "entry"] },
+  "iq": { "archetype": "scout", "p": { "count": 1, "aUtil": 1.5 }, "tags": ["detect", "electronic"] },
+  "iana": { "archetype": "scout", "p": { "count": 1, "ttl": 1 }, "tags": ["drone", "electronic"], "phases": ["early", "entry"] },
+  "zero": { "archetype": "scout", "p": { "count": 1, "ttl": 1, "aUtil": 1 }, "tags": ["drone", "electronic", "camera"] },
+  "thatcher": { "archetype": "anti_gadget", "p": { "aUtil": 2 }, "tags": ["emp"] },
+  "twitch": { "archetype": "anti_gadget", "p": { "aUtil": 1.5, "count": 1 }, "tags": ["drone", "electronic", "laser"], "phases": ["early", "entry"] },
+  "kali": { "archetype": "anti_gadget", "p": { "aUtil": 1.2 }, "tags": ["lance"] },
+  "brava": { "archetype": "anti_gadget", "p": { "aUtil": 1 }, "tags": ["hack"] },
+  "ying": { "archetype": "vision", "p": { "foeAim": -0.12, "smoke": 1 } },
+  "capitao": { "archetype": "vision", "p": { "smoke": 2 } },
+  "sens": { "archetype": "vision", "p": { "smoke": 2 }, "phases": ["entry"] },
+  "glaz": { "archetype": "vision", "p": { "aim": 0.10 } },
+  "nomad": { "archetype": "vision", "p": { "foeAim": -0.10 }, "tags": ["electronic"] },
+  "nokk": { "archetype": "flank", "p": { "flank": 2 }, "tags": ["stealth"] },
+  "gridlock": { "archetype": "flank", "p": { "flank": 1, "foeAim": -0.05 }, "phases": ["early", "entry"] },
+  "rauora": { "archetype": "flank", "p": { "foeAim": -0.08 }, "phases": ["entry", "site"] },
+  "valkyrie": { "archetype": "reveal", "p": { "count": 1, "ttl": 1 }, "tags": ["camera", "electronic"], "phases": ["early", "entry"] },
+  "maestro": { "archetype": "reveal", "p": { "count": 1 }, "tags": ["laser", "camera", "electronic"], "phases": ["entry", "site"] },
+  "echo": { "archetype": "reveal", "p": { "count": 1, "foeAim": -0.06 }, "tags": ["drone", "electronic"], "phases": ["entry", "site"] },
+  "alibi": { "archetype": "reveal", "p": { "count": 1 } },
+  "skopos": { "archetype": "reveal", "p": { "count": 1, "ttl": 1 }, "tags": ["electronic"], "phases": ["early", "site"] },
+  "solis": { "archetype": "reveal", "p": { "count": 1 }, "tags": ["detect", "electronic"], "phases": ["entry", "site"] },
+  "vigil": { "archetype": "roam_hunt", "p": { "aim": 0.30 }, "tags": ["stealth"] },
+  "ela": { "archetype": "roam_harass", "p": { "foeAim": -0.10 } },
+  "oryx": { "archetype": "roam_hunt", "p": { "aim": 0.35 } },
+  "mozzie": { "archetype": "jam", "p": { "info": -0.07 }, "tags": ["hack"] },
+  "tubarao": { "archetype": "jam", "p": { "deny": 0.5 }, "tags": ["freeze"] },
+  "warden": { "archetype": "jam", "p": { "vis": 2 } },
+  "kaid": { "archetype": "anti_breach", "p": { "carryAHBMul": 1.35 }, "tags": ["electrify", "electronic"] },
+  "castle": { "archetype": "anti_breach", "p": { "aHB": 2 } },
+  "azami": { "archetype": "anti_breach", "p": { "aHB": 1.5 } },
+  "mira": { "archetype": "anti_breach", "p": { "aHB": 1.2, "foeAim": -0.03 } },
+  "jager": { "archetype": "anti_breach", "p": { "aNade": 2 }, "tags": ["anti_projectile", "electronic"] },
+  "wamai": { "archetype": "anti_breach", "p": { "aNade": 2 }, "tags": ["anti_projectile", "electronic"] },
+  "kapkan": { "archetype": "trap", "p": { "deny": 1.0 } },
+  "smoke": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "tachanka": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "fenrir": { "archetype": "trap", "p": { "deny": 1.0 } },
+  "melusi": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "thorn": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "aruni": { "archetype": "trap", "p": { "deny": 1.0 } },
+  "goyo": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "denari": { "archetype": "trap", "p": { "deny": 1.0 } },
+  "noor": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "clash": { "archetype": "trap", "p": { "deny": 0.8 } },
+  "frost": { "archetype": "trap_down", "p": { "p": 0.11, "n": 1, "deny": 0.4 } },
+  "lesion": { "archetype": "trap_down", "p": { "p": 0.11, "n": 1, "deny": 0.4 } },
+  "doc": { "archetype": "support_revive", "p": { "aim": 0.015 } },
+  "thunderbird": { "archetype": "support_revive", "p": { "sup": 1 } },
+  "rook": { "archetype": "support_armor", "p": { "foeAim": -0.06 } }
+ }
+}
