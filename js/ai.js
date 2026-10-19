@@ -92,6 +92,22 @@
     }
     return tot / AI.sims;
   }
+  // Evaluacion pareada para las acciones de agente: todas las candidatas usan las mismas semillas (rival y azar identicos), asi la diferencia
+  // entre "con accion" y "sin ella" no se pierde en el ruido de 14 simulaciones aunque el efecto sea de pocos puntos.
+  const seeded = (seed) => { let a = seed >>> 0; return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
+  // Valor de una accion: se juega el resto de la ronda con elecciones al azar de ambos bandos y se cuenta quien gana (+1/-1). Mirar solo hasta
+  // el final de la fase no ve el valor de trampas, gadgets persistentes o ventajas que rinden en fases posteriores.
+  function evalPaired(st, side, phase, c, oppOpts, seeds) {
+    const eng = E(); let tot = 0;
+    seeds.forEach((sd) => {
+      const r = seeded(sd); const sim = eng.clone(st); const oc = randomChoice(oppOpts, r);
+      eng.resolve(sim, phase, side === 'att' ? { att: c, def: oc } : { att: oc, def: c }, r);
+      let guard = 0;
+      while (sim.phase !== 'done' && guard++ < 12) { const ph = sim.phase; eng.resolve(sim, ph, { att: randomChoice(eng.options(sim, 'att', ph), r), def: randomChoice(eng.options(sim, 'def', ph), r) }, r); }
+      tot += sim.result ? (sim.result.winner === side ? 1 : -1) : 0;
+    });
+    return tot / seeds.length;
+  }
   const isAct = (g2) => g2.startsWith('act.');
   // Las decisiones de equipo se eligen por simulacion entre todas las combinaciones; las acciones de agente aparte, por ascenso por
   // coordenadas (una a una, con el resto fijo), para que el coste no se dispare con el numero de agentes con accion.
@@ -107,15 +123,21 @@
     const oppSide = other(side); const oppOpts = eng.options(st, oppSide, phase);
     let best = null;
     cands.forEach((c) => { const m = evalChoice(st, side, phase, { ...c, ...off }, oppOpts, rng); if (!best || m > best.m) best = { m, c }; });
-    const choice = { ...best.c, ...off }; let cur = best.m; let active = 0;
+    const choice = { ...best.c, ...off }; let active = 0;
+    const seeds = Array.from({ length: AI.actSims || AI.sims }, () => Math.floor(rng() * 4294967296)); let cur = evalPaired(st, side, phase, choice, oppOpts, seeds);
     const max = (eng.cfg().actions && eng.cfg().actions.maxActive) || 0;
     const margin = AI.actionMargin || 0;
+    // Se puntua cada accion contra la base y se activan las mejores (no las primeras de la lista), recomprobando la ganancia con las ya elegidas
+    const scored = [];
     acts.forEach((k) => {
       const def = eng.actionDef(k.slice(4)); if (def.when && !Object.entries(def.when).every(([g2, v]) => choice[g2] === v)) return;   // no se usaria
-      if (active >= max) return;
-      let pick = null;
-      opts[k].slice(1).forEach((o) => { const m = evalChoice(st, side, phase, { ...choice, [k]: o }, oppOpts, rng); if (m > cur + margin && (!pick || m > pick.m)) pick = { m, o }; });
-      if (pick) { choice[k] = pick.o; cur = pick.m; active++; }
+      opts[k].slice(1).forEach((o) => scored.push({ k, o, m: evalPaired(st, side, phase, { ...choice, [k]: o }, oppOpts, seeds) }));
+    });
+    scored.sort((x, y) => y.m - x.m);
+    scored.forEach((c) => {
+      if (active >= max || choice[c.k] !== off[c.k]) return;
+      const m = active ? evalPaired(st, side, phase, { ...choice, [c.k]: c.o }, oppOpts, seeds) : c.m;
+      if (m > cur + margin) { choice[c.k] = c.o; cur = m; active++; }
     });
     return choice;
   }

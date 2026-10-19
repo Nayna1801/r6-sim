@@ -286,6 +286,14 @@ Los 75 agentes tienen ya al menos una accion. Se generan, no se escriben a mano.
 - **Pendiente tras F3**: F2 (IA y balance fino), F4 (capa espacial), re-medir las 70 acciones no tocadas en el ultimo ajuste y revisar 5 imagenes que el test offline no sirve desde cache.
 - **Limites**: sin capa espacial (F4); maximo 2 acciones por fase; los bonus persistentes no se contrarrestan en fases posteriores a la suya.
 
+## 10 quinquies. Estado de F2 (IA y balance)
+
+- **Medicion**: `tools/action_usage.js [rondas] [semilla]` juega IA contra IA y da, por accion, rondas en que era utilizable, % de uso y win-rate. Con `BAL='{"actions":{"enabled":false}}'` mide la referencia sin acciones.
+- **Win-rate de referencia**: atacante 49,6 % con acciones y 49,6 % sin ellas (6000 rondas); estable dentro de +-2.
+- **IA**: la evaluacion de acciones ya no mira solo el final de la fase (no veia trampas ni gadgets persistentes): juega el resto de la ronda con elecciones al azar y cuenta el ganador, con las mismas semillas para la accion y su alternativa (`evalPaired`, `AI.actSims` = 40, `AI.actionMargin` = 0,04). Se activan las mejores acciones, no las primeras de la lista. Uso medio de 16 % a 33 %; ninguna accion por encima del 90 %. Acciones casi sin uso (<=2 %): de 5 (Ace, Thermite, Hibana, Maverick, Fuze: breach duro) a 2 (Ace y Hibana, utilizables solo en ~2 % de las rondas porque la IA rara vez elige el metodo duro). Coste: ~4x mas tiempo por ronda de simulacion.
+- **Re-medicion de empuje**: Zofia, Ash y Sledge pasaron de ~+3,8 a +1,4 / +1,9 / +2,3 con `k: 0.7` en `action_specs.json`.
+- **Pendiente**: los dudosos Thunderbird, Capitao, Grim y Finka (+-3 con ruido) necesitan mas rondas; F4.
+
 ## 11. Riesgos y mitigaciones
 
 | Riesgo | Mitigación |
